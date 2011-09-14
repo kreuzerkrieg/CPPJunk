@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
+using System.Xml;
 
 namespace MemoryMap
 {
@@ -21,63 +22,12 @@ namespace MemoryMap
     /// </summary>
     public partial class MainWindow : Window
     {
-        private enum PageProtection : uint
-        {
-            PAGE_NOACCESS = 0x01,
-            PAGE_READONLY = 0x02,
-            PAGE_READWRITE = 0x04,
-            PAGE_WRITECOPY = 0x08,
-            PAGE_EXECUTE = 0x10,
-            PAGE_EXECUTE_READ = 0x20,
-            PAGE_EXECUTE_READWRITE = 0x40,
-            PAGE_EXECUTE_WRITECOPY = 0x80,
-            PAGE_GUARD = 0x100,
-            PAGE_NOCACHE = 0x200,
-            PAGE_WRITECOMBINE = 0x400
-        };
-
-        private enum MemoryStorageType : uint
-        {
-            MEM_COMMIT = 0x1000,
-            MEM_RESERVE = 0x2000,
-            MEM_DECOMMIT = 0x4000,
-            MEM_RELEASE = 0x8000,
-            MEM_FREE = 0x10000,
-            MEM_PRIVATE = 0x20000,
-            MEM_MAPPED = 0x40000,
-            MEM_RESET = 0x80000,
-            MEM_TOP_DOWN = 0x100000,
-            MEM_WRITE_WATCH = 0x200000,
-            MEM_PHYSICAL = 0x400000,
-            MEM_ROTATE = 0x800000,
-            SEC_IMAGE = 0x1000000,
-            MEM_IMAGE = SEC_IMAGE,
-            MEM_LARGE_PAGES = 0x20000000,
-            MEM_4MB_PAGES = 0x80000000
-        };
-        private struct VMQUERY
-        {
-            // Region information
-            public UInt64 pvRgnBaseAddress;
-            public UInt32 dwRgnProtection; // PAGE_*
-            public UInt64 RgnSize;
-            public UInt32 dwRgnStorage; // MEM_*: Free, Image, Mapped, Private
-            public UInt32 dwRgnBlocks;
-            public UInt32 dwRgnGuardBlks; // If > 0, region contains thread stack
-            public Boolean bRgnIsAStack; // TRUE if region contains thread stack
-
-            // Block information
-            public UInt64 pvBlkBaseAddress;
-            public UInt32 dwBlkProtection; // PAGE_*
-            public UInt64 BlkSize;
-            public UInt32 dwBlkStorage; // MEM_*: Free, Reserve, Image, Mapped, Private
-        };
-
         public MainWindow()
         {
             mem_data = new List<VMQUERY>();
             InitializeComponent();
             LoadData(@"f:\dump.mem");
+            UInt64 max_region_size = mem_data.Max(data => data.RgnSize);
             foreach (VMQUERY data in mem_data)
             {
                 Rectangle rect = new Rectangle();
@@ -86,7 +36,7 @@ namespace MemoryMap
                 rect.StrokeThickness = 1;
                 rect.Stroke = Brushes.Black;
 
-                rect.Width = Math.Max(10, data.BlkSize % 50);
+                rect.Width = 10 + data.BlkSize * (40 / max_region_size);
                 rect.Height = 10;
                 rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
@@ -154,13 +104,13 @@ namespace MemoryMap
         {
             using (FileStream stream = new FileStream(FileName, FileMode.Open, FileAccess.Read))
             {
-                using (BinaryReader reader = new BinaryReader(stream))
+                using (XmlReader reader = new XmlTextReader(stream))
                 {
                     try
                     {
                         while (true)
                         {
-                            VMQUERY tmp;
+                           
                             tmp.pvRgnBaseAddress = reader.ReadUInt64();
 
                             tmp.dwRgnProtection = reader.ReadUInt32();
@@ -189,6 +139,6 @@ namespace MemoryMap
                 }
             }
         }
-        private List<VMQUERY> mem_data;
+        private List<MemoryRegion> mem_data;
     }
 }
