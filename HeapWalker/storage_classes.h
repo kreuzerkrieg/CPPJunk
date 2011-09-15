@@ -1,16 +1,39 @@
 #pragma once
+
+class memory_block;
+
 class memory_region
 {
+	// serialization friends
+	friend class boost::serialization::access;
+
 public:
 	memory_region();
 	virtual ~memory_region();
-	inline unsigned __int64 get_base_address(
+
+	template<class Archive> void serialize(
+		Archive & ar, 
+		const unsigned int version
+		)      
+	{
+		ar & BOOST_SERIALIZATION_NVP(m_region_base_addr)
+		& BOOST_SERIALIZATION_NVP(m_region_protection)
+		& BOOST_SERIALIZATION_NVP(m_size)
+		& BOOST_SERIALIZATION_NVP(m_storage_type)
+		& BOOST_SERIALIZATION_NVP(m_region_blocks)
+		& BOOST_SERIALIZATION_NVP(m_guard_blocks)
+		& BOOST_SERIALIZATION_NVP(m_is_stack)
+		& BOOST_SERIALIZATION_NVP(m_blocks);
+	}
+
+public:
+	inline UINT64 get_base_address(
 		) const
 	{
 		return m_region_base_addr;
 	};
 	inline void set_base_address(
-		const unsigned __int64 base_address
+		const UINT64 base_address
 		)
 	{
 		m_region_base_addr = base_address;
@@ -28,13 +51,13 @@ public:
 		m_region_protection = protection;
 	};
 
-	inline unsigned __int64 get_size(
+	inline UINT64 get_size(
 		) const
 	{
 		return m_size;
 	};
 	inline void set_size(
-		const unsigned __int64 size
+		const UINT64 size
 		)
 	{
 		m_size = size;
@@ -88,42 +111,55 @@ public:
 		m_is_stack = is_stack;
 	};
 
-	inline const std::vector <memory_region>& get_regions(
+	inline const std::vector <memory_block>& get_regions(
 		) const
 	{
-		return m_regions;
+		return m_blocks;
 	};
-	inline void add_region(
-		const memory_region &region
+	inline void add_block(
+		const memory_block &block
 		)
 	{
-		m_regions.push_back(region);
+		m_blocks.push_back(block);
 	};
 private:
-	unsigned __int64				m_region_base_addr;
-	DWORD							m_region_protection; // PAGE_*
-	unsigned __int64				m_size;
-	DWORD							m_storage_type; // MEM_*: Free, Image, Mapped, Private
-	DWORD							m_region_blocks;
-	DWORD							m_guard_blocks; // If > 0, region contains thread stack
-	BOOL							m_is_stack;
-
-	std::vector <memory_region>		m_regions;
+	UINT64						m_region_base_addr;
+	DWORD						m_region_protection;
+	UINT64						m_size;
+	DWORD						m_storage_type;
+	DWORD						m_region_blocks;
+	DWORD						m_guard_blocks;
+	BOOL						m_is_stack;
+	std::vector <memory_block>	m_blocks;
 };
 
 class memory_block
 {
+	// serialization friends
+	friend class boost::serialization::access;
 public:
 	memory_block();
 	virtual ~memory_block();
+
+	template<class Archive> void serialize(
+		Archive & ar, 
+		const unsigned int version
+		)      
+	{
+		ar & BOOST_SERIALIZATION_NVP(m_block_base_addr)
+		& BOOST_SERIALIZATION_NVP(m_block_protection)
+		& BOOST_SERIALIZATION_NVP(m_size)
+		& BOOST_SERIALIZATION_NVP(m_storage_type);
+	}
+
 public:
-	inline unsigned __int64 get_base_address(
+	inline UINT64 get_base_address(
 		) const
 	{
 		return m_block_base_addr;
 	};
 	inline void set_base_address(
-		const unsigned __int64 base_address
+		const UINT64 base_address
 		)
 	{
 		m_block_base_addr = base_address;
@@ -141,13 +177,13 @@ public:
 		m_block_protection = protection;
 	};
 
-	inline unsigned __int64 get_size(
+	inline UINT64 get_size(
 		) const
 	{
 		return m_size;
 	};
 	inline void set_size(
-		const unsigned __int64 size
+		const UINT64 size
 		)
 	{
 		m_size = size;
@@ -165,8 +201,30 @@ public:
 		m_storage_type = type;
 	};
 private:
-	unsigned __int64				m_block_base_addr;
-	DWORD							m_block_protection; // PAGE_*
-	unsigned __int64				m_size;
-	DWORD							m_storage_type; // MEM_*: Free, Reserve, Image, Mapped, Private
+	UINT64	m_block_base_addr;
+	DWORD	m_block_protection;
+	UINT64	m_size;
+	DWORD	m_storage_type;
+};
+
+struct vm_query_helper
+{
+	vm_query_helper(
+		):
+	m_region_size(0),
+		m_storage_type(0),
+		m_region_blocks(0),
+		m_guard_blocks(0),
+		m_is_stack(FALSE)
+	{
+	}
+	~vm_query_helper(
+		)
+	{
+	}
+	UINT64	m_region_size;
+	DWORD	m_storage_type;
+	DWORD	m_region_blocks;
+	DWORD	m_guard_blocks;
+	BOOL	m_is_stack;
 };

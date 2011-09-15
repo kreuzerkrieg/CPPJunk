@@ -19,10 +19,9 @@ heap_walker_t::~heap_walker_t (
 BOOL heap_walker_t::memory_query_helper (
 	HANDLE hProcess,
 	LPCVOID mem_address,
-	VMQUERY_HELP *pVMQHelp) const
+	memory_region &region,
+	vm_query_helper &mem_helper) const
 {
-	SecureZeroMemory (pVMQHelp, sizeof(*pVMQHelp));
-
 	// Get address of region containing passed memory address.
 	MEMORY_BASIC_INFORMATION mbi;
 	BOOL success = (VirtualQueryEx (hProcess, mem_address, &mbi, m_mbi_size) == m_mbi_size);
@@ -37,7 +36,7 @@ BOOL heap_walker_t::memory_query_helper (
 	PVOID pvAddressBlk = pvRgnBaseAddress;
 
 	// Save the memory type of the physical storage block.
-	pVMQHelp->dwRgnStorage = mbi.Type;
+	mem_helper.m_storage_type = mbi.Type;
 
 	for (;;)
 	{
@@ -52,27 +51,31 @@ BOOL heap_walker_t::memory_query_helper (
 
 		// We have a block contained in the region.
 
-		pVMQHelp->dwRgnBlocks++; // Add another block to the region
-		pVMQHelp->RgnSize += mbi.RegionSize; // Add block's size to region size
+		mem_helper.m_region_blocks++; // Add another block to the region
+		mem_helper.m_region_size += mbi.RegionSize; // Add block's size to region size
 
 		// If block has PAGE_GUARD attribute, add 1 to this counter
 		if ((mbi.Protect & PAGE_GUARD) == PAGE_GUARD)
-			pVMQHelp->dwRgnGuardBlks++;
+			mem_helper.m_guard_blocks++;
 
 		// Take a best guess as to the type of physical storage committed to the
 		// block. This is a guess because some blocks can convert from MEM_IMAGE
 		// to MEM_PRIVATE or from MEM_MAPPED to MEM_PRIVATE; MEM_PRIVATE can
 		// always be overridden by MEM_IMAGE or MEM_MAPPED.
-		if (pVMQHelp->dwRgnStorage == MEM_PRIVATE)
-			pVMQHelp->dwRgnStorage = mbi.Type;
+		if (mem_helper.m_storage_type == MEM_PRIVATE)
+			mem_helper.m_storage_type = mbi.Type;
 
 		// Get the address of the next block.
 		pvAddressBlk = (PVOID) ((PBYTE) pvAddressBlk + mbi.RegionSize);
+
+		memory_block block;
+		fill_block_data(block, mbi);
+		region.add_block(block);
 	}
 
 	// After examining the region, check to see whether it is a thread stack
 	// Windows Vista: Assume stack if region has at least 1 PAGE_GUARD block
-	pVMQHelp->bRgnIsAStack = (pVMQHelp->dwRgnGuardBlks > 0);
+	mem_helper.m_is_stack = (mem_helper.m_guard_blocks > 0);
 
 	return (TRUE);
 }
@@ -88,13 +91,6 @@ BOOL heap_walker_t::memory_query (
 
 	if (!success)
 		return (success); // Bad memory address; return failure
-
-	// The MEMORY_BASIC_INFORMATION structure contains valid information.
-	// Time to start setting the members of our own VMQUERY structure.
-
-	// First, fill in the block members. We'll fill the region members later.
-	memory_block block;
-	fill_block_data(block, mbi);
 
 	// Now fill in the region data members.
 	fill_region_data(hProcess, mem_address, region, mbi);
@@ -140,7 +136,7 @@ void heap_walker_t::fill_region_data(
 	memory_region &region,
 	const MEMORY_BASIC_INFORMATION &mbi) const
 {
-	VMQUERY_HELP VMQHelp;
+	vm_query_helper mem_helper;
 	switch (mbi.State)
 	{
 	case MEM_FREE: // Free block (not reserved)
@@ -158,13 +154,13 @@ void heap_walker_t::fill_region_data(
 		region.set_protection ( mbi.AllocationProtect);
 
 		// Iterate through all blocks to get complete region information.         
-		memory_query_helper (hProcess, mem_address, &VMQHelp);
+		memory_query_helper (hProcess, mem_address, region, mem_helper);
 
-		region.set_size ( VMQHelp.RgnSize);
-		region.set_type ( VMQHelp.dwRgnStorage);
-		region.set_blocks (VMQHelp.dwRgnBlocks);
-		region.set_guard_blocks ( VMQHelp.dwRgnGuardBlks);
-		region.set_stack (VMQHelp.bRgnIsAStack);
+		region.set_size ( mem_helper.m_region_size);
+		region.set_type ( mem_helper.m_storage_type);
+		region.set_blocks (mem_helper.m_region_blocks);
+		region.set_guard_blocks ( mem_helper.m_guard_blocks);
+		region.set_stack (mem_helper.m_is_stack);
 		break;
 
 	case MEM_COMMIT: // Reserved block with committed storage in it.
@@ -172,13 +168,13 @@ void heap_walker_t::fill_region_data(
 		region.set_protection ( mbi.AllocationProtect);
 
 		// Iterate through all blocks to get complete region information.         
-		memory_query_helper (hProcess, mem_address, &VMQHelp);
+		memory_query_helper (hProcess, mem_address, region, mem_helper);
 
-		region.set_size(VMQHelp.RgnSize);
-		region.set_type( VMQHelp.dwRgnStorage);
-		region.set_blocks ( VMQHelp.dwRgnBlocks);
-		region.set_guard_blocks( VMQHelp.dwRgnGuardBlks);
-		region.set_stack ( VMQHelp.bRgnIsAStack);
+		region.set_size(mem_helper.m_region_size);
+		region.set_type( mem_helper.m_storage_type);
+		region.set_blocks ( mem_helper.m_region_blocks);
+		region.set_guard_blocks( mem_helper.m_guard_blocks);
+		region.set_stack ( mem_helper.m_is_stack);
 		break;
 
 	default:
@@ -207,20 +203,6 @@ void heap_walker_t::gather_mem_info (
 		if (success)
 		{
 			m_mem_data.push_back (mem_region);
-			//for (DWORD dwBlock = 0; success && (dwBlock < vmq.dwRgnBlocks); dwBlock++)
-			//{
-			//	// Get the address of the next region to test.
-			//	mem_address = ((PBYTE) mem_address + vmq.BlkSize);
-			//	if (dwBlock < vmq.dwRgnBlocks - 1)
-			//	{
-			//		// Don't query the memory info after the last block.
-			//		success = memory_query (hProcess, mem_address, &vmq);
-			//		if (success)
-			//		{
-			//			m_mem_data.push_back (vmq);
-			//		}
-			//	}
-			//}
 		}
 
 		// Get the address of the next region to test.
@@ -234,15 +216,7 @@ void heap_walker_t::dump_mem_data(
 	)
 {
 	gather_mem_info(process_id);
-	std::ofstream stream(file_name, std::ios_base::binary );
-	std::vector<memory_region>::const_iterator it_beg = m_mem_data.begin();
-	std::vector<memory_region>::const_iterator it_end = m_mem_data.end();
-	for (; it_beg != it_end; ++it_beg)
-	{
-		memory_region tmp = *it_beg;
-		size_t struct_size = sizeof(tmp);
-		const char *dummy = reinterpret_cast<const char *>(&tmp);
-		stream.write(dummy, struct_size); 
-	}
-	stream.close();
+	ofstream stream(file_name);
+	xml_oarchive archive(stream);
+	archive << BOOST_SERIALIZATION_NVP(m_mem_data);
 }

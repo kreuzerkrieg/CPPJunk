@@ -2,6 +2,7 @@
 
 class memory_region;
 class memory_block;
+struct vm_query_helper;
 
 class heap_walker_t
 {
@@ -15,34 +16,7 @@ public:
 		DWORD process_id,
 		const std::wstring file_name
 		);
-private:
-	//typedef struct
-	//{
-	//	// Region information
-	//	unsigned __int64 pvRgnBaseAddress;
-	//	DWORD dwRgnProtection; // PAGE_*
-	//	unsigned __int64 RgnSize;
-	//	DWORD dwRgnStorage; // MEM_*: Free, Image, Mapped, Private
-	//	DWORD dwRgnBlocks;
-	//	DWORD dwRgnGuardBlks; // If > 0, region contains thread stack
-	//	BOOL bRgnIsAStack; // TRUE if region contains thread stack
-
-	//	// Block information
-	//	unsigned __int64 pvBlkBaseAddress;
-	//	DWORD dwBlkProtection; // PAGE_*
-	//	unsigned __int64 BlkSize;
-	//	DWORD dwBlkStorage; // MEM_*: Free, Reserve, Image, Mapped, Private
-	//} VMQUERY, *PVMQUERY;
-
-	// Helper structure
-	typedef struct
-	{
-		SIZE_T RgnSize;
-		DWORD dwRgnStorage; // MEM_*: Free, Image, Mapped, Private
-		DWORD dwRgnBlocks;
-		DWORD dwRgnGuardBlks; // If > 0, region contains thread stack
-		BOOL bRgnIsAStack; // TRUE if region contains thread stack
-	} VMQUERY_HELP;
+	
 private:
 	BOOL memory_query (
 		HANDLE hProcess,
@@ -52,7 +26,8 @@ private:
 	BOOL memory_query_helper (
 		HANDLE hProcess,
 		LPCVOID mem_address,
-		VMQUERY_HELP *pVMQHelp
+		memory_region &region,
+		vm_query_helper &mem_helper
 		) const;
 	void fill_block_data(
 		memory_block &block,

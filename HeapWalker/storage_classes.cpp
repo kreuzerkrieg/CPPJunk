@@ -10,9 +10,10 @@ m_region_base_addr(0),
 	m_region_blocks(0),
 	m_guard_blocks(0),
 	m_is_stack(FALSE),
-	m_regions()
+	m_blocks()
 {
 }
+
 memory_region::~memory_region(
 	)
 {

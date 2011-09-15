@@ -8,8 +8,9 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	std::locale::global(std::locale::classic());
 	DWORD proc_id = GetCurrentProcessId();
-	HANDLE hPrivate = HeapCreate(HEAP_CREATE_ENABLE_EXECUTE, 2*KB_SIZE,64*1024);
+	HANDLE hPrivate = HeapCreate(HEAP_CREATE_ENABLE_EXECUTE, 2*KB_SIZE,128*1024);
 	if (hPrivate == NULL)
 	{
 		return 1;
@@ -24,7 +25,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		ZeroMemory(mem, 8*KB_SIZE);
 		heap_walker_t walker;
 		//walker.dump_mem_data(proc_id, L"f:\\dump.mem");
-		walker.dump_mem_data(2164, L"f:\\dump.mem");
+		walker.dump_mem_data(9480, L"f:\\dump.mem");
 		delete [] characters;
 		free(mem);
 		return 0;

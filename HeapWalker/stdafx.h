@@ -16,5 +16,16 @@
 // TODO: reference additional headers your program requires here
 #include <exception>
 #include <vector>
+#include <sstream>
 #include <fstream>
-#include <iostream>
+
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/utility.hpp>
+
+using namespace boost;
+using namespace boost::archive;
+using namespace std;
