@@ -49,7 +49,7 @@ namespace MemoryMap
         public UInt32 NumberOfGuardBlocks; // If > 0, region contains thread stack
         public Boolean IsAStack; // TRUE if region contains thread stack
 
-        List<MemoryBlock> MemoryBlocks;
+        public List<MemoryBlock> MemoryBlocks;
     };
     class MemoryBlock
     {
