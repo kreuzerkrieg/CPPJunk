@@ -20,7 +20,28 @@ m_process(NULL),
 
 	if (m_process == NULL)
 	{
-		std::string ex ("Cannot open process'" + boost::lexical_cast<string>(process_id) + "' for querying information.");
+		std::string ex (
+			"Cannot open process '" + 
+			boost::lexical_cast<string>(process_id) + 
+			"' for querying information."
+			);
+		DWORD err = GetLastError();
+		if (0 != err)
+		{
+			LPTSTR buff = NULL;
+			FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM |
+				FORMAT_MESSAGE_ALLOCATE_BUFFER,
+				0,
+				err,
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+				(LPTSTR)&buff, 
+				0, 
+				0);
+			ex.append("\nReason: ");
+			//ex.append(string(T2CA(buff)));
+			LocalFree(buff);
+		}
+
 		throw std::exception (ex.c_str());
 	}
 	m_mem_data.reserve (1000);
@@ -30,7 +51,7 @@ heap_walker_t::~heap_walker_t (
 	void
 	)
 {
-	CloseHandle(m_process);
+	//CloseHandle(m_process);
 }
 
 BOOL heap_walker_t::memory_query_helper (
@@ -74,7 +95,7 @@ BOOL heap_walker_t::memory_query_helper (
 			mem_helper.m_guard_blocks++;
 
 		// Get the address of the next block.
-		pvAddressBlk = (PVOID) ((SIZE_T) pvAddressBlk + mbi.RegionSize);
+		pvAddressBlk = (PVOID) ((PBYTE) pvAddressBlk + mbi.RegionSize);
 
 		memory_block block(region);
 		fill_block_data(block, mbi);
@@ -105,6 +126,72 @@ BOOL heap_walker_t::memory_query (
 	return (success);
 }
 
+//void heap_walker_t::fill_block_data(
+//	memory_block &block,
+//	const MEMORY_BASIC_INFORMATION &mbi) const
+//{
+//	switch (mbi.State)
+//	{
+//	case MEM_FREE: // Free block (not reserved)
+//		block.set_base_address(NULL);
+//		block.set_size(0);
+//		block.set_protection(0);
+//		block.set_type(MEM_FREE);
+//		break;
+//	case MEM_RESERVE: // Reserved block without committed storage in it.
+//		block.set_base_address((UINT64) mbi.BaseAddress);
+//		block.set_size(mbi.RegionSize);
+//		block.set_type(MEM_RESERVE);
+//	case MEM_COMMIT:  // Reserved block with committed storage in it.
+//		block.set_base_address((UINT64) mbi.BaseAddress);
+//		block.set_size(mbi.RegionSize);
+//		block.set_protection(mbi.Protect);
+//		block.set_type(mbi.Type);
+//		break;
+//	default:
+//		break;
+//	}
+//	get_additional_info(block);
+//}
+//
+//void heap_walker_t::fill_region_data(
+//	LPCVOID mem_address,
+//	memory_region &region,
+//	const MEMORY_BASIC_INFORMATION &mbi
+//	) const
+//{
+//	vm_query_helper mem_helper;
+//	switch (mbi.State)
+//	{
+//	case MEM_FREE: // Free block (not reserved)
+//		region.set_base_address ((UINT64)mbi.BaseAddress);
+//		region.set_protection (mbi.AllocationProtect);
+//		region.set_size (mbi.RegionSize);
+//		region.set_type (MEM_FREE);
+//		region.set_blocks(0);
+//		region.set_guard_blocks(0);
+//		region.set_stack(FALSE);
+//		break;
+//
+//	case MEM_RESERVE:
+//	case MEM_COMMIT:
+//		region.set_base_address( (UINT64)mbi.AllocationBase);
+//		region.set_protection ( mbi.AllocationProtect);
+//		region.set_size ( mbi.RegionSize);
+//
+//		// Iterate through all blocks to get complete region information.         
+//		memory_query_helper (mem_address, region, mem_helper);
+//		assert(mem_helper.m_storage_type == mbi.Type);
+//		region.set_type ( mem_helper.m_storage_type);
+//		region.set_blocks (mem_helper.m_region_blocks);
+//		region.set_guard_blocks ( mem_helper.m_guard_blocks);
+//		region.set_stack (mem_helper.m_is_stack);
+//		break;
+//
+//	default:
+//		assert(false);
+//	}
+//}
 void heap_walker_t::fill_block_data(
 	memory_block &block,
 	const MEMORY_BASIC_INFORMATION &mbi) const
@@ -118,26 +205,29 @@ void heap_walker_t::fill_block_data(
 		block.set_type(MEM_FREE);
 		break;
 	case MEM_RESERVE: // Reserved block without committed storage in it.
-	case MEM_COMMIT:  // Reserved block with committed storage in it.
 		block.set_base_address((UINT64) mbi.BaseAddress);
 		block.set_size(mbi.RegionSize);
-		if (mbi.State == MEM_COMMIT)
-		{
-			block.set_protection(mbi.Protect);
-		}// otherwise protection inheritef from parent region
+		// For an uncommitted block, mbi.Protect is invalid. So we will 
+		// show that the reserved block inherits the protection attribute 
+		// of the region in which it is contained.
+		block.set_protection(mbi.AllocationProtect);
 		block.set_type(MEM_RESERVE);
+		break;
+	case MEM_COMMIT: // Reserved block with committed storage in it.
+		block.set_base_address((UINT64)mbi.BaseAddress);
+		block.set_size(mbi.RegionSize);
+		block.set_protection(mbi.Protect);
+		block.set_type(mbi.Type);
 		break;
 	default:
 		break;
 	}
-	get_additional_info(block);
 }
 
 void heap_walker_t::fill_region_data(
 	LPCVOID mem_address,
 	memory_region &region,
-	const MEMORY_BASIC_INFORMATION &mbi
-	) const
+	const MEMORY_BASIC_INFORMATION &mbi) const
 {
 	vm_query_helper mem_helper;
 	switch (mbi.State)
@@ -152,23 +242,36 @@ void heap_walker_t::fill_region_data(
 		region.set_stack(FALSE);
 		break;
 
-	case MEM_RESERVE:
-	case MEM_COMMIT:
+	case MEM_RESERVE: // Reserved block without committed storage in it.
 		region.set_base_address( (UINT64)mbi.AllocationBase);
 		region.set_protection ( mbi.AllocationProtect);
-		region.set_size ( mbi.RegionSize);
 
 		// Iterate through all blocks to get complete region information.         
 		memory_query_helper (mem_address, region, mem_helper);
-		assert(mem_helper.m_storage_type == mbi.Type);
+
+		//region.set_size ( mem_helper.m_region_size);
 		region.set_type ( mem_helper.m_storage_type);
 		region.set_blocks (mem_helper.m_region_blocks);
 		region.set_guard_blocks ( mem_helper.m_guard_blocks);
 		region.set_stack (mem_helper.m_is_stack);
 		break;
 
+	case MEM_COMMIT: // Reserved block with committed storage in it.
+		region.set_base_address( (UINT64)mbi.AllocationBase);
+		region.set_protection ( mbi.AllocationProtect);
+
+		// Iterate through all blocks to get complete region information.         
+		memory_query_helper (mem_address, region, mem_helper);
+
+		//region.set_size(mem_helper.m_region_size);
+		region.set_type( mem_helper.m_storage_type);
+		region.set_blocks ( mem_helper.m_region_blocks);
+		region.set_guard_blocks( mem_helper.m_guard_blocks);
+		region.set_stack ( mem_helper.m_is_stack);
+		break;
+
 	default:
-		assert(false);
+		break;
 	}
 }
 void heap_walker_t::get_additional_info(
@@ -189,6 +292,23 @@ void heap_walker_t::get_additional_info(
 		if (GetMappedFileName(m_process, (PVOID)block.get_base_address(), file_name, MAX_PATH))
 		{
 			block.set_file_name(wstring(T2CW(file_name)));
+		}
+		else
+		{
+			DWORD err = GetLastError();
+			if (0 != err)
+			{
+				LPTSTR buff = NULL;
+				FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM |
+					FORMAT_MESSAGE_ALLOCATE_BUFFER,
+					0,
+					err,
+					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+					(LPTSTR)&buff, 
+					0, 
+					0);
+				LocalFree(buff);
+			}
 		}
 	}
 }

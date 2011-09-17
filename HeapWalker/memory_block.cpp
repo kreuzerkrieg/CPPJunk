@@ -10,7 +10,7 @@ m_block_base_addr(0),
 	m_size(0),
 	m_storage_type(0),
 	m_is_shared(FALSE),
-	m_map_file_name(L"\0", MAX_PATH+1),
+	m_map_file_name(),
 	m_parent_region(&parent_region)
 {
 }

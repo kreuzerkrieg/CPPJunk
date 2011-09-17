@@ -22,7 +22,8 @@ public:
 		& BOOST_SERIALIZATION_NVP(protection)
 		& BOOST_SERIALIZATION_NVP(m_size)
 		& BOOST_SERIALIZATION_NVP(m_storage_type)
-		& BOOST_SERIALIZATION_NVP(m_is_shared);
+		& BOOST_SERIALIZATION_NVP(m_is_shared)
+		& BOOST_SERIALIZATION_NVP(m_map_file_name);
 }
 
 	UINT64 get_base_address(
