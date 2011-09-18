@@ -177,11 +177,9 @@ namespace MemoryMap
                     String a = e.Message;
                     a += "a";
                 }
-                //finally
-                //{
-                //    reader.Close();
-                //}
-
+                
+                reader.Close();
+                stream.Close();
 
             }
         }
