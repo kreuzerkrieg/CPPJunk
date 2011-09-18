@@ -8,23 +8,21 @@ class heap_walker_t
 {
 public:
 	heap_walker_t (
-		void);
+		DWORD process_id
+		);
 	virtual ~heap_walker_t (
 		void);
 public:
 	void dump_mem_data(
-		DWORD process_id,
-		const std::wstring file_name
+		std::ostream &output_stream
 		);
-	
+
 private:
 	BOOL memory_query (
-		HANDLE hProcess,
 		LPCVOID mem_address,
 		memory_region &region
 		) const;
 	BOOL memory_query_helper (
-		HANDLE hProcess,
 		LPCVOID mem_address,
 		memory_region &region,
 		vm_query_helper &mem_helper
@@ -34,15 +32,18 @@ private:
 		const MEMORY_BASIC_INFORMATION &mbi
 		) const;
 	void fill_region_data(
-		HANDLE hProcess,
 		LPCVOID mem_address,
 		memory_region &region,
 		const MEMORY_BASIC_INFORMATION &mbi
 		) const;
+	void get_additional_info(
+		memory_block &block
+		) const;
 	void gather_mem_info(
-		DWORD process_id
 		);
 private:
+	HANDLE						m_process;
+	DWORD						m_process_id;
 	std::vector<memory_region>	m_mem_data;
 	const size_t				m_mbi_size;
 };

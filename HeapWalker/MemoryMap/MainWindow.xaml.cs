@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Xml;
+using System.Diagnostics;
 
 namespace MemoryMap
 {
@@ -24,6 +25,9 @@ namespace MemoryMap
     {
         public MainWindow()
         {
+            Process proc = new Process();
+            proc.BeginOutputReadLine();
+
             mem_data = new List<MemoryRegion>();
             InitializeComponent();
             LoadData(@"f:\dump.mem");

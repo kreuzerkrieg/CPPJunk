@@ -42,12 +42,12 @@ namespace MemoryMap
     class MemoryRegion
     {
         public UInt64 RegionAddress;
-        public UInt32 RegionProtection; // PAGE_*
+        public UInt32 RegionProtection;
         public UInt64 RegionSize;
-        public UInt32 RegionStorageType; // MEM_*: Free, Image, Mapped, Private
+        public UInt32 RegionStorageType;
         public UInt32 NumberOfBlocks;
-        public UInt32 NumberOfGuardBlocks; // If > 0, region contains thread stack
-        public Boolean IsAStack; // TRUE if region contains thread stack
+        public UInt32 NumberOfGuardBlocks;
+        public Boolean IsAStack;
 
         public List<MemoryBlock> MemoryBlocks;
     };
@@ -55,8 +55,8 @@ namespace MemoryMap
     {
 
         public UInt64 BlockAddress;
-        public UInt32 BlockProtection; // PAGE_*
+        public UInt32 BlockProtection;
         public UInt64 BlockSize;
-        public UInt32 BlockStorageType; // MEM_*: Free,
+        public UInt32 BlockStorageType;
     }
 }
