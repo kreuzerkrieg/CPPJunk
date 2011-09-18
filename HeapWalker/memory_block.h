@@ -56,10 +56,10 @@ public:
 		const BOOL shared
 		);
 
-	wstring& get_file_name(
+	string& get_file_name(
 		);
 	void set_file_name(
-		const wstring &file_name
+		const string &file_name
 		);
 private:
 	UINT64				m_block_base_addr;
@@ -67,6 +67,6 @@ private:
 	UINT64				m_size;
 	DWORD				m_storage_type;
 	BOOL				m_is_shared;
-	wstring				m_map_file_name;
+	string				m_map_file_name;
 	const memory_region	*m_parent_region;
 };

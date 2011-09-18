@@ -89,13 +89,13 @@ void memory_block::set_shared(
 	m_is_shared = shared;
 }
 
-wstring& memory_block::get_file_name(
+string& memory_block::get_file_name(
 	)
 {
 	return m_map_file_name;
 }
 void memory_block::set_file_name(
-	const wstring &file_name
+	const string &file_name
 	)
 {
 	m_map_file_name.assign(file_name);

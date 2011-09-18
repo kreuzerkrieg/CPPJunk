@@ -18,6 +18,7 @@
 #include <sstream>
 #include <fstream>
 #include <Psapi.h>
+#include <atlconv.h>
 #include <atlstr.h>
 
 #include <boost/archive/xml_iarchive.hpp>

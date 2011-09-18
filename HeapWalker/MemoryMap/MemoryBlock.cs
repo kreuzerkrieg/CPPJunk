@@ -58,5 +58,7 @@ namespace MemoryMap
         public UInt32 BlockProtection;
         public UInt64 BlockSize;
         public UInt32 BlockStorageType;
+        public Boolean IsShared;
+        public String MappedFileName;
     }
 }

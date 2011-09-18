@@ -25,27 +25,37 @@ namespace MemoryMap
     {
         public MainWindow()
         {
-            Process proc = new Process();
-            proc.BeginOutputReadLine();
-
-            mem_data = new List<MemoryRegion>();
+            //Process proc = new Process();
+            //proc.BeginOutputReadLine();
             InitializeComponent();
-            LoadData(@"f:\dump.mem");
-            //UInt64 max_region_size = mem_data.Max(tmp_data => tmp_data.RegionSize);
-            UInt64 max_region_size = GetMaxSize(ref mem_data);
-            foreach (MemoryRegion data in mem_data)
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            try
             {
-                if (data.NumberOfBlocks == 0)
+                mem_data = new List<MemoryRegion>();
+                LoadData(@"f:\file.txt");
+                UInt64 max_region_size = GetMaxSize(ref mem_data);
+                foreach (MemoryRegion data in mem_data)
                 {
-                    DrawMemoryRectangle(max_region_size, data.RegionSize, data.RegionStorageType, data.RegionProtection);
-                }
-                else
-                {
-                    foreach (MemoryBlock block in data.MemoryBlocks)
+                    if (data.NumberOfBlocks == 0)
                     {
-                        DrawMemoryRectangle(max_region_size, block.BlockSize, block.BlockStorageType, block.BlockProtection);
+                        DrawMemoryRectangle(max_region_size, data.RegionSize, data.RegionStorageType, data.RegionProtection, false, "");
+                    }
+                    else
+                    {
+                        foreach (MemoryBlock block in data.MemoryBlocks)
+                        {
+                            DrawMemoryRectangle(max_region_size, block.BlockSize, block.BlockStorageType, block.BlockProtection, block.IsShared, block.MappedFileName);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                String m = ex.Message;
             }
         }
 
@@ -57,7 +67,9 @@ namespace MemoryMap
         private void DrawMemoryRectangle(UInt64 max_region_size,
             ulong Size,
             uint StorageType,
-            uint Protection)
+            uint Protection,
+            bool IsShared,
+            string MappedFileName)
         {
             Rectangle rect = new Rectangle();
             SolidColorBrush ColorBrush = new SolidColorBrush();
@@ -125,6 +137,8 @@ namespace MemoryMap
             rect.ToolTip += ((Protection & (uint)PageProtection.PAGE_GUARD) == (uint)PageProtection.PAGE_GUARD) ? "G" : "-";
             rect.ToolTip += ((Protection & (uint)PageProtection.PAGE_NOCACHE) == (uint)PageProtection.PAGE_NOCACHE) ? "N" : "-";
             rect.ToolTip += ((Protection & (uint)PageProtection.PAGE_WRITECOMBINE) == (uint)PageProtection.PAGE_WRITECOMBINE) ? "W" : "-";
+            rect.ToolTip += (IsShared)?"\nShared":"";
+            rect.ToolTip += (String.IsNullOrEmpty(MappedFileName)) ? "" : "\n" + MappedFileName;
 
             MemMapPanel.Children.Add(rect);
         }
@@ -178,7 +192,7 @@ namespace MemoryMap
             region.RegionAddress = (UInt64)reader.ReadElementContentAs(typeof(UInt64), null);
             reader.ReadToNextSibling("m_region_protection");
             region.RegionProtection = (UInt32)reader.ReadElementContentAs(typeof(UInt32), null);
-            reader.ReadToNextSibling("m_size");
+            reader.ReadToNextSibling("region_size");
             region.RegionSize = (UInt64)reader.ReadElementContentAs(typeof(UInt64), null);
             reader.ReadToNextSibling("m_storage_type");
             region.RegionStorageType = (UInt32)reader.ReadElementContentAs(typeof(UInt32), null);
@@ -212,12 +226,16 @@ namespace MemoryMap
             MemoryBlock MemBlock = new MemoryBlock();
             reader.ReadToFollowing("m_block_base_addr");
             MemBlock.BlockAddress = (UInt64)reader.ReadElementContentAs(typeof(UInt64), null);
-            reader.ReadToNextSibling("m_block_protection");
+            reader.ReadToNextSibling("protection");
             MemBlock.BlockProtection = (UInt32)reader.ReadElementContentAs(typeof(UInt32), null);
             reader.ReadToNextSibling("m_size");
             MemBlock.BlockSize = (UInt64)reader.ReadElementContentAs(typeof(UInt64), null);
             reader.ReadToNextSibling("m_storage_type");
             MemBlock.BlockStorageType = (UInt32)reader.ReadElementContentAs(typeof(UInt32), null);
+            reader.ReadToNextSibling("m_is_shared");
+            MemBlock.IsShared = (Boolean)reader.ReadElementContentAs(typeof(Boolean), null);
+            reader.ReadToNextSibling("m_map_file_name");
+            MemBlock.MappedFileName = (String)reader.ReadElementContentAs(typeof(String), null);
             list.Add(MemBlock);
         }
         private List<MemoryRegion> mem_data;

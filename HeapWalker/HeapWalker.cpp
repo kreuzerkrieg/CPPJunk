@@ -23,8 +23,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		LPVOID lpSecondBlock = HeapAlloc(hPrivate,HEAP_ZERO_MEMORY,16 * KB_SIZE);
 		void *mem = malloc(8*KB_SIZE);
 		ZeroMemory(mem, 8*KB_SIZE);
-		heap_walker_t walker(2144);
-		ofstream stream("c:\\1\\file.txt");
+		heap_walker_t walker(9192);
+		ofstream stream("F:\\file.txt", ios_base::out | ios_base::trunc);
 		walker.dump_mem_data(stream);
 		delete [] characters;
 		free(mem);

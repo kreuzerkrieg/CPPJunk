@@ -16,7 +16,7 @@ m_process(NULL),
 		process_id = GetCurrentProcessId();
 	}
 
-	m_process = OpenProcess (PROCESS_QUERY_INFORMATION, FALSE, process_id);
+	m_process = OpenProcess (PROCESS_QUERY_INFORMATION, TRUE, process_id);
 
 	if (m_process == NULL)
 	{
@@ -38,7 +38,7 @@ m_process(NULL),
 				0, 
 				0);
 			ex.append("\nReason: ");
-			//ex.append(string(T2CA(buff)));
+			ex.append(string(T2CA(buff)));
 			LocalFree(buff);
 		}
 
@@ -51,7 +51,7 @@ heap_walker_t::~heap_walker_t (
 	void
 	)
 {
-	//CloseHandle(m_process);
+	CloseHandle(m_process);
 }
 
 BOOL heap_walker_t::memory_query_helper (
@@ -222,6 +222,7 @@ void heap_walker_t::fill_block_data(
 	default:
 		break;
 	}
+	get_additional_info(block);
 }
 
 void heap_walker_t::fill_region_data(
@@ -291,24 +292,11 @@ void heap_walker_t::get_additional_info(
 		TCHAR file_name[MAX_PATH+1];
 		if (GetMappedFileName(m_process, (PVOID)block.get_base_address(), file_name, MAX_PATH))
 		{
-			block.set_file_name(wstring(T2CW(file_name)));
+			block.set_file_name(string(T2CA(file_name)));
 		}
 		else
 		{
-			DWORD err = GetLastError();
-			if (0 != err)
-			{
-				LPTSTR buff = NULL;
-				FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM |
-					FORMAT_MESSAGE_ALLOCATE_BUFFER,
-					0,
-					err,
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-					(LPTSTR)&buff, 
-					0, 
-					0);
-				LocalFree(buff);
-			}
+			// do nothing?
 		}
 	}
 }
