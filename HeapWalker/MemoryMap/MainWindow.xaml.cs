@@ -25,10 +25,74 @@ namespace MemoryMap
     {
         public MainWindow()
         {
-            //Process proc = new Process();
-            //proc.BeginOutputReadLine();
             InitializeComponent();
-            LoadData();
+            {
+                FillProcessList();
+                if (ReadMemInfo("4616"))
+                    LoadData();
+            }
+        }
+
+        private bool ReadMemInfo(String ProcessId)
+        {
+            String FileName = System.IO.Path.GetTempFileName();
+            Process HeapWalker = null;
+            try
+            {
+                File.WriteAllBytes(FileName, MemoryMap.Properties.Executables.HeapWalker_x86);
+                HeapWalker = new Process();
+                HeapWalker.StartInfo.CreateNoWindow = true;
+                HeapWalker.StartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(FileName);
+                HeapWalker.StartInfo.Arguments = ProcessId;
+                HeapWalker.StartInfo.FileName = FileName;
+
+                // Set UseShellExecute to false for redirection.
+                HeapWalker.StartInfo.UseShellExecute = false;
+
+                // Redirect the standard output of the sort command.  
+                // This stream is read asynchronously using an event handler.
+                HeapWalker.StartInfo.RedirectStandardOutput = true;
+                Win32AppOutput = new StringBuilder("");
+
+                // Set our event handler to asynchronously read the sort output.
+                HeapWalker.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
+
+                // Redirect standard input as well.  This stream
+                // is used synchronously.
+                HeapWalker.StartInfo.RedirectStandardInput = true;
+
+                // Start the process.
+                HeapWalker.Start();
+                HeapWalker.BeginOutputReadLine();
+
+                // Wait for the sort process to write the sorted text lines.
+                HeapWalker.WaitForExit();
+                File.Delete(FileName);
+                return ValidateHeapWalkerOutput();
+            }
+            catch (Exception ex)
+            {
+                if (HeapWalker != null)
+                {
+                    HeapWalker.Close();
+                }
+                File.Delete(FileName);
+                return false;
+            }
+        }
+
+        private Boolean ValidateHeapWalkerOutput()
+        {
+            return !Win32AppOutput.ToString(0, 100).StartsWith("Error:");
+        }
+
+        private static void SortOutputHandler(object sendingProcess,
+            DataReceivedEventArgs outLine)
+        {
+            if (!String.IsNullOrEmpty(outLine.Data))
+            {
+                Win32AppOutput.Append(outLine.Data);
+            }
         }
 
         private void LoadData()
@@ -36,7 +100,7 @@ namespace MemoryMap
             try
             {
                 mem_data = new List<MemoryRegion>();
-                LoadData(@"f:\file.txt");
+                LoadXml();
                 UInt64 max_region_size = GetMaxSize(ref mem_data);
                 foreach (MemoryRegion data in mem_data)
                 {
@@ -64,83 +128,84 @@ namespace MemoryMap
             throw new NotImplementedException();
         }
 
-        private void DrawMemoryRectangle(UInt64 max_region_size,
+        private Rectangle DrawMemoryRectangle(UInt64 max_region_size,
             ulong Size,
             uint StorageType,
             uint Protection,
             bool IsShared,
             string MappedFileName)
         {
-            Rectangle rect = new Rectangle();
+            Rectangle RetVal = new Rectangle();
             SolidColorBrush ColorBrush = new SolidColorBrush();
 
-            rect.StrokeThickness = 1;
-            rect.Stroke = Brushes.Black;
+            RetVal.StrokeThickness = 1;
+            RetVal.Stroke = Brushes.Black;
 
-            rect.Width = 8 + Math.Min(350, (Size * (350 / (Double)max_region_size)));
-            rect.Height = 8;
-            rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            rect.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            rect.RadiusX = 1;
-            rect.RadiusY = 1;
+            RetVal.Width = 8 + Math.Min(350, (Size * (350 / (Double)max_region_size)));
+            RetVal.Height = 8;
+            RetVal.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            RetVal.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+            RetVal.RadiusX = 1;
+            RetVal.RadiusY = 1;
             Thickness margin = new Thickness(1, 0, 0, 1);
-            rect.Margin = margin;
-            rect.ToolTip = "Size: " + ((Size / 1024).ToString()) + "Kb\nStorage: ";
+            RetVal.Margin = margin;
+            RetVal.ToolTip = "Size: " + ((Size / 1024).ToString()) + "Kb\nStorage: ";
             switch (StorageType)
             {
                 case (uint)MemoryStorageType.MEM_FREE:
                     {
-                        rect.ToolTip += "Free";
+                        RetVal.ToolTip += "Free";
                         ColorBrush.Color = Color.FromArgb(255, 255, 255, 255);
                         break;
                     }
                 case (uint)MemoryStorageType.MEM_RESERVE:
                     {
-                        rect.ToolTip += "Reserve";
+                        RetVal.ToolTip += "Reserve";
                         ColorBrush.Color = Color.FromArgb(255, 0, 255, 0);
                         break;
                     }
                 case (uint)MemoryStorageType.MEM_IMAGE:
                     {
-                        rect.ToolTip += "Image";
+                        RetVal.ToolTip += "Image";
                         ColorBrush.Color = Color.FromArgb(255, 0, 0, 255);
                         break;
                     }
                 case (uint)MemoryStorageType.MEM_MAPPED:
                     {
-                        rect.ToolTip += "Mapped";
+                        RetVal.ToolTip += "Mapped";
                         ColorBrush.Color = Color.FromArgb(255, 0xEB, 0xEB, 0x00);
                         break;
                     }
                 case (uint)MemoryStorageType.MEM_PRIVATE:
                     {
-                        rect.ToolTip += "Private";
+                        RetVal.ToolTip += "Private";
                         ColorBrush.Color = Color.FromArgb(255, 255, 0, 0);
                         break;
                     }
             }
-            rect.Fill = ColorBrush;
+            RetVal.Fill = ColorBrush;
 
-            rect.ToolTip += "\nProtection: ";
+            RetVal.ToolTip += "\nProtection: ";
             uint ProtectionFlag = Protection & ~((uint)PageProtection.PAGE_GUARD | (uint)PageProtection.PAGE_NOCACHE | (uint)PageProtection.PAGE_WRITECOMBINE);
             switch (ProtectionFlag)
             {
-                case (uint)PageProtection.PAGE_READONLY: rect.ToolTip += "-R--"; break;
-                case (uint)PageProtection.PAGE_READWRITE: rect.ToolTip += "-RW-"; break;
-                case (uint)PageProtection.PAGE_WRITECOPY: rect.ToolTip += "-RWC"; break;
-                case (uint)PageProtection.PAGE_EXECUTE: rect.ToolTip += "E---"; break;
-                case (uint)PageProtection.PAGE_EXECUTE_READ: rect.ToolTip += "ER--"; break;
-                case (uint)PageProtection.PAGE_EXECUTE_READWRITE: rect.ToolTip += "ERW-"; break;
-                case (uint)PageProtection.PAGE_EXECUTE_WRITECOPY: rect.ToolTip += "ERWC"; break;
-                case (uint)PageProtection.PAGE_NOACCESS: rect.ToolTip += "----"; break;
+                case (uint)PageProtection.PAGE_READONLY: RetVal.ToolTip += "-R--"; break;
+                case (uint)PageProtection.PAGE_READWRITE: RetVal.ToolTip += "-RW-"; break;
+                case (uint)PageProtection.PAGE_WRITECOPY: RetVal.ToolTip += "-RWC"; break;
+                case (uint)PageProtection.PAGE_EXECUTE: RetVal.ToolTip += "E---"; break;
+                case (uint)PageProtection.PAGE_EXECUTE_READ: RetVal.ToolTip += "ER--"; break;
+                case (uint)PageProtection.PAGE_EXECUTE_READWRITE: RetVal.ToolTip += "ERW-"; break;
+                case (uint)PageProtection.PAGE_EXECUTE_WRITECOPY: RetVal.ToolTip += "ERWC"; break;
+                case (uint)PageProtection.PAGE_NOACCESS: RetVal.ToolTip += "----"; break;
             }
-            rect.ToolTip += ((Protection & (uint)PageProtection.PAGE_GUARD) == (uint)PageProtection.PAGE_GUARD) ? "G" : "-";
-            rect.ToolTip += ((Protection & (uint)PageProtection.PAGE_NOCACHE) == (uint)PageProtection.PAGE_NOCACHE) ? "N" : "-";
-            rect.ToolTip += ((Protection & (uint)PageProtection.PAGE_WRITECOMBINE) == (uint)PageProtection.PAGE_WRITECOMBINE) ? "W" : "-";
-            rect.ToolTip += (IsShared)?"\nShared":"";
-            rect.ToolTip += (String.IsNullOrEmpty(MappedFileName)) ? "" : "\n" + MappedFileName;
+            RetVal.ToolTip += ((Protection & (uint)PageProtection.PAGE_GUARD) == (uint)PageProtection.PAGE_GUARD) ? "G" : "-";
+            RetVal.ToolTip += ((Protection & (uint)PageProtection.PAGE_NOCACHE) == (uint)PageProtection.PAGE_NOCACHE) ? "N" : "-";
+            RetVal.ToolTip += ((Protection & (uint)PageProtection.PAGE_WRITECOMBINE) == (uint)PageProtection.PAGE_WRITECOMBINE) ? "W" : "-";
+            RetVal.ToolTip += (IsShared)?"\nShared":"";
+            RetVal.ToolTip += (String.IsNullOrEmpty(MappedFileName)) ? "" : "\n" + MappedFileName;
 
-            MemMapPanel.Children.Add(rect);
+            MemMapPanel.Children.Add(RetVal);
+            return RetVal;
         }
 
         private ulong GetMaxSize(ref List<MemoryRegion> mem_data)
@@ -155,9 +220,9 @@ namespace MemoryMap
             }
             return RetVal;
         }
-        private void LoadData(String FileName)
+        private void LoadXml()
         {
-            using (FileStream stream = new FileStream(FileName, FileMode.Open, FileAccess.Read))
+            using (StringReader stream = new StringReader(Win32AppOutput.ToString()))
             {
                 XmlReader reader = new XmlTextReader(stream);
 
@@ -236,6 +301,34 @@ namespace MemoryMap
             MemBlock.MappedFileName = (String)reader.ReadElementContentAs(typeof(String), null);
             list.Add(MemBlock);
         }
+
+        private void FillProcessList()
+        {
+            Process[] Processes = Process.GetProcesses();
+            int i = 0;
+            foreach (Process Proc in Processes)
+            {
+                RowDefinition NewRow = new RowDefinition();
+                ProcessesGrid.RowDefinitions.Add(NewRow);
+                Label ProcessName = new Label();
+                Label ProcessId = new Label();
+                ProcessName.Content = Proc.ProcessName;
+                ProcessName.HorizontalAlignment= System.Windows.HorizontalAlignment.Left;
+                ProcessName.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                Grid.SetColumn(ProcessName, 0);
+                Grid.SetRow(ProcessName, i);
+
+                ProcessId.Content = Proc.Id;
+                ProcessId.HorizontalAlignment= System.Windows.HorizontalAlignment.Left;
+                ProcessId.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                Grid.SetColumn(ProcessId, 2);
+                Grid.SetRow(ProcessId, i);
+                ProcessesGrid.Children.Add(ProcessName);
+                ProcessesGrid.Children.Add(ProcessId);
+                i++;
+            }
+        }
         private List<MemoryRegion> mem_data;
+        private static StringBuilder Win32AppOutput = null;
     }
 }
