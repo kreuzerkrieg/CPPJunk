@@ -3,6 +3,29 @@
 #include "storage_classes.h"
 #include "memory_block.h"
 
+namespace helpers
+{
+	bool get_last_error(std::string &message)
+	{
+		DWORD err = GetLastError();
+		if (0 != err)
+		{
+			LPTSTR buff = NULL;
+			FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM |
+				FORMAT_MESSAGE_ALLOCATE_BUFFER,
+				0,
+				err,
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+				(LPTSTR)&buff, 
+				0, 
+				0);
+			message.assign(buff);
+			LocalFree(buff);
+		}
+		return 0 != err;
+	}
+}
+
 heap_walker_t::heap_walker_t (
 	DWORD process_id
 	):
@@ -20,29 +43,40 @@ m_process(NULL),
 
 	if (m_process == NULL)
 	{
-		std::string ex (
-			"Cannot open process '" + 
-			boost::lexical_cast<string>(process_id) + 
-			"' for querying information."
-			);
-		DWORD err = GetLastError();
-		if (0 != err)
+		std::string message;
+		if (helpers::get_last_error(message))
 		{
-			LPTSTR buff = NULL;
-			FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM |
-				FORMAT_MESSAGE_ALLOCATE_BUFFER,
-				0,
-				err,
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-				(LPTSTR)&buff, 
-				0, 
-				0);
+			std::string ex (
+				"Cannot open process '" + 
+				boost::lexical_cast<string>(process_id) + 
+				"' for querying information."
+				);
 			ex.append("\nReason: ");
-			ex.append(string(T2CA(buff)));
-			LocalFree(buff);
-		}
+			ex.append(message);
 
-		throw std::exception (ex.c_str());
+			throw std::exception (ex.c_str());
+		}
+	}
+	else
+	{
+		BOOL is_wow = FALSE;
+		SYSTEM_INFO system_info;
+		SecureZeroMemory(&system_info, sizeof(system_info));
+		IsWow64Process(m_process, &is_wow);
+		GetNativeSystemInfo(&system_info);
+#ifdef _M_X64
+		if (is_wow)
+		{
+			throw std::exception ("Trying to analyze non x64 process from x64 application");
+		}
+#elif _M_IX86
+		if (!is_wow && system_info.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_AMD64)
+		{
+			throw std::exception ("Trying to analyze x64 process from x86 application");
+		}
+#else
+		throw std::exception ("Unknown processor architecture");
+#endif
 	}
 	m_mem_data.reserve (1000);
 }
@@ -126,72 +160,6 @@ BOOL heap_walker_t::memory_query (
 	return (success);
 }
 
-//void heap_walker_t::fill_block_data(
-//	memory_block &block,
-//	const MEMORY_BASIC_INFORMATION &mbi) const
-//{
-//	switch (mbi.State)
-//	{
-//	case MEM_FREE: // Free block (not reserved)
-//		block.set_base_address(NULL);
-//		block.set_size(0);
-//		block.set_protection(0);
-//		block.set_type(MEM_FREE);
-//		break;
-//	case MEM_RESERVE: // Reserved block without committed storage in it.
-//		block.set_base_address((UINT64) mbi.BaseAddress);
-//		block.set_size(mbi.RegionSize);
-//		block.set_type(MEM_RESERVE);
-//	case MEM_COMMIT:  // Reserved block with committed storage in it.
-//		block.set_base_address((UINT64) mbi.BaseAddress);
-//		block.set_size(mbi.RegionSize);
-//		block.set_protection(mbi.Protect);
-//		block.set_type(mbi.Type);
-//		break;
-//	default:
-//		break;
-//	}
-//	get_additional_info(block);
-//}
-//
-//void heap_walker_t::fill_region_data(
-//	LPCVOID mem_address,
-//	memory_region &region,
-//	const MEMORY_BASIC_INFORMATION &mbi
-//	) const
-//{
-//	vm_query_helper mem_helper;
-//	switch (mbi.State)
-//	{
-//	case MEM_FREE: // Free block (not reserved)
-//		region.set_base_address ((UINT64)mbi.BaseAddress);
-//		region.set_protection (mbi.AllocationProtect);
-//		region.set_size (mbi.RegionSize);
-//		region.set_type (MEM_FREE);
-//		region.set_blocks(0);
-//		region.set_guard_blocks(0);
-//		region.set_stack(FALSE);
-//		break;
-//
-//	case MEM_RESERVE:
-//	case MEM_COMMIT:
-//		region.set_base_address( (UINT64)mbi.AllocationBase);
-//		region.set_protection ( mbi.AllocationProtect);
-//		region.set_size ( mbi.RegionSize);
-//
-//		// Iterate through all blocks to get complete region information.         
-//		memory_query_helper (mem_address, region, mem_helper);
-//		assert(mem_helper.m_storage_type == mbi.Type);
-//		region.set_type ( mem_helper.m_storage_type);
-//		region.set_blocks (mem_helper.m_region_blocks);
-//		region.set_guard_blocks ( mem_helper.m_guard_blocks);
-//		region.set_stack (mem_helper.m_is_stack);
-//		break;
-//
-//	default:
-//		assert(false);
-//	}
-//}
 void heap_walker_t::fill_block_data(
 	memory_block &block,
 	const MEMORY_BASIC_INFORMATION &mbi) const
@@ -304,26 +272,36 @@ void heap_walker_t::get_additional_info(
 void heap_walker_t::gather_mem_info (
 	)
 {
-	m_mem_data.resize (0);
-	m_mem_data.reserve (1000);
-	// Walk the virtual address space, adding entries to the list box.
-	BOOL success = TRUE;
-	PVOID mem_address = NULL;
-
-	while (success)
+	try
 	{
-		memory_region mem_region;
-		success = memory_query (mem_address, mem_region);
+		m_mem_data.resize (0);
+		m_mem_data.reserve (1000);
+		// Walk the virtual address space, adding entries to the list box.
+		BOOL success = TRUE;
+		PVOID mem_address = NULL;
 
-		if (success)
+		while (success)
 		{
-			m_mem_data.push_back (mem_region);
-		}
+			memory_region mem_region;
+			success = memory_query (mem_address, mem_region);
 
-		// Get the address of the next region to test.
-		mem_address = (PVOID)(mem_region.get_base_address() + mem_region.get_size());
+			if (success)
+			{
+				m_mem_data.push_back (mem_region);
+			}
+
+			// Get the address of the next region to test.
+			mem_address = (PVOID)(mem_region.get_base_address() + mem_region.get_size());
+		}
 	}
-	CloseHandle (m_process);
+	catch (std::exception &ex)
+	{
+		throw ex;
+	}
+	catch (...)
+	{
+		throw std::exception("Unknown error in gather_mem_info");
+	}
 }
 void heap_walker_t::dump_mem_data(
 	std::ostream &output_stream

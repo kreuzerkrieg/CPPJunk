@@ -8,26 +8,22 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	std::locale::global(std::locale::classic());
-	DWORD proc_id = GetCurrentProcessId();
-	HANDLE hPrivate = HeapCreate(HEAP_CREATE_ENABLE_EXECUTE, 2*KB_SIZE,128*1024);
-	if (hPrivate == NULL)
+	if (argc == 2)
 	{
-		return 1;
-	}
-	else
-	{
-		LPVOID lpFirstBlock = HeapAlloc(hPrivate,HEAP_ZERO_MEMORY,2 * KB_SIZE);
-		char *characters = new char[4*KB_SIZE];
-		ZeroMemory(characters, 4*KB_SIZE);
-		LPVOID lpSecondBlock = HeapAlloc(hPrivate,HEAP_ZERO_MEMORY,16 * KB_SIZE);
-		void *mem = malloc(8*KB_SIZE);
-		ZeroMemory(mem, 8*KB_SIZE);
-		heap_walker_t walker(9192);
-		ofstream stream("F:\\file.txt", ios_base::out | ios_base::trunc);
-		walker.dump_mem_data(stream);
-		delete [] characters;
-		free(mem);
-		return 0;
+		try
+		{
+		std::string process_id(argv[1]);
+		DWORD proc_id = boost::lexical_cast<DWORD>(process_id);
+		heap_walker_t walker(proc_id);
+		walker.dump_mem_data(std::cout);
+		}
+		catch (std::exception &ex)
+		{
+			cout << "Error: " << ex.what() << "." <<endl;
+		}
+		catch (...)
+		{
+			cout << "Error: Unknown error." << endl;
+		}
 	}
 }
