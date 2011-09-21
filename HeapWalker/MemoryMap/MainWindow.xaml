@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MemoryMap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Memory Map" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="600" WindowStyle="ThreeDBorderWindow" Background="#FFCFCFCF" Icon="/MemoryMap;component/Images/Untitled.png">
+        Title="Memory Map" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="600" WindowStyle="ThreeDBorderWindow" Background="#FFCFCFCF" Icon="/MemoryMap;component/Images/defrag_new.png" Name="MMWindow">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFCFCFCF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -12,13 +12,13 @@
         </WrapPanel>
         <GridSplitter Width="5" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="1" Background="#FF246DBB"></GridSplitter>
         <DockPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="Auto" Grid.Column="2">
-            <Grid Name="ProcessesGrid">
+            <Grid DockPanel.Dock="Top" Name="ProcessesGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <GridSplitter Width="2" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="1" Background="#FF246DBB" BorderBrush="Black"></GridSplitter>
+                <!--<GridSplitter Width="2" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="1" Background="#FF246DBB" BorderBrush="Black"></GridSplitter>-->
                 <!--<Label Content="AISSrv.exe" Height="28" HorizontalAlignment="Left" Name="ProcessName" Grid.Column="0" VerticalAlignment="Top"></Label>
                 <Label Content="2486" Height="28" HorizontalAlignment="Right" Name="ProcessId" Grid.Column="2" VerticalAlignment="Top"></Label>
                 <Label Content="AISSrv-18.exe" Height="28" HorizontalAlignment="Left" Name="ProcessName1" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top"></Label>

@@ -319,7 +319,7 @@ namespace MemoryMap
                 Grid.SetRow(ProcessName, i);
 
                 ProcessId.Content = Proc.Id;
-                ProcessId.HorizontalAlignment= System.Windows.HorizontalAlignment.Left;
+                ProcessId.HorizontalAlignment= System.Windows.HorizontalAlignment.Right;
                 ProcessId.VerticalAlignment = System.Windows.VerticalAlignment.Top;
                 Grid.SetColumn(ProcessId, 2);
                 Grid.SetRow(ProcessId, i);
@@ -327,6 +327,7 @@ namespace MemoryMap
                 ProcessesGrid.Children.Add(ProcessId);
                 i++;
             }
+            MMWindow.Show();
         }
         private List<MemoryRegion> mem_data;
         private static StringBuilder Win32AppOutput = null;

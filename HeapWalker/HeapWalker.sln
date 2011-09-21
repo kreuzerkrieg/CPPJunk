@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HeapWalker", "HeapWalker.vcxproj", "{C0C4034B-1B14-4D7C-879D-9E685133E378}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryMap", "MemoryMap\MemoryMap.csproj", "{4C1A91A2-B94F-4950-A37C-A71EA6CEE140}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0C4034B-1B14-4D7C-879D-9E685133E378} = {C0C4034B-1B14-4D7C-879D-9E685133E378}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
