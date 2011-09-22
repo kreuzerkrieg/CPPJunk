@@ -1,20 +1,13 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Runtime.InteropServices;
 using System.Xml;
-using System.Diagnostics;
 
 namespace MemoryMap
 {
@@ -28,7 +21,7 @@ namespace MemoryMap
             InitializeComponent();
             {
                 FillProcessList();
-                if (ReadMemInfo("4616"))
+                if (ReadMemInfo("1664"))
                     LoadData();
             }
         }
@@ -39,7 +32,14 @@ namespace MemoryMap
             Process HeapWalker = null;
             try
             {
-                File.WriteAllBytes(FileName, MemoryMap.Properties.Executables.HeapWalker_x86);
+                if (Is64BitProcess(int.Parse(ProcessId)))
+                {
+                    File.WriteAllBytes(FileName, MemoryMap.Properties.Executables.HeapWalker_amd64);
+                }
+                else
+                {
+                    File.WriteAllBytes(FileName, MemoryMap.Properties.Executables.HeapWalker_x86);
+                }
                 HeapWalker = new Process();
                 HeapWalker.StartInfo.CreateNoWindow = true;
                 HeapWalker.StartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(FileName);
@@ -70,7 +70,7 @@ namespace MemoryMap
                 File.Delete(FileName);
                 return ValidateHeapWalkerOutput();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 if (HeapWalker != null)
                 {
@@ -78,6 +78,28 @@ namespace MemoryMap
                 }
                 File.Delete(FileName);
                 return false;
+            }
+        }
+
+        private static Boolean Is64BitProcess(int ProcessId)
+        {
+            try
+            {
+                Process Proc = Process.GetProcessById(ProcessId);
+                Int64 BaseAddress;
+                try
+                {
+                    BaseAddress = (Int64)Proc.MainModule.BaseAddress;
+                }
+                catch (Win32Exception ee)
+                {
+                    return ee.ErrorCode == -2147467259;
+                }
+                return BaseAddress > Int32.MaxValue;
+            }
+            catch (Exception)
+            {
+                return true;
             }
         }
 
@@ -104,17 +126,23 @@ namespace MemoryMap
                 UInt64 max_region_size = GetMaxSize(ref mem_data);
                 foreach (MemoryRegion data in mem_data)
                 {
-                    if (data.NumberOfBlocks == 0)
+                    Border Region = DrawMemoryRectangle(max_region_size, data.RegionSize, data.RegionStorageType, data.RegionProtection, false, "");
+                    Region.Background = new SolidColorBrush(Color.FromArgb(255, 69, 89, 124));
+                    Region.Height = 10;
+                    if (data.NumberOfBlocks > 0)
                     {
-                        DrawMemoryRectangle(max_region_size, data.RegionSize, data.RegionStorageType, data.RegionProtection, false, "");
-                    }
-                    else
-                    {
+                        StackPanel TmpStackPanel = new StackPanel();
+                        TmpStackPanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+                        TmpStackPanel.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                        TmpStackPanel.Orientation = Orientation.Horizontal;
+                        TmpStackPanel.Margin = new Thickness(1);
                         foreach (MemoryBlock block in data.MemoryBlocks)
                         {
-                            DrawMemoryRectangle(max_region_size, block.BlockSize, block.BlockStorageType, block.BlockProtection, block.IsShared, block.MappedFileName);
+                            TmpStackPanel.Children.Add(DrawMemoryRectangle(max_region_size, block.BlockSize, block.BlockStorageType, block.BlockProtection, block.IsShared, block.MappedFileName));
                         }
+                        Region.Child = TmpStackPanel;
                     }
+                    MemMapPanel.Children.Add(Region);
                 }
             }
             catch (Exception ex)
@@ -128,25 +156,24 @@ namespace MemoryMap
             throw new NotImplementedException();
         }
 
-        private Rectangle DrawMemoryRectangle(UInt64 max_region_size,
+        private Border DrawMemoryRectangle(UInt64 max_region_size,
             ulong Size,
             uint StorageType,
             uint Protection,
             bool IsShared,
             string MappedFileName)
         {
-            Rectangle RetVal = new Rectangle();
+            Border RetVal = new Border();
             SolidColorBrush ColorBrush = new SolidColorBrush();
 
-            RetVal.StrokeThickness = 1;
-            RetVal.Stroke = Brushes.Black;
+            RetVal.BorderThickness = new Thickness(1);
+            RetVal.BorderBrush = Brushes.Black;
 
             RetVal.Width = 8 + Math.Min(350, (Size * (350 / (Double)max_region_size)));
             RetVal.Height = 8;
             RetVal.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             RetVal.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            RetVal.RadiusX = 1;
-            RetVal.RadiusY = 1;
+            RetVal.CornerRadius = new CornerRadius(1);
             Thickness margin = new Thickness(1, 0, 0, 1);
             RetVal.Margin = margin;
             RetVal.ToolTip = "Size: " + ((Size / 1024).ToString()) + "Kb\nStorage: ";
@@ -183,7 +210,7 @@ namespace MemoryMap
                         break;
                     }
             }
-            RetVal.Fill = ColorBrush;
+            RetVal.Background = ColorBrush;
 
             RetVal.ToolTip += "\nProtection: ";
             uint ProtectionFlag = Protection & ~((uint)PageProtection.PAGE_GUARD | (uint)PageProtection.PAGE_NOCACHE | (uint)PageProtection.PAGE_WRITECOMBINE);
@@ -201,10 +228,9 @@ namespace MemoryMap
             RetVal.ToolTip += ((Protection & (uint)PageProtection.PAGE_GUARD) == (uint)PageProtection.PAGE_GUARD) ? "G" : "-";
             RetVal.ToolTip += ((Protection & (uint)PageProtection.PAGE_NOCACHE) == (uint)PageProtection.PAGE_NOCACHE) ? "N" : "-";
             RetVal.ToolTip += ((Protection & (uint)PageProtection.PAGE_WRITECOMBINE) == (uint)PageProtection.PAGE_WRITECOMBINE) ? "W" : "-";
-            RetVal.ToolTip += (IsShared)?"\nShared":"";
+            RetVal.ToolTip += (IsShared) ? "\nShared" : "";
             RetVal.ToolTip += (String.IsNullOrEmpty(MappedFileName)) ? "" : "\n" + MappedFileName;
 
-            MemMapPanel.Children.Add(RetVal);
             return RetVal;
         }
 
@@ -237,15 +263,11 @@ namespace MemoryMap
                         mem_data.Add(region);
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    String a = e.Message;
-                    a += "a";
                 }
-                
                 reader.Close();
                 stream.Close();
-
             }
         }
 
@@ -302,32 +324,40 @@ namespace MemoryMap
             list.Add(MemBlock);
         }
 
+        private static int CompareProcesses(Process lhs, Process rhs)
+        {
+            return lhs.ProcessName.CompareTo(rhs.ProcessName);
+        }
+
         private void FillProcessList()
         {
             Process[] Processes = Process.GetProcesses();
+            List<Process> ProcList = new List<Process>(Processes);
+            ProcList.Sort(CompareProcesses);
+
             int i = 0;
-            foreach (Process Proc in Processes)
+            foreach (Process Proc in ProcList)
             {
                 RowDefinition NewRow = new RowDefinition();
+                NewRow.Height = new GridLength(0, GridUnitType.Auto);
                 ProcessesGrid.RowDefinitions.Add(NewRow);
                 Label ProcessName = new Label();
                 Label ProcessId = new Label();
                 ProcessName.Content = Proc.ProcessName;
-                ProcessName.HorizontalAlignment= System.Windows.HorizontalAlignment.Left;
+                ProcessName.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 ProcessName.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                Grid.SetColumn(ProcessName, 0);
                 Grid.SetRow(ProcessName, i);
+                Grid.SetColumn(ProcessName, 0);
 
                 ProcessId.Content = Proc.Id;
-                ProcessId.HorizontalAlignment= System.Windows.HorizontalAlignment.Right;
+                ProcessId.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
                 ProcessId.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                Grid.SetColumn(ProcessId, 2);
                 Grid.SetRow(ProcessId, i);
+                Grid.SetColumn(ProcessId, 1);
                 ProcessesGrid.Children.Add(ProcessName);
                 ProcessesGrid.Children.Add(ProcessId);
                 i++;
             }
-            MMWindow.Show();
         }
         private List<MemoryRegion> mem_data;
         private static StringBuilder Win32AppOutput = null;

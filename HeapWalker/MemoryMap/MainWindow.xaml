@@ -5,25 +5,21 @@
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFCFCFCF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition />
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <WrapPanel Width="Auto" Name="MemMapPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0">
         </WrapPanel>
-        <GridSplitter Width="5" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="1" Background="#FF246DBB"></GridSplitter>
-        <DockPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="Auto" Grid.Column="2">
-            <Grid DockPanel.Dock="Top" Name="ProcessesGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <!--<GridSplitter Width="2" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="1" Background="#FF246DBB" BorderBrush="Black"></GridSplitter>-->
-                <!--<Label Content="AISSrv.exe" Height="28" HorizontalAlignment="Left" Name="ProcessName" Grid.Column="0" VerticalAlignment="Top"></Label>
-                <Label Content="2486" Height="28" HorizontalAlignment="Right" Name="ProcessId" Grid.Column="2" VerticalAlignment="Top"></Label>
-                <Label Content="AISSrv-18.exe" Height="28" HorizontalAlignment="Left" Name="ProcessName1" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top"></Label>
-                <Label Content="552486" Height="28" HorizontalAlignment="Right" Name="ProcessId1" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top"></Label>-->
-            </Grid>
+        <GridSplitter Width="5" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="0" Background="#FF246DBB"></GridSplitter>
+        <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Grid.Column="2">
+            <ScrollViewer>
+                <Grid DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch" Name="ProcessesGrid" Width="Auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <GridSplitter Width="2" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="0" Background="Gray" BorderBrush="Black"></GridSplitter>
+                </Grid>
+            </ScrollViewer>
         </DockPanel>
     </Grid>
 </Window>
