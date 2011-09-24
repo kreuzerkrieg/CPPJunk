@@ -76,6 +76,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MemoryBlocksVisualizer.cs" />
+    <Compile Include="MemoryDataXmlParser.cs" />
+    <Compile Include="ResourceExecutableLauncher.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MemoryBlock.cs" />
+    <Compile Include="ProcessOutputRedirection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -114,9 +118,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Untitled.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\HeapWalker_x86.exe" />

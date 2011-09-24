@@ -53,12 +53,11 @@ namespace MemoryMap
     };
     class MemoryBlock
     {
-
         public UInt64 BlockAddress;
         public UInt32 BlockProtection;
         public UInt64 BlockSize;
         public UInt32 BlockStorageType;
         public Boolean IsShared;
         public String MappedFileName;
-    }
+    };
 }
