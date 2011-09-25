@@ -16,7 +16,9 @@ public:
 	void dump_mem_data(
 		std::ostream &output_stream
 		);
-
+	void dump_csv_mem_data(
+		std::ostream &output_stream
+		);
 private:
 	BOOL memory_query (
 		LPCVOID mem_address,

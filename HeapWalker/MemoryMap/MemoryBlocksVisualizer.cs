@@ -16,6 +16,7 @@ namespace MemoryMap
         {
             try
             {
+                MemMapPanel.Children.Clear();
                 ProcessOutputRedirection POR = new ProcessOutputRedirection(ProcessId);
                 StringBuilder ExecutableOutput = POR.ReadExecutableOutput();
                 MemoryDataXmlParser MDXParser = new MemoryDataXmlParser();

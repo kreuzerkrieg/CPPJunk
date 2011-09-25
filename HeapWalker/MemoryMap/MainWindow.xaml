@@ -7,25 +7,15 @@
             <ColumnDefinition />
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <WrapPanel Width="Auto" Name="MemMapPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0">
-        </WrapPanel>
-        <GridSplitter Width="5" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="0" Background="#FF246DBB"></GridSplitter>
-        <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Grid.Column="2">
-            <ScrollViewer CanContentScroll="True">
-                <Grid DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch" Name="ProcessesGrid" Width="Auto">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <GridSplitter Width="2" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="0" Background="Gray" BorderBrush="Black"></GridSplitter>
-                    <DataGrid>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Process Name"  Binding="{Binding ProcessName}"/>
-                            <DataGridTextColumn Header="Process ID" Binding="{Binding ProcessId}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </ScrollViewer>
-        </DockPanel>
+        <WrapPanel Width="Auto" Name="MemMapPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0"/>
+        <GridSplitter Width="5" ResizeDirection="Columns" ShowsPreview="True" Grid.Column="0" Background="#FF246DBB"/>
+        <Grid DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch" Name="ProcessesGrid" Width="Auto" Grid.Column="2">
+            <DataGrid Name="ProcDataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" GridLinesVisibility="Horizontal" MouseDoubleClick="ProcDataGrid_MouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Process Name"  Binding="{Binding ProcessName, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Process ID" Binding="{Binding Id, Mode=OneWay}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

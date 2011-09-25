@@ -311,3 +311,148 @@ void heap_walker_t::dump_mem_data(
 	xml_oarchive archive(output_stream);
 	archive << BOOST_SERIALIZATION_NVP(m_mem_data);
 }
+
+void heap_walker_t::dump_csv_mem_data(
+	std::ostream &output_stream
+	)
+{
+	gather_mem_info();
+	std::vector<memory_region>::const_iterator it_beg = m_mem_data.begin();
+	std::vector<memory_region>::const_iterator it_end = m_mem_data.end();
+	for (; it_beg != it_end; ++it_beg)
+	{
+		if (it_beg->get_type() != MEM_FREE)
+		{
+			output_stream << "\"";
+			output_stream << boost::format("%+08X") % it_beg->get_base_address();
+			output_stream << "\",";
+
+			output_stream << "\"";
+			switch (it_beg->get_type())
+			{
+			case MEM_PRIVATE:
+				output_stream << "Private Data";
+				break;
+			case MEM_IMAGE:
+				output_stream << "Image (ASLR)";
+				break;
+			case MEM_MAPPED:
+				output_stream << "Mapped File";
+				break;
+			/*default:
+				DebugBreak();*/
+			}
+			output_stream << "\",";
+
+			output_stream << "\"";
+			output_stream << (it_beg->get_size()/1024);
+			output_stream << "\",";
+
+			if (it_beg->get_blocks() > 0) 
+			{
+				output_stream << "\"";
+				output_stream << it_beg->get_blocks();
+				output_stream << "\",";
+			}
+			else
+			{
+				output_stream << "\"\"," ;
+			}
+
+			output_stream << "\"";
+			DWORD protection = it_beg->get_protection();
+			if ((protection & PAGE_READONLY) == PAGE_READONLY)
+			{
+				output_stream << "Read";
+			}
+			else if ((protection & PAGE_READWRITE) == PAGE_READWRITE)
+			{
+				output_stream << "Read/Write";
+			}
+			else if ((protection & PAGE_WRITECOPY) == PAGE_WRITECOPY)
+			{
+				output_stream << "Copy on write";
+			}
+			else if ((protection & PAGE_EXECUTE) == PAGE_EXECUTE)
+			{
+				output_stream << "Execute";
+			}
+
+			else if ((protection & PAGE_GUARD) == PAGE_GUARD)
+			{
+				output_stream << "/Guard";
+			}
+			else
+			{
+				//DebugBreak();
+			}
+			output_stream << "\"";
+			output_stream << endl;
+
+			if (it_beg->get_blocks() > 0)
+			{
+				std::vector<memory_block>::const_iterator it_block_beg = it_beg->get_mem_blocks().begin();
+				std::vector<memory_block>::const_iterator it_block_end = it_beg->get_mem_blocks().end();
+				for (; it_block_beg != it_block_end; ++it_block_beg)
+				{
+					output_stream << "\"  ";
+					output_stream << boost::format("%+08X") % it_block_beg->get_base_address();
+					output_stream << "\",";
+
+					output_stream << "\"";
+					switch (it_block_beg->get_type())
+					{
+					case MEM_PRIVATE:
+						output_stream << "Private Data";
+						break;
+					case MEM_IMAGE:
+						output_stream << "Image";
+						break;
+					case MEM_MAPPED:
+						output_stream << "Mapped File";
+						break;
+					/*default:
+						DebugBreak();*/
+					}
+					output_stream << "\",";
+
+					output_stream << "\"";
+					output_stream << (it_block_beg->get_size()/1024);
+					output_stream << "\",";
+
+					output_stream << "\"\"" << ",";
+					DWORD block_protection = it_block_beg->get_protection();
+
+					output_stream << "\"";
+					if ((block_protection & PAGE_READONLY) == PAGE_READONLY)
+					{
+						output_stream << "Read";
+					}
+					else if ((block_protection & PAGE_READWRITE) == PAGE_READWRITE)
+					{
+						output_stream << "Read/Write";
+					}
+					else if ((block_protection & PAGE_WRITECOPY) == PAGE_WRITECOPY)
+					{
+						output_stream << "Copy on write";
+					}
+					else if ((block_protection & PAGE_EXECUTE) == PAGE_EXECUTE)
+					{
+						output_stream << "Execute";
+					}
+
+					else if ((block_protection & PAGE_GUARD) == PAGE_GUARD)
+					{
+						output_stream << "/Guard";
+					}
+					else
+					{
+						//DebugBreak();
+					}
+					output_stream << "\"";
+					output_stream << endl;
+				}
+			}
+		}
+	}
+}

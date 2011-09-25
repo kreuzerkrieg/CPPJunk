@@ -27,6 +27,7 @@
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/utility.hpp>
 #include <boost/lexical_cast.hpp>
+#include <boost/format.hpp>
 
 using namespace boost;
 using namespace boost::archive;
