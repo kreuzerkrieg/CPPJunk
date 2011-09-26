@@ -321,26 +321,34 @@ void heap_walker_t::dump_csv_mem_data(
 	std::vector<memory_region>::const_iterator it_end = m_mem_data.end();
 	for (; it_beg != it_end; ++it_beg)
 	{
-		if (it_beg->get_type() != MEM_FREE)
+		//if (it_beg->get_type() != MEM_FREE)
 		{
 			output_stream << "\"";
 			output_stream << boost::format("%+08X") % it_beg->get_base_address();
 			output_stream << "\",";
 
 			output_stream << "\"";
-			switch (it_beg->get_type())
+			DWORD mem_type = it_beg->get_type();
+
+			if (it_beg->get_stack())
 			{
-			case MEM_PRIVATE:
-				output_stream << "Private Data";
-				break;
-			case MEM_IMAGE:
-				output_stream << "Image (ASLR)";
-				break;
-			case MEM_MAPPED:
+				output_stream << "Thread Stack";
+			}
+			else if (mem_type == MEM_PRIVATE)
+			{
+				output_stream << "Heap (Private Data)";
+			}
+			else if (mem_type == MEM_IMAGE)
+			{
+				output_stream << "Image";
+			}
+			else if (mem_type == MEM_MAPPED)
+			{
 				output_stream << "Mapped File";
-				break;
-			/*default:
-				DebugBreak();*/
+			}
+			else if (mem_type == MEM_FREE)
+			{
+				output_stream << "Free";
 			}
 			output_stream << "\",";
 
@@ -365,27 +373,40 @@ void heap_walker_t::dump_csv_mem_data(
 			{
 				output_stream << "Read";
 			}
-			else if ((protection & PAGE_READWRITE) == PAGE_READWRITE)
+			if ((protection & PAGE_READWRITE) == PAGE_READWRITE)
 			{
 				output_stream << "Read/Write";
 			}
-			else if ((protection & PAGE_WRITECOPY) == PAGE_WRITECOPY)
+			if ((protection & PAGE_WRITECOPY) == PAGE_WRITECOPY)
 			{
 				output_stream << "Copy on write";
 			}
-			else if ((protection & PAGE_EXECUTE) == PAGE_EXECUTE)
+			if ((protection & PAGE_EXECUTE) == PAGE_EXECUTE)
 			{
 				output_stream << "Execute";
 			}
 
-			else if ((protection & PAGE_GUARD) == PAGE_GUARD)
+			if ((protection & PAGE_GUARD) == PAGE_GUARD)
 			{
 				output_stream << "/Guard";
 			}
-			else
+			if ((protection & PAGE_EXECUTE_READ) == PAGE_EXECUTE_READ)
 			{
-				//DebugBreak();
+				output_stream << "Execute/Read";
 			}
+			if ((protection & PAGE_EXECUTE_READWRITE) == PAGE_EXECUTE_READWRITE)
+			{
+				output_stream << "Execute/Read/Write";
+			}
+			if ((protection & PAGE_NOCACHE) == PAGE_NOCACHE)
+			{
+				output_stream << "Nocache";
+			}
+			if ((protection & PAGE_WRITECOMBINE) == PAGE_WRITECOMBINE)
+			{
+				output_stream << "WriteCombine";
+			}
+
 			output_stream << "\"";
 			output_stream << endl;
 
@@ -400,19 +421,26 @@ void heap_walker_t::dump_csv_mem_data(
 					output_stream << "\",";
 
 					output_stream << "\"";
-					switch (it_block_beg->get_type())
+					DWORD mem_type = it_block_beg->get_type();
+					if (it_block_beg->get_shared())
 					{
-					case MEM_PRIVATE:
+						output_stream << "Shareable";
+					}
+					else if (mem_type == MEM_PRIVATE)
+					{
 						output_stream << "Private Data";
-						break;
-					case MEM_IMAGE:
+					}
+					else if (mem_type == MEM_IMAGE)
+					{
 						output_stream << "Image";
-						break;
-					case MEM_MAPPED:
+					}
+					else if (mem_type == MEM_MAPPED)
+					{
 						output_stream << "Mapped File";
-						break;
-					/*default:
-						DebugBreak();*/
+					}
+					else if (mem_type == MEM_FREE)
+					{
+						output_stream << "Free";
 					}
 					output_stream << "\",";
 
@@ -453,6 +481,7 @@ void heap_walker_t::dump_csv_mem_data(
 					output_stream << endl;
 				}
 			}
+			HeapCompatibilityInformation
 		}
 	}
 }
