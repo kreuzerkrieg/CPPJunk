@@ -481,7 +481,6 @@ void heap_walker_t::dump_csv_mem_data(
 					output_stream << endl;
 				}
 			}
-			HeapCompatibilityInformation
 		}
 	}
 }
