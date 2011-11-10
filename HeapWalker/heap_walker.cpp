@@ -276,7 +276,7 @@ void heap_walker_t::gather_mem_info (
 	{
 		m_mem_data.resize (0);
 		m_mem_data.reserve (1000);
-		// Walk the virtual address space, adding entries to the list box.
+		// Walk the virtual address space, adding entries to the vector.
 		BOOL success = TRUE;
 		PVOID mem_address = NULL;
 
