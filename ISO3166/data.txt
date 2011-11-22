@@ -1,0 +1,603 @@
+1.0.0.0|1.0.0.255|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|?|
+1.0.1.0|1.0.3.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.0.4.0|1.0.7.255|aus|ql|brisbane|broadband|5|3|3|-1|-27.472|0153.027|36|694|3719|3|au|0|0|+1000|n|4000|aus|big red group|
+1.0.8.0|1.0.15.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.0.16.0|1.0.24.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|?|
+1.0.25.0|1.0.31.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.0.32.0|1.0.63.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.0.64.0|1.0.127.255|jpn|34|hiroshima|broadband|5|4|4|-1|034.384|0132.447|392|9620|11131|4|jp|0|0|+900|n|564-0052|jpn|jpnic|
+1.0.128.0|1.0.255.255|tha|10|bangkok|broadband|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|?|
+1.1.0.0|1.1.0.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.1.1.0|1.1.1.0|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|?|
+1.1.1.1|1.1.1.1|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|african network information center|
+1.1.1.2|1.1.1.255|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|?|
+1.1.2.0|1.1.7.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.1.8.0|1.1.63.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.1.64.0|1.1.127.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|?|
+1.1.128.0|1.1.255.255|tha|10|bangkok|broadband|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|?|
+1.2.0.0|1.2.1.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.2.2.0|1.2.2.255|chn|11|beijing|broadband|5|5|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.2.3.0|1.2.3.255|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|?|
+1.2.4.0|1.2.7.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.2.8.0|1.2.127.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.2.128.0|1.2.255.255|tha|10|bangkok|broadband|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|?|
+1.3.0.0|1.3.255.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.4.0.0|1.4.0.255|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|?|
+1.4.1.0|1.4.3.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.4.4.0|1.4.4.255|chn|11|beijing|broadband|5|5|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.4.5.0|1.4.7.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.4.8.0|1.4.127.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.4.128.0|1.4.255.255|tha|10|bangkok|broadband|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|?|
+1.5.0.0|1.5.255.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|japan telecom co.|
+1.6.0.0|1.7.255.255|ind|tn|chennai|broadband|5|4|3|-1|013.080|0080.270|356|10036|19586|4|in|0|0|+530|n|600001|ind|?|
+1.8.0.0|1.8.0.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.8.1.0|1.8.1.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|knet techonlogy co. ltd.|
+1.8.2.0|1.8.7.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.8.8.0|1.8.8.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|knet techonlogy co. ltd.|
+1.8.9.0|1.8.100.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.8.101.0|1.8.102.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|knet techonlogy co. ltd.|
+1.8.103.0|1.8.149.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.8.150.0|1.8.150.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|knet techonlogy co. ltd.|
+1.8.151.0|1.8.255.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.9.0.0|1.9.132.255|mys|w|kuala lumpur|broadband|5|4|4|-1|003.151|0101.713|458|11937|2765|4|my|0|0|+800|n|50000|mys|tm net internet service provider|
+1.9.133.0|1.9.133.127|mys|m|melaka|broadband|5|5|5|-1|002.201|0102.255|458|11954|14283|4|my|0|0|+800|n|75000|mys|tm net internet service provider|
+1.9.133.128|1.9.255.255|mys|w|kuala lumpur|broadband|5|4|4|-1|003.151|0101.713|458|11937|2765|4|my|0|0|+800|n|50000|mys|tm net internet service provider|
+1.10.0.0|1.10.7.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.10.8.0|1.10.9.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.10.10.0|1.10.10.255|aus|ql|milton|broadband|5|5|4|-1|-27.471|0153.005|36|694|22581|3|au|0|0|+1000|n|4064|aus|?|
+1.10.11.0|1.10.15.255|chn|35|fuzhou|broadband|5|4|4|-1|026.069|0119.303|156|10717|35075|4|cn|0|0|+800|n|350000|chn|?|
+1.10.16.0|1.10.127.255|chn|44|guangzhou|broadband|5|4|4|-1|023.125|0113.237|156|10770|7392|4|cn|0|0|+800|n|510000|chn|?|
+1.10.128.0|1.10.255.255|tha|10|bangkok|broadband|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|?|
+1.11.0.0|1.11.95.255|kor|11|seoul|cable|5|4|4|-1|037.563|0126.993|410|25025|2261|4|kr|0|0|+900|n|135600|kor|cj-cablenet|
+1.11.96.0|1.11.127.255|kor|11|seoul|cable|5|4|4|-1|037.563|0126.993|410|25025|2261|4|kr|0|0|+900|n|135600|kor|chungnam broadcastin co.|
+1.11.128.0|1.11.255.255|kor|11|seoul|cable|5|4|4|-1|037.563|0126.993|410|25025|2261|4|kr|0|0|+900|n|135600|kor|dreamcitymedia|
+1.12.0.0|1.15.255.255|chn|11|beijing|broadband|5|4|3|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|cnnic|
+1.16.0.0|1.19.255.255|kor|11|seoul|broadband|5|4|3|-1|037.563|0126.993|410|25025|2261|4|kr|0|0|+900|n|135600|kor|?|
+1.20.0.0|1.20.127.255|tha|10|bangkok|mobile|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|tot public company limited|
+1.20.128.0|1.20.255.255|tha|10|bangkok|mobile|5|4|4|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|?|
+1.21.0.0|1.21.13.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.21.14.0|1.21.43.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.21.44.0|1.21.255.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.22.0.0|1.22.25.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.26.0|1.22.27.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.28.0|1.22.33.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.34.0|1.22.35.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.36.0|1.22.41.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.42.0|1.22.43.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.44.0|1.22.44.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.45.0|1.22.45.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.46.0|1.22.49.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.50.0|1.22.51.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.52.0|1.22.54.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.55.0|1.22.55.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.56.0|1.22.57.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.58.0|1.22.63.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.64.0|1.22.67.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.68.0|1.22.71.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.72.0|1.22.74.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.75.0|1.22.79.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.80.0|1.22.83.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.84.0|1.22.87.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.88.0|1.22.89.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.90.0|1.22.103.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.104.0|1.22.105.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.106.0|1.22.111.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.112.0|1.22.113.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.114.0|1.22.119.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.120.0|1.22.123.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.124.0|1.22.126.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.127.0|1.22.137.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.138.0|1.22.138.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.139.0|1.22.148.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.149.0|1.22.150.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.151.0|1.22.163.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.164.0|1.22.166.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.167.0|1.22.175.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.176.0|1.22.178.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.179.0|1.22.181.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.182.0|1.22.183.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.184.0|1.22.185.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.186.0|1.22.188.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.189.0|1.22.193.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.194.0|1.22.195.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.196.0|1.22.196.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.197.0|1.22.199.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.200.0|1.22.201.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.202.0|1.22.205.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.206.0|1.22.209.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.210.0|1.22.214.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.215.0|1.22.215.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.216.0|1.22.223.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.224.0|1.22.228.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.229.0|1.22.231.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.232.0|1.22.233.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.234.0|1.22.235.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.236.0|1.22.239.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.22.240.0|1.22.247.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.22.248.0|1.23.16.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.23.17.0|1.23.31.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.23.32.0|1.23.95.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.23.96.0|1.23.127.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.23.128.0|1.23.239.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.23.240.0|1.23.240.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.23.241.0|1.23.241.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.23.242.0|1.23.247.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|?|
+1.23.248.0|1.23.255.255|ind|mh|mumbai|broadband|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|tikona digital networks pvt ltd.|
+1.24.0.0|1.31.255.255|chn|15|hohhot|broadband|5|4|4|-1|040.814|0111.649|156|15967|39354|4|cn|0|0|+800|n|010000|chn|cncgroup china169 backbone|
+1.32.0.0|1.32.255.255|hkg|no region|hong kong|broadband|5|4|4|-1|022.276|0114.167|344|7310|390|4|hk|0|0|+800|n|?|hkg|?|
+1.33.0.0|1.33.5.255|jpn|36|tokushima|broadband|5|4|4|-1|034.069|0134.553|392|9630|433|4|jp|0|0|+900|n|770-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.6.0|1.33.13.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.14.0|1.33.15.255|jpn|14|kanagawa|broadband|5|4|4|-1|035.489|0139.637|392|9515|10830|4|jp|0|0|+900|n|221-0045|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.16.0|1.33.19.255|jpn|36|tokushima|broadband|5|4|4|-1|034.069|0134.553|392|9630|433|4|jp|0|0|+900|n|770-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.20.0|1.33.23.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.24.0|1.33.26.255|jpn|14|kanagawa|broadband|5|4|4|-1|035.489|0139.637|392|9515|10830|4|jp|0|0|+900|n|221-0045|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.27.0|1.33.27.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.28.0|1.33.28.255|jpn|14|kanagawa|broadband|5|4|4|-1|035.489|0139.637|392|9515|10830|4|jp|0|0|+900|n|221-0045|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.29.0|1.33.31.255|jpn|09|tochigi|broadband|5|4|4|-1|036.377|0139.738|392|9449|22156|4|jp|0|0|+900|n|328-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.32.0|1.33.37.255|jpn|27|osaka|broadband|5|4|4|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.38.0|1.33.39.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.40.0|1.33.43.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.44.0|1.33.46.255|jpn|10|gunma|broadband|5|4|4|-1|036.391|0139.000|392|9454|11080|4|jp|0|0|+900|n|377-1617|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.47.0|1.33.49.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.50.0|1.33.53.255|jpn|27|osaka|broadband|5|4|4|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.54.0|1.33.65.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.66.0|1.33.84.255|jpn|27|osaka|broadband|5|4|4|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.85.0|1.33.93.255|jpn|23|nagoya|broadband|5|4|4|-1|035.144|0136.916|392|9562|11213|4|jp|0|0|+900|n|289-0116|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.94.0|1.33.103.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.104.0|1.33.106.255|jpn|08|ibaraki|broadband|5|4|4|-1|036.279|0140.419|392|9440|24816|4|jp|0|0|+900|n|311-3137|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.107.0|1.33.123.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.124.0|1.33.127.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.128.0|1.33.128.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.129.0|1.33.129.7|jpn|12|abiko|broadband|5|5|5|-1|035.874|0140.035|392|9476|14638|4|jp|0|0|+900|n|270-1100|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.129.8|1.33.129.55|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.129.56|1.33.129.71|jpn|01|hakodate|broadband|5|5|5|-1|041.786|0140.745|392|9414|464|4|jp|0|0|+900|n|040-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.129.72|1.33.129.135|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.129.136|1.33.129.143|jpn|15|shibata|broadband|5|5|5|-1|037.944|0139.326|392|9528|20908|4|jp|0|0|+900|n|957-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.129.144|1.33.130.31|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.130.32|1.33.130.39|jpn|21|ikeno|broadband|5|5|5|-1|035.436|0136.574|392|9546|155851|4|jp|0|0|+900|n|503-2424|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.130.40|1.33.130.55|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.130.56|1.33.130.63|jpn|19|shoji|broadband|5|5|5|-1|035.480|0138.611|392|9540|155808|4|jp|0|0|+900|n|401-0336|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.130.64|1.33.130.167|jpn|13|tokyo|broadband|5|5|5|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.130.168|1.33.130.175|jpn|13|taito|broadband|5|5|5|-1|035.713|0139.795|392|9492|21214|4|jp|0|0|+900|n|110-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.130.176|1.33.130.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.131.0|1.33.131.87|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.131.88|1.33.131.95|jpn|13|taito|broadband|5|5|5|-1|035.713|0139.795|392|9492|21214|4|jp|0|0|+900|n|110-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.131.96|1.33.133.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.134.0|1.33.134.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.135.0|1.33.136.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.137.0|1.33.137.31|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.137.32|1.33.137.39|jpn|36|tokushima|broadband|5|5|5|-1|034.069|0134.553|392|9630|433|4|jp|0|0|+900|n|770-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.137.40|1.33.137.71|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.137.72|1.33.137.79|jpn|12|tateyama|broadband|5|5|5|-1|035.000|0139.881|392|9476|22871|4|jp|0|0|+900|n|294-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.137.80|1.33.138.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.139.0|1.33.139.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.140.0|1.33.140.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.141.0|1.33.141.255|jpn|13|taito|broadband|5|5|4|-1|035.713|0139.795|392|9492|21214|4|jp|0|0|+900|n|110-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.142.0|1.33.167.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.168.0|1.33.168.63|jpn|26|kameoka|broadband|5|4|4|-1|035.017|0135.576|392|9580|22176|4|jp|0|0|+900|n|621-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.168.64|1.33.168.255|jpn|23|okazaki|broadband|5|4|4|-1|034.957|0137.165|392|9562|14627|4|jp|0|0|+900|n|444-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.169.0|1.33.185.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.186.0|1.33.191.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.192.0|1.33.192.255|jpn|13|tokyo|broadband|5|5|5|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.193.0|1.33.193.63|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.193.64|1.33.193.71|jpn|15|shibata|broadband|5|5|5|-1|037.944|0139.326|392|9528|20908|4|jp|0|0|+900|n|957-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.193.72|1.33.193.175|jpn|13|tokyo|broadband|5|5|5|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.193.176|1.33.193.183|jpn|13|chiyoda|broadband|5|5|5|-1|035.690|0139.749|392|9492|43186|4|jp|0|0|+900|n|100-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.193.184|1.33.193.191|jpn|03|sokei|broadband|5|5|5|-1|039.622|0141.962|392|9429|155354|4|jp|0|0|+900|n|027-0024|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.193.192|1.33.195.95|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.195.96|1.33.195.103|jpn|12|asahi|broadband|5|5|5|-1|035.721|0140.657|392|9476|61353|4|jp|0|0|+900|n|289-2500|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.195.104|1.33.197.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.198.0|1.33.198.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.199.0|1.33.199.7|jpn|27|osaka|broadband|5|5|5|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.199.8|1.33.199.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.200.0|1.33.200.255|jpn|13|taito|broadband|5|5|4|-1|035.713|0139.795|392|9492|21214|4|jp|0|0|+900|n|110-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.201.0|1.33.201.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.202.0|1.33.202.143|jpn|27|osaka|broadband|5|3|3|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.202.144|1.33.202.159|jpn|46|china|broadband|5|5|5|-1|027.333|0128.575|392|9650|156381|4|jp|0|0|+900|n|891-9214|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.202.160|1.33.202.255|jpn|27|osaka|broadband|5|3|3|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.203.0|1.33.207.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.208.0|1.33.208.255|jpn|27|osaka|broadband|5|4|4|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.209.0|1.33.209.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.210.0|1.33.210.63|jpn|01|sapporo|broadband|5|4|4|-1|043.055|0141.345|392|9414|11217|4|jp|0|0|+900|n|004-0021|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.210.64|1.33.210.95|jpn|33|okayama|broadband|5|4|4|-1|034.666|0133.922|392|9615|409|4|jp|0|0|+900|n|575-0002|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.210.96|1.33.210.255|jpn|28|kobe|broadband|5|4|4|-1|034.685|0135.183|392|9598|11234|4|jp|0|0|+900|n|650-0048|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.211.0|1.33.211.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.212.0|1.33.212.63|jpn|11|soka|broadband|5|4|4|-1|035.827|0139.810|392|9459|14651|4|jp|0|0|+900|n|340-0000|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.212.64|1.33.212.255|jpn|27|osaka|broadband|5|4|4|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.213.0|1.33.213.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.214.0|1.33.220.255|jpn|33|okayama|broadband|5|4|4|-1|034.666|0133.922|392|9615|409|4|jp|0|0|+900|n|575-0002|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.221.0|1.33.222.255|jpn|13|tokyo|broadband|5|5|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.223.0|1.33.223.255|jpn|12|chiba|broadband|5|4|4|-1|035.596|0140.125|392|9476|11323|4|jp|0|0|+900|n|427-0001|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.224.0|1.33.231.255|jpn|13|tokyo|broadband|5|4|4|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.232.0|1.33.251.255|jpn|27|osaka|broadband|5|4|4|-1|034.678|0135.513|392|9584|405|4|jp|0|0|+900|n|575-0011|jpn|block of 32 as numbers from as2497 to as2528|
+1.33.252.0|1.33.255.255|jpn|33|okayama|broadband|5|4|4|-1|034.666|0133.922|392|9615|409|4|jp|0|0|+900|n|575-0002|jpn|block of 32 as numbers from as2497 to as2528|
+1.34.0.0|1.35.255.255|twn|tpe|taipei|broadband|5|4|4|-1|025.039|0121.509|158|12241|2764|4|tw|0|0|+800|n|100|twn|data communication business group|
+1.36.0.0|1.36.255.255|hkg|no region|hong kong|broadband|5|4|4|-1|022.276|0114.167|344|7310|390|4|hk|0|0|+800|n|?|hkg|pccw limited|
+1.37.0.0|1.37.255.255|phl|man|makati|broadband|5|4|4|-1|014.559|0121.021|608|12039|19306|4|ph|0|0|+800|n|1200|phl|globe telecoms|
+1.38.0.0|1.39.255.255|ind|mh|mumbai|mobile|5|4|3|-1|018.949|0072.831|356|1320|34785|4|in|0|0|+530|n|400001|ind|vodafone essar ltd. telecommunication - value added services|
+1.40.0.0|1.42.255.255|aus|ns|sydney|broadband|5|4|4|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|microplex pty ltd|
+1.43.0.0|1.44.255.255|aus|vi|melbourne|broadband|5|4|4|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|microplex pty ltd|
+1.45.0.0|1.45.255.255|chn|11|beijing|broadband|5|4|4|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|beijing cheeryzone scitech co. ltd|
+1.46.0.0|1.47.255.255|tha|10|bangkok|mobile|5|4|3|-1|013.749|0100.516|764|12224|11078|4|th|0|0|+700|n|10600|tha|total access communication plc.|
+1.48.0.0|1.49.255.255|chn|52|guiyang|broadband|5|4|4|-1|026.583|0106.717|156|12391|14426|4|cn|0|0|+800|n|550000|chn|no.31 jin-rong street|
+1.50.0.0|1.50.255.255|chn|64|yinchuan|broadband|5|4|4|-1|038.464|0106.274|156|10805|14500|4|cn|0|0|+800|n|750000|chn|?|
+1.51.0.0|1.51.31.255|chn|32|nanjing|broadband|5|4|4|-1|032.048|0118.768|156|10699|35076|4|cn|0|0|+800|n|210000|chn|china education and research network center|
+1.51.32.0|1.51.55.255|chn|32|changzhou|t1|5|4|4|-1|031.766|0119.948|156|10699|7409|4|cn|0|0|+800|n|213000|chn|china education and research network center|
+1.51.56.0|1.51.111.255|chn|32|nanjing|broadband|5|4|4|-1|032.048|0118.768|156|10699|35076|4|cn|0|0|+800|n|210000|chn|china education and research network center|
+1.51.112.0|1.51.119.255|chn|34|chuzhou|t1|5|4|4|-1|032.313|0118.305|156|10712|7414|4|cn|0|0|+800|n|239000|chn|china education and research network center|
+1.51.120.0|1.51.127.255|chn|34|hefei|t1|5|4|4|-1|031.861|0117.275|156|10712|7413|4|cn|0|0|+800|n|230000|chn|china education and research network center|
+1.51.128.0|1.51.143.255|chn|32|nanjing|broadband|5|4|4|-1|032.048|0118.768|156|10699|35076|4|cn|0|0|+800|n|210000|chn|china education and research network center|
+1.51.144.0|1.51.159.255|chn|37|jinan|t1|5|4|4|-1|036.656|0116.968|156|10729|14459|4|cn|0|0|+800|n|250000|chn|china education and research network center|
+1.51.160.0|1.51.167.255|chn|37|weifang|t1|5|4|4|-1|036.707|0119.094|156|10729|14461|4|cn|0|0|+800|n|261000|chn|china education and research network center|
+1.51.168.0|1.51.191.255|chn|37|dezhou|broadband|5|4|4|-1|037.446|0116.279|156|10729|20543|4|cn|0|0|+800|n|253000|chn|china education and research network center|
+1.51.192.0|1.51.255.255|chn|37|jinan|t1|5|4|4|-1|036.656|0116.968|156|10729|14459|4|cn|0|0|+800|n|250000|chn|china education and research network center|
+1.52.0.0|1.52.127.255|vnm|no region|hanoi|broadband|5|4|4|-1|021.032|0105.848|704|12263|14555|4|vn|0|0|+700|n|100000|vnm|the corporation for financing promoting technology|
+1.52.128.0|1.52.255.255|vnm|no region|hanoi|broadband|5|4|3|-1|021.032|0105.848|704|12263|14555|4|vn|0|0|+700|n|100000|vnm|the corporation for financing promoting technology|
+1.53.0.0|1.55.255.255|vnm|no region|hanoi|broadband|5|4|4|-1|021.032|0105.848|704|12263|14555|4|vn|0|0|+700|n|100000|vnm|the corporation for financing promoting technology|
+1.56.0.0|1.63.255.255|chn|23|harbin|broadband|5|4|4|-1|045.733|0126.612|156|10692|14419|4|cn|0|0|+800|n|150000|chn|cncgroup china169 backbone|
+1.64.0.0|1.65.255.255|hkg|no region|hong kong|broadband|5|4|4|-1|022.276|0114.167|344|7310|390|4|hk|0|0|+800|n|?|hkg|pccw limited|
+1.66.0.0|1.67.255.255|jpn|13|tokyo|broadband|5|4|3|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|japan network information center|
+1.68.0.0|1.71.255.255|chn|14|taiyuan|broadband|5|4|4|-1|037.893|0112.552|156|10673|39078|4|cn|0|0|+800|n|030000|chn|no.31 jin-rong street|
+1.72.0.0|1.79.255.255|jpn|13|tokyo|broadband|5|4|3|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|japan network information center|
+1.80.0.0|1.87.255.255|chn|61|xian|broadband|5|4|4|-1|034.265|0108.883|156|10797|7405|4|cn|0|0|+800|n|710000|chn|no.31 jin-rong street|
+1.88.0.0|1.91.255.255|chn|11|beijing|broadband|5|4|3|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|beijing gehua catv network co.ltd|
+1.92.0.0|1.92.15.255|chn|11|beijing|broadband|5|4|3|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|no.31 jin-rong street|
+1.92.16.0|1.95.255.255|chn|11|beijing|broadband|5|4|3|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.96.0.0|1.111.255.255|kor|11|seoul|broadband|5|4|3|-1|037.563|0126.993|410|25025|2261|4|kr|0|0|+900|n|135600|kor|korea telecom|
+1.112.0.0|1.115.255.255|jpn|13|tokyo|broadband|5|4|3|-1|035.676|0139.770|392|9492|2767|4|jp|0|0|+900|n|103-0013|jpn|?|
+1.116.0.0|1.119.255.255|chn|11|beijing|broadband|5|4|3|-1|039.912|0116.389|156|10664|3036|4|cn|0|0|+800|n|100000|chn|?|
+1.120.0.0|1.123.127.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.123.128.0|1.123.147.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.123.148.0|1.123.148.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.123.149.0|1.123.183.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.123.184.0|1.123.184.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.123.185.0|1.123.214.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.123.215.0|1.123.215.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.123.216.0|1.123.255.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.0.0|1.124.0.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.1.0|1.124.12.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.13.0|1.124.13.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.14.0|1.124.15.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.16.0|1.124.16.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.17.0|1.124.24.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.25.0|1.124.25.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.26.0|1.124.27.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.28.0|1.124.29.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.30.0|1.124.41.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.42.0|1.124.42.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.43.0|1.124.53.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.54.0|1.124.54.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.55.0|1.124.65.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.66.0|1.124.66.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.67.0|1.124.91.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.92.0|1.124.92.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.93.0|1.124.126.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.127.0|1.124.127.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.128.0|1.124.156.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.157.0|1.124.157.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.158.0|1.124.173.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.174.0|1.124.174.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.175.0|1.124.177.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.178.0|1.124.178.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.179.0|1.124.213.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.214.0|1.124.214.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.215.0|1.124.219.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.220.0|1.124.220.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.221.0|1.124.222.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.223.0|1.124.223.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.224.0|1.124.242.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.124.243.0|1.124.243.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.124.244.0|1.125.20.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.21.0|1.125.21.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.22.0|1.125.22.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.23.0|1.125.23.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.24.0|1.125.25.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.26.0|1.125.26.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.27.0|1.125.34.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.35.0|1.125.35.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.36.0|1.125.91.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.92.0|1.125.92.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.93.0|1.125.100.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.101.0|1.125.101.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.102.0|1.125.104.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.105.0|1.125.105.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.106.0|1.125.130.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.131.0|1.125.131.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.132.0|1.125.163.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.164.0|1.125.164.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.165.0|1.125.207.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.208.0|1.125.208.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.209.0|1.125.214.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.215.0|1.125.215.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.216.0|1.125.244.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.125.245.0|1.125.245.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.125.246.0|1.125.255.255|aus|sa|adelaide|broadband|5|2|2|-1|-34.932|0138.593|36|689|4205|3|au|0|0|+1030|y|5000|aus|telstra pty ltd|
+1.126.0.0|1.126.5.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.6.0|1.126.6.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.7.0|1.126.11.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.12.0|1.126.12.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.13.0|1.126.52.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.53.0|1.126.53.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.54.0|1.126.79.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.80.0|1.126.80.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.81.0|1.126.104.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.105.0|1.126.105.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.106.0|1.126.123.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.124.0|1.126.124.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.125.0|1.126.159.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.160.0|1.126.160.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.161.0|1.126.191.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.192.0|1.126.192.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.193.0|1.126.195.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.196.0|1.126.196.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.197.0|1.126.201.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.202.0|1.126.202.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.203.0|1.126.246.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.126.247.0|1.126.247.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.126.248.0|1.127.34.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.35.0|1.127.35.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.36.0|1.127.39.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.40.0|1.127.40.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.41.0|1.127.93.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.94.0|1.127.94.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.95.0|1.127.139.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.140.0|1.127.140.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.141.0|1.127.141.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.142.0|1.127.142.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.143.0|1.127.178.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.179.0|1.127.179.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.180.0|1.127.202.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.203.0|1.127.203.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.204.0|1.127.210.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.211.0|1.127.211.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.212.0|1.127.220.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.221.0|1.127.221.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.222.0|1.127.223.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.224.0|1.127.224.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.225.0|1.127.238.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.239.0|1.127.239.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.240.0|1.127.241.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.127.242.0|1.127.243.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.127.244.0|1.127.255.255|aus|wa|perth|broadband|5|2|2|-1|-31.955|0115.868|36|703|11253|3|au|0|0|+800|n|6000|aus|telstra pty ltd|
+1.128.0.0|1.128.37.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.38.0|1.128.38.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.39.0|1.128.65.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.66.0|1.128.66.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.67.0|1.128.81.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.82.0|1.128.82.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.83.0|1.128.115.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.116.0|1.128.116.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.117.0|1.128.120.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.121.0|1.128.121.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.122.0|1.128.142.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.143.0|1.128.143.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.144.0|1.128.187.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.188.0|1.128.188.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.189.0|1.128.202.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.203.0|1.128.203.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.204.0|1.128.244.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.245.0|1.128.245.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.246.0|1.128.253.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.128.254.0|1.128.254.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.128.255.0|1.129.8.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.9.0|1.129.9.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.10.0|1.129.34.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.35.0|1.129.35.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.36.0|1.129.40.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.41.0|1.129.41.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.42.0|1.129.87.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.88.0|1.129.88.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.89.0|1.129.90.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.91.0|1.129.91.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.92.0|1.129.100.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.101.0|1.129.102.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.103.0|1.129.141.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.142.0|1.129.142.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.143.0|1.129.169.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.170.0|1.129.170.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.171.0|1.129.185.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.186.0|1.129.186.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.187.0|1.129.218.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.219.0|1.129.219.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.220.0|1.129.221.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.222.0|1.129.222.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.223.0|1.129.234.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.235.0|1.129.235.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.236.0|1.129.241.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.129.242.0|1.129.242.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.129.243.0|1.130.3.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.4.0|1.130.4.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.5.0|1.130.52.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.53.0|1.130.53.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.54.0|1.130.101.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.102.0|1.130.102.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.103.0|1.130.104.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.105.0|1.130.105.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.106.0|1.130.158.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.159.0|1.130.159.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.160.0|1.130.166.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.167.0|1.130.167.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.168.0|1.130.171.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.172.0|1.130.172.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.173.0|1.130.195.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.196.0|1.130.196.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.197.0|1.130.198.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.199.0|1.130.199.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.200.0|1.130.235.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.236.0|1.130.236.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.237.0|1.130.240.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.130.241.0|1.130.241.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.130.242.0|1.131.25.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.131.26.0|1.131.26.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.131.27.0|1.131.90.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.131.91.0|1.131.91.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.131.92.0|1.131.108.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.131.109.0|1.131.109.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.131.110.0|1.131.189.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.131.190.0|1.131.190.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.131.191.0|1.131.221.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.131.222.0|1.131.222.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.131.223.0|1.131.255.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.132.0.0|1.137.255.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.0.0|1.138.3.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.4.0|1.138.4.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.5.0|1.138.21.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.22.0|1.138.22.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.23.0|1.138.127.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.128.0|1.138.128.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.129.0|1.138.136.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.137.0|1.138.137.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.138.0|1.138.146.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.147.0|1.138.147.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.148.0|1.138.176.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.177.0|1.138.177.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.178.0|1.138.189.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.190.0|1.138.190.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.191.0|1.138.219.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.220.0|1.138.220.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.221.0|1.138.221.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.222.0|1.138.222.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.223.0|1.138.223.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.138.224.0|1.138.224.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.138.225.0|1.139.82.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.83.0|1.139.83.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.84.0|1.139.100.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.101.0|1.139.101.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.102.0|1.139.114.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.115.0|1.139.115.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.116.0|1.139.116.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.117.0|1.139.117.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.118.0|1.139.140.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.141.0|1.139.141.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.142.0|1.139.221.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.222.0|1.139.222.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.223.0|1.139.242.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.243.0|1.139.243.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.244.0|1.139.250.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.139.251.0|1.139.251.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.139.252.0|1.139.255.255|aus|vi|melbourne|broadband|5|2|2|-1|-37.815|0144.961|36|602|5601|3|au|0|0|+1100|y|3000|aus|telstra pty ltd|
+1.140.0.0|1.143.255.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.0.0|1.144.8.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.9.0|1.144.9.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.10.0|1.144.68.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.69.0|1.144.69.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.70.0|1.144.91.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.92.0|1.144.92.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.93.0|1.144.93.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.94.0|1.144.94.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.95.0|1.144.103.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.104.0|1.144.104.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.105.0|1.144.128.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.129.0|1.144.129.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.130.0|1.144.136.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.137.0|1.144.137.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.138.0|1.144.150.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.151.0|1.144.151.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.152.0|1.144.159.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.160.0|1.144.160.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.161.0|1.144.169.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.170.0|1.144.170.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.171.0|1.144.234.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.144.235.0|1.144.235.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.144.236.0|1.145.22.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.23.0|1.145.23.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.24.0|1.145.25.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.26.0|1.145.26.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.27.0|1.145.37.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.38.0|1.145.38.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.39.0|1.145.44.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.45.0|1.145.45.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.46.0|1.145.48.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.49.0|1.145.49.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.50.0|1.145.83.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.84.0|1.145.84.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.85.0|1.145.86.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.87.0|1.145.87.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.88.0|1.145.108.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.109.0|1.145.109.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.110.0|1.145.119.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.120.0|1.145.120.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.121.0|1.145.186.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.187.0|1.145.187.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.188.0|1.145.202.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.203.0|1.145.204.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.205.0|1.145.209.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.210.0|1.145.210.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.211.0|1.145.212.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.213.0|1.145.213.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.214.0|1.145.223.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.224.0|1.145.224.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.225.0|1.145.229.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.230.0|1.145.230.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.231.0|1.145.238.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.145.239.0|1.145.239.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.145.240.0|1.146.6.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.7.0|1.146.7.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.8.0|1.146.50.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.51.0|1.146.51.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.52.0|1.146.82.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.83.0|1.146.83.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.84.0|1.146.94.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.95.0|1.146.95.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.96.0|1.146.117.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.118.0|1.146.118.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.119.0|1.146.132.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.133.0|1.146.133.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.134.0|1.146.184.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.185.0|1.146.185.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.186.0|1.146.221.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.222.0|1.146.222.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.223.0|1.146.224.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.225.0|1.146.225.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.226.0|1.146.228.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.229.0|1.146.229.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.230.0|1.146.233.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.146.234.0|1.146.234.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.146.235.0|1.147.8.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.9.0|1.147.9.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.10.0|1.147.25.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.26.0|1.147.26.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.27.0|1.147.46.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.47.0|1.147.47.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.48.0|1.147.94.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.95.0|1.147.95.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.96.0|1.147.131.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.132.0|1.147.133.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.134.0|1.147.136.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.137.0|1.147.137.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.138.0|1.147.149.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.150.0|1.147.150.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.151.0|1.147.163.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.164.0|1.147.164.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.165.0|1.147.167.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.168.0|1.147.168.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.169.0|1.147.173.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.174.0|1.147.174.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.175.0|1.147.192.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.147.193.0|1.147.193.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.147.194.0|1.148.28.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.29.0|1.148.29.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.30.0|1.148.38.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.39.0|1.148.39.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.40.0|1.148.41.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.42.0|1.148.42.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.43.0|1.148.45.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.46.0|1.148.46.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.47.0|1.148.100.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.101.0|1.148.101.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.102.0|1.148.129.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.130.0|1.148.130.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.131.0|1.148.168.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.169.0|1.148.169.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.170.0|1.148.184.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.148.185.0|1.148.185.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.148.186.0|1.149.10.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.149.11.0|1.149.11.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.149.12.0|1.149.19.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.149.20.0|1.149.20.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.149.21.0|1.149.81.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.149.82.0|1.149.82.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.149.83.0|1.149.90.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.149.91.0|1.149.91.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
+1.149.92.0|1.149.112.255|aus|ns|sydney|broadband|5|2|2|-1|-33.868|0151.210|36|688|3584|3|au|0|0|+1100|y|2000|aus|telstra pty ltd|
+1.149.113.0|1.149.113.255|aus|ct|canberra|broadband|5|4|3|-1|-35.331|0149.128|36|809|10808|3|au|0|0|+1100|y|2600|aus|telstra pty ltd|
