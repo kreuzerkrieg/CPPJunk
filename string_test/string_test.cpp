@@ -2,10 +2,6 @@
 //
 
 #include "stdafx.h"
-#include <string>
-#include <vector>
-#include <iostream>
-#include <boost\timer.hpp>
 
 void string_test()
 {
@@ -35,17 +31,19 @@ void string_test()
 }
 
 #define VEC_SIZE 10
-void fill_vector(std::vector<int> &vec)
+template <typename T>
+void fill_vector(std::vector<T> &vec)
 {
 	for (int i = 0; i < VEC_SIZE; i++)
 	{
-		vec.push_back(rand());
+		vec.push_back(boost::lexical_cast<T>(rand()));
 	}
 }
 
-void vector_test()
+template <typename T>
+void vector_test(std::vector<T> &tmp)
 {
-	std::vector<int> tmp;
+	std::cout << "Testing vector of " << typeid(T).name() << " type" << std::endl << std::endl;
 	tmp.reserve(VEC_SIZE);
 	boost::timer t;
 	t.restart();
@@ -72,7 +70,7 @@ void vector_test()
 	t.restart();
 	for (int i = 0; i < 100000000; i++)
 	{
-		std::vector<int> tmp_loc;
+		std::vector<T> tmp_loc;
 		tmp_loc.reserve(VEC_SIZE);
 		fill_vector(tmp_loc);
 	}
@@ -83,7 +81,11 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	srand(time(NULL));
 	string_test();
-	vector_test();
+	std::vector <int> int_vec;
+	vector_test(int_vec);
+
+	std::vector <std::string> str_vec;
+	vector_test(str_vec);
 	return 0;
 }
 

@@ -13,3 +13,9 @@
 
 
 // TODO: reference additional headers your program requires here
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <boost\timer.hpp>
+#include <boost\lexical_cast.hpp>
