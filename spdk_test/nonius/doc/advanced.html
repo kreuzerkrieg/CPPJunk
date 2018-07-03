@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.png" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Nonius: statistics-powered micro-benchmarking framework</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Nonius</h1>
+          <h2>A C++ micro-benchmarking framework</h2>
+        </header>
+
+        <hr>
+
+        <section id="main_content">
+            <h2 id="advanced-features">Advanced features</h2>
+
+<h3 id="custom-entry-point">Custom entry point</h3>
+
+<p>Nonius comes with a default <code>main</code> function that drives the benchmarking process. However, sometimes it might be necessary
+to write your own <code>main</code> function. In order to do this, your code should not define <code>NONIUS_RUNNER</code> and have a <code>main</code>
+function instead. That function can then invoke the default benchmark driver by calling <code>nonius::main</code> or <code>nonius::go</code>.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">namespace</span> <span class="n">nonius</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">default_clock</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">);</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">default_clock</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Iterator</span><span class="o">&gt;</span>
+    <span class="kt">void</span> <span class="n">go</span><span class="p">(</span><span class="n">configuration</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">Iterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">Iterator</span> <span class="n">last</span><span class="p">,</span> <span class="n">reporter</span><span class="o">&amp;</span> <span class="n">rep</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><code>nonius::main</code> is exactly what you would get by defining <code>NONIUS_RUNNER</code>. This is useful if you want to filter
+command-line arguments, initialize something before nonius runs, or do something afterwards.</p>
+
+<p><code>nonius::go</code> only runs the benchmarks, without any of the housekeeping tasks like parsing command-line arguments. The
+function takes four parameters: a <code>configuration</code> object that defines the parameters of the run, a pair of iterators for
+<code>benchmark</code> objects, and the <code>reporter</code> to be used by the run.</p>
+
+
+        </section>
+
+        <footer>
+          Nonius is maintained by <a href="https://github.com/rmartinho">rmf</a><br>
+          Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>
+

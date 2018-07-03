@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.png" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Nonius: statistics-powered micro-benchmarking framework</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Nonius</h1>
+          <h2>A C++ micro-benchmarking framework</h2>
+        </header>
+
+        <hr>
+
+        <section id="main_content">
+            <h2 id="contributor-guide">Contributor guide</h2>
+
+<p>Contributions to nonius are very welcome, whether by filing bugs, suggesting features, contributing code, or helping
+with documentation. This page provides some info that might be helpful when doing so.</p>
+
+<h3 id="reporting-bugs-and-suggesting-features">Reporting bugs and suggesting features</h3>
+
+<p>If you find a bug in nonius, please open an issue in the <a href="https://github.com/rmartinho/nonius/issues">issue tracker</a>. Provide as much detail as you can. Suggested
+features also go on the issue tracker.</p>
+
+<h3 id="building">Building</h3>
+
+<p>To build the nonius single-header file, the examples, and the tests, you need to have a Python installation and the
+<a href="https://ninja-build.org">ninja</a> build tool.</p>
+
+<p>Start by running the boostrap script from the repository root:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> tools/bootstrap.py</code></pre></figure>
+
+<p>This script accepts a few flags that you can checkout with <code>--help</code>.</p>
+
+<p>After running the bootstrapper you can use ninja to perform build tasks.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> <span class="c"># generate the single-header file in dist/nonius.h++</span>
+<span class="gp">$</span> ninja header
+
+<span class="gp">$</span> <span class="c"># build the documentation in dist/doc/ (this requires jekyll and pygments to be installed)</span>
+<span class="gp">$</span> ninja docs
+
+<span class="gp">$</span> <span class="c"># build the examples in bin/examples/</span>
+<span class="gp">$</span> ninja examples
+
+<span class="gp">$</span> <span class="c"># build the test runner in bin/test</span>
+<span class="gp">$</span> ninja <span class="nb">test</span></code></pre></figure>
+
+<p>Currently, if you create new files, ninja won’t know about them until the bootstrap script is re-run. You can force this
+by simply <code>touch</code>ing the bootstrap script before running ninja. It will then pick up all the new files.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> touch tools/bootstrap.py
+<span class="gp">$</span> ninja examples
+<span class="go">[1/1] BOOTSTRAP</span>
+<span class="go">[1/2] C++ examples/example6.c++</span></code></pre></figure>
+
+<h3 id="writing-code">Writing code</h3>
+
+<p>Please try to keep coding style consistent throughout the repository.</p>
+
+<p>All macros starts with <code>NONIUS_</code> for namespacing purposes, and everything else goes inside the <code>nonius</code> namespace.
+Please hide implementation details in the <code>nonius::detail</code> namespace.</p>
+
+<p>Nonius should work with GCC, clang, and Visual C++. The versions supported are as follows:</p>
+
+<ul>
+  <li>for GCC, the latest minor and patch of each of the last three major versions (as of August 12, 2016, that means
+versions 4.9.4, 5.4, and 6.1 are supported);</li>
+  <li>for clang, the latest patch of each of the last three minor versions, according to the LLVM project versioning scheme,
+not according to Apple’s (as of August 12, 2016, that means versions 3.6.2, 3.7.1, and 3.8.1 are supported);</li>
+  <li>for Visual C++ the latest minor and patch of each of the last three major versions, starting with Visual Studio 2015
+(as of August 12, 2016, that means only the compiler—cl.exe, not the IDE—version 19.00.24213.1 is
+supported);</li>
+</ul>
+
+<p>C++ feature use should be limited in such a way that all these versions are supported.</p>
+
+<p>Currently nonius depends on Boost for some functionality. The versions of Boost that are supported are the latest
+patches of each of the last three minor versions (as of August 12, 2016, that means versions 1.59.0, 1.60.0, and 1.61.0
+are supported).</p>
+
+<h4 id="branches-tags-releases">Branches, tags, releases</h4>
+
+<p>If you want to contribute code, make a pull request against the <code>devel</code> branch in the <a href="https://github.com/rmartinho/nonius">main repository</a>. Once it has
+been reviewed and approved it will be merged. The <code>devel</code> branch tracks all code that is pending for the next release.</p>
+
+<p>Once properly tested on all supported platforms, the <code>devel</code> branch is merged into the <code>stable</code> branch, tagged with a
+release number, and a new release entry is added on GitHub.</p>
+
+<h4 id="writing-documentation">Writing documentation</h4>
+
+<p>Documentation is kept in the <code>doc/</code> folder, in the form of a Jekyll website.</p>
+
+<p>All interfaces intended for public consumption should be described in the documentation. Currently there is no
+reference-style documentation as the number of interfaces exposed is low; descriptive prose is preferred.</p>
+
+<p>Pull requests that introduce new features will not be merged until the documentation is written. This ensures that on
+every merge to the <code>devel</code> branch, the documentation in the repo reflects the current state of the code.</p>
+
+<p>Documentation is automatically picked up every day and served at nonius.io.</p>
+
+<ul>
+  <li>documentation for the latest release is served from <a href="https://nonius.io/">https://nonius.io/</a>;</li>
+  <li>documentation for older releases are served from https://nonius.io/vM.m/, where <code>M</code> is the major number and <code>m</code> is the minor number (e.g.
+<a href="https://nonius.io/v1.1/">https://nonius.io/v1.1/</a>);</li>
+  <li>documentation for the latest <code>devel</code> branch is served from <a href="https://nonius.io/devel/">https://nonius.io/devel/</a>;</li>
+</ul>
+
+<h3 id="licensing">Licensing</h3>
+
+<blockquote>
+  <p><em><a href="https://rmf.io/robot">rmf</a></em>: When I started nonius, I put the code in the public domain using <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. I would like it to continue as such,
+so I ask that you license your contributions under CC0 as well. Files in the repository have a notice stating that
+nonius is dedicated to the public domain worldwide, and that the authors are all the contributors.</p>
+</blockquote>
+
+
+        </section>
+
+        <footer>
+          Nonius is maintained by <a href="https://github.com/rmartinho">rmf</a><br>
+          Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>
+
