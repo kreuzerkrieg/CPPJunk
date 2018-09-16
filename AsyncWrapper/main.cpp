@@ -7,9 +7,9 @@ class Asyncronizer
 {
 public:
 	template<typename Type, typename ...Args, std::enable_if_t<std::is_void<Type>::value>* = nullptr>
-	std::future<Type> call(Type (ValueType::*mf)(Args...), Args&& ... args)
+	std::future<void> call(Type (ValueType::*mf)(Args...), Args&& ... args)
 	{
-		std::promise<Type> promise;
+		std::promise<void> promise;
 		auto future = promise.get_future();
 		std::thread([promise {std::move(promise)}, &mf, this](Args&& ... args) mutable {
 			try {
@@ -41,9 +41,9 @@ public:
 	}
 
 	template<typename Type, typename ...Args, std::enable_if_t<std::is_void<Type>::value>* = nullptr>
-	std::future<Type> call(Type (ValueType::*mf)(Args...) const, Args&& ... args)
+	std::future<void> call(Type (ValueType::*mf)(Args...) const, Args&& ... args)
 	{
-		std::promise<Type> promise;
+		std::promise<void> promise;
 		auto future = promise.get_future();
 		std::thread([promise {std::move(promise)}, &mf, this](Args&& ... args) mutable {
 			try {
@@ -120,11 +120,11 @@ private:
 
 int main()
 {
-	auto result1 = Asyncronizer<Test>().call(&Test::Test1);
-	auto result2 = Asyncronizer<Test>().call(&Test::Test2, 1, 2);
-	auto result3 = Asyncronizer<Test>().call(&Test::Test3, 3.14);
-	auto result4 = Asyncronizer<Test>().call(&Test::Test4);
-	auto result5 = Asyncronizer<Test>().call(&Test::Test5);
+	//auto result1 = Asyncronizer<Test>().call(&Test::Test1);
+	auto result2 = Asyncronizer<Test>().call(&Test::Test2, 1ul, 2u);
+	//auto result3 = Asyncronizer<Test>().call(&Test::Test3, 3.14);
+//	auto result4 = Asyncronizer<Test>().call(&Test::Test4);
+//	auto result5 = Asyncronizer<Test>().call(&Test::Test5);
 
 	return 0;
 }
