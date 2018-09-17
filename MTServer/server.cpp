@@ -17,9 +17,11 @@ int main(int argc, char** argv)
 		serverConfig.uri = "tcp://*:55556";
 		serverConfig.serverWorkers = 32;
 		MServer<functorType> server(std::move(serverConfig), std::move(lambda));
-		while (true) { std::this_thread::sleep_for(std::chrono::seconds(10)); }
+		std::this_thread::sleep_for(std::chrono::seconds(10));
+		server.stop();
 	}
 	catch (const std::exception& ex) {
 		std::cout << "Server failed. Reason: " << ex.what() << std::endl;
 	}
+
 }

@@ -4,3 +4,7 @@ PROJECT(AsyncWrapper)
 SET(CMAKE_CXX_STANDARD 17)
 
 ADD_EXECUTABLE(AsyncWrapper main.cpp)
+
+TARGET_LINK_LIBRARIES(AsyncWrapper
+                      pthread
+                      )

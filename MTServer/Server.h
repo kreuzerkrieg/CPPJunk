@@ -39,25 +39,29 @@ private:
 
 				while (!shouldStop) {
 					try {
+						zmq::pollitem_t items[] = {{workerSocket, 0, ZMQ_POLLIN, 0}};
+						zmq::poll(&items[0], 1, 1000);
 						std::vector<zmq::message_t> messages;
 
-						while (1) {
-							zmq::message_t msg;
-							workerSocket.recv(&msg);
-							messages.emplace_back(std::move(msg));
-							int64_t more;
-							size_t more_size = sizeof(more);
-							workerSocket.getsockopt(ZMQ_RCVMORE, &more, &more_size);
-							if (!more) {
-								break;
+						if (items[0].revents & ZMQ_POLLIN) {
+							while (1) {
+								zmq::message_t msg;
+								workerSocket.recv(&msg);
+								messages.emplace_back(std::move(msg));
+								int64_t more;
+								size_t more_size = sizeof(more);
+								workerSocket.getsockopt(ZMQ_RCVMORE, &more, &more_size);
+								if (!more) {
+									break;
+								}
 							}
-						}
-						for (auto i = 0ul; i < messages.size(); ++i) {
-							if (i < messages.size() - 1) {
-								workerSocket.send(messages[i], ZMQ_SNDMORE);
-							}
-							else {
-								workerSocket.send(requestProcessor(messages[i]));
+							for (auto i = 0ul; i < messages.size(); ++i) {
+								if (i < messages.size() - 1) {
+									workerSocket.send(messages[i], ZMQ_SNDMORE);
+								}
+								else {
+									workerSocket.send(requestProcessor(messages[i]));
+								}
 							}
 						}
 					}
