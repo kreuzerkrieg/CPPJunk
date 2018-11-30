@@ -24,8 +24,8 @@ public:
 		T retVal;
 		auto buff = reinterpret_cast<std::byte*>(&retVal);
 		auto size = sizeof(T);
-		auto res = recv(sock, buff, size, 0);
-		while (res < size || res == EWOULDBLOCK) {
+		auto res = recv(sock, buff, size, MSG_DONTWAIT);
+		while ((res < size || errno == EWOULDBLOCK) && size > 0) {
 			// boost::fibers::this_fiber::yield() here
 			if (res > 0) {
 				size -= res;

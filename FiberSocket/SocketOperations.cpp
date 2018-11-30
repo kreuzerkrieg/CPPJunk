@@ -3,8 +3,8 @@
 void SockOp::Send(void* buff, size_t size)
 {
 	auto byteBuff = reinterpret_cast<std::byte*>(buff);
-	auto res = send(sock, buff, size, 0);
-	while (res < size || res == EWOULDBLOCK) {
+	auto res = send(sock, buff, size, MSG_DONTWAIT);
+	while ((res < size || errno == EWOULDBLOCK) && size > 0) {
 		// boost::fibers::this_fiber::yield() here
 		if (res > 0) {
 			size -= res;
@@ -20,8 +20,8 @@ std::vector<std::byte> SockOp::Receive(size_t size)
 {
 	std::vector<std::byte> retVal;
 	retVal.resize(size);
-	auto res = recv(sock, retVal.data(), retVal.size(), 0);
-	while (res < size || res == EWOULDBLOCK) {
+	auto res = recv(sock, retVal.data(), retVal.size(), MSG_DONTWAIT);
+	while ((res < size || errno == EWOULDBLOCK) && size > 0) {
 		// boost::fibers::this_fiber::yield() here
 		if (res > 0) {
 			size -= res;

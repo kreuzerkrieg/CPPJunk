@@ -21,7 +21,7 @@ int main()
 	uint64_t count = 0;
 	uint64_t throughput = 0;
 	size_t blockSize = 512;
-	int64_t cycles = 1'000'000;
+	int64_t cycles = 1'000;
 	std::vector<std::byte> msg(blockSize, std::byte(0));
 
 	client.SendMessage(msg);
