@@ -9,3 +9,4 @@
 *ipch/
 *obj/
 *bin/
+cmake-build-*
