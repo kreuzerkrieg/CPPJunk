@@ -4,13 +4,6 @@
 #include "Client.h"
 #include "SocketSetup.h"
 
-void CheckErrno(int err)
-{
-	if (err != 0) {
-		throw std::runtime_error("Function call failed! Reason: " + std::string(strerror(errno)));
-	}
-}
-
 Client::Client()
 {
 }

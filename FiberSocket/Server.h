@@ -6,7 +6,9 @@
 #include <libexplain/socket.h>
 #include <chrono>
 #include "SocketOperations.h"
+#include <netinet/tcp.h>
 #include "Client.h"
+#include "ErrorHandling.h"
 
 class Server
 {

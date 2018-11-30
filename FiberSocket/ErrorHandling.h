@@ -1,13 +1,3 @@
-//
-// Created by ernest on 11/30/18.
-//
+#pragma once
 
-#ifndef FIBERSOCKET_ERRORHANDLING_H
-#define FIBERSOCKET_ERRORHANDLING_H
-
-class ErrorHandling
-{
-
-};
-
-#endif //FIBERSOCKET_ERRORHANDLING_H
+void CheckErrno(int err);

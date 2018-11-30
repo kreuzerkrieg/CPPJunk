@@ -4,8 +4,6 @@
 
 using namespace std::chrono_literals;
 
-void CheckErrno(int err);
-
 class Client
 {
 public:

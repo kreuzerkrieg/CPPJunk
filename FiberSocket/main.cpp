@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <vector>
 #include "Client.h"
+#include "Server.h"
 
 using namespace std::chrono_literals;
 

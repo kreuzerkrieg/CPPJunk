@@ -3,7 +3,9 @@
 #include <cstring>
 #include <stdexcept>
 #include <libexplain/socket.h>
+#include <netinet/tcp.h>
 #include "SocketSetup.h"
+#include "ErrorHandling.h"
 
 int InitServerSocket(uint16_t port)
 {
