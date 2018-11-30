@@ -9,7 +9,7 @@
 
 using namespace std;
 
-static std::atomic<uint64_t> counter {0};
+static std::atomic<uint64_t> counter{0};
 
 void MClient::SendMessages(zmq::socket_t& soc, std::vector<zmq::message_t>& messages)
 {
@@ -112,7 +112,9 @@ MClient::MClient(MQConfig&& config) :
 						}
 						timeouts.erase(timeouts.begin());
 					}
-					else { timeDelta = chrono::steady_clock::now() - timeouts.begin()->first; }
+					else {
+						timeDelta = chrono::steady_clock::now() - timeouts.begin()->first;
+					}
 				}
 			}
 			{

@@ -1,6 +1,7 @@
-//#define NONIUS_RUNNER
-//#include <nonius.h++>
-//#include <iostream>
+#define NONIUS_RUNNER
+
+#include <nonius.h++>
+#include <iostream>
 #include <boost/fiber/future/future.hpp>
 #include <boost/fiber/future/promise.hpp>
 //#include <boost/fiber/barrier.hpp>
@@ -20,12 +21,14 @@
 //    size_t _4 = 0;
 //};
 
-struct lambder {
-    decltype(auto) createTask(boost::fibers::future<void> &fut) {
-        boost::fibers::promise<void> prom;
-        fut = prom.get_future();
-        return [p{std::move(prom)}]()mutable { p.set_value(); };
-    }
+struct lambder
+{
+	decltype(auto) createTask(boost::fibers::future<void>& fut)
+	{
+		boost::fibers::promise<void> prom;
+		fut = prom.get_future();
+		return [p{std::move(prom)}]()mutable { p.set_value(); };
+	}
 };
 
 //struct bar {
@@ -47,42 +50,45 @@ struct lambder {
 //    std::vector<test<decltype(bar::createLambda())>::type> _vec;
 //};
 
-struct fiber_worker {
-    fiber_worker() {
-        wthread = std::thread([self{this}]() {
-            for (int i = 0; i < 16; ++i) {
-                boost::fibers::fiber{
-                        [self]() {
-                            while (!self->ch.is_closed()) {
-                                (self->ch.value_pop())();
-                            }
-                        }}.detach();
-            }
-            while (!self->ch.is_closed()) {
-                (self->ch.value_pop())();
-            }
-        });
-    }
+struct fiber_worker
+{
+	fiber_worker()
+	{
+		wthread = std::thread([self{this}]() {
+			for (int i = 0; i < 16; ++i) {
+				boost::fibers::fiber{[self]() {
+					while (!self->ch.is_closed()) {
+						(self->ch.value_pop())();
+					}
+				}}.detach();
+			}
+			while (!self->ch.is_closed()) {
+				(self->ch.value_pop())();
+			}
+		});
+	}
 
+	boost::fibers::future<void> submit()
+	{
+		boost::fibers::future<void> retVal;
+		lambder l;
+		ch.push(l.createTask(retVal));
+		return retVal;
+	}
 
-    boost::fibers::future<void> submit() {
-        boost::fibers::future<void> retVal;
-        lambder l;
-        ch.push(l.createTask(retVal));
-        return retVal;
-    }
+	~fiber_worker()
+	{
+		ch.close();
+		wthread.join();
+	}
 
-    ~fiber_worker() {
-        ch.close();
-        wthread.join();
-    }
-
-    std::thread wthread;
-    static boost::fibers::future<void> future;
-    struct task {
-        using type = decltype((std::declval<lambder &>().createTask(future)));
-    };
-    boost::fibers::unbuffered_channel<task::type> ch;
+	std::thread wthread;
+	static boost::fibers::future<void> future;
+	struct task
+	{
+		using type = decltype((std::declval<lambder&>().createTask(future)));
+	};
+	boost::fibers::unbuffered_channel<task::type> ch;
 };
 
 //
@@ -97,17 +103,17 @@ struct fiber_worker {
 ////    });
 ////})
 ////
-////NONIUS_BENCHMARK("future/promise", [](nonius::chronometer meter) {
-////    meter.measure([] {
-////        std::promise<void> promise;
-////
-////        auto future = promise.get_future();
-////        task t;
-////        t.promise = std::move(promise);
-////        wk.submit(std::move(t));
-////        future.get();
-////    });
-////})
+NONIUS_BENCHMARK("future/promise", [](nonius::chronometer meter) {
+	meter.measure([] {
+		std::promise<void> promise;
+
+		auto future = promise.get_future();
+		task t;
+		t.promise = std::move(promise);
+		wk.submit(std::move(t));
+		future.get();
+	});
+})
 ////
 ////NONIUS_BENCHMARK("boost fiber future/promise", [](nonius::chronometer meter) {
 ////    meter.measure([] {
@@ -172,23 +178,23 @@ struct fiber_worker {
 ////    });
 ////})
 //
-fiber_worker bwk;
-
-int main() {
-    std::cout
-            << "===================================== ..:: Boost.Fibers ::.. ====================================="
-            << std::endl;
-    {
-        auto lambda = []() {
-            bwk.submit().get();
-            return 1;
-        };
-
-        Throughput<boost::fibers::fiber, decltype(lambda)> test(std::move(lambda), 1);
-        test.Start();
-
-        test.Stop();
-    }
+//fiber_worker bwk;
+//
+//int main() {
+//    std::cout
+//            << "===================================== ..:: Boost.Fibers ::.. ====================================="
+//            << std::endl;
+//    {
+//        auto lambda = []() {
+//            bwk.submit().get();
+//            return 1;
+//        };
+//
+//        Throughput<boost::fibers::fiber, decltype(lambda)> test(std::move(lambda), 1);
+//        test.Start();
+//
+//        test.Stop();
+//    }
 //    std::cout
 //            << "===================================== ..:: std::future/std::promise ::.. ====================================="
 //            << std::endl;
@@ -314,4 +320,4 @@ int main() {
 //        test.Start();
 //        test.Stop();
 //    }
-}
+//}

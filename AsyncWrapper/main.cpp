@@ -120,13 +120,15 @@ private:
 
 int main()
 {
+	using namespace std::chrono;
 	auto result1 = Asyncronizer<Test>().call(&Test::Test1);
 	auto result2 = Asyncronizer<Test>().call(&Test::Test2, 1ul, 2u);
 	auto result3 = Asyncronizer<Test>().call(&Test::Test3, 3.14);
 	auto result4 = Asyncronizer<Test>().call(&Test::Test4);
 	auto result5 = Asyncronizer<Test>().call(&Test::Test5);
-	std::cout << "result1: " << result1.get() << std::endl << "result2: " << result2.get() << std::endl << "result3: " << result3.get()
-			  << std::endl << "result4: " << std::is_void<decltype(result4.get())>::value << std::endl << "result5: " << result5.get()
-			  << std::endl;
+//	std::cout << "result1: " << result1.get() << std::endl << "result2: " << result2.get() << std::endl << "result3: " << result3.get()
+//			  << std::endl << "result4: " << std::is_void<decltype(result4.get())>::value << std::endl << "result5: " << result5.get()
+//			  << std::endl;
+	std::this_thread::sleep_for(3s);
 	return 0;
 }
