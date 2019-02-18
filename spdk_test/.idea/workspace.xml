@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="spdk_test" targetName="spdk" />
     </generated>
@@ -12,10 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="091adf83-4003-4607-99f8-449334519e1c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../AlignedBuffer/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AlignedBuffer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FiberSocket/GreenExecutor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FiberSocket/GreenExecutor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StrangeQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StrangeQueue/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StrangeQueue/Queue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/Server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/SocketOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/SocketOperations.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/SocketOperations.h" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/SocketOperations.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MTServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MTServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MTServer/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../MTServer/Server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MTServer/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../MTServer/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../boostcoro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../boostcoro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -23,7 +36,6 @@
     <ignored path="$PROJECT_DIR$/cmake-build-release-clang/" />
     <ignored path="$PROJECT_DIR$/cmake-build-relwithdebinfo/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +44,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Throughput.h" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Throughput.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
@@ -44,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="14202">
@@ -60,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="666">
@@ -69,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NVMeManager.h" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NVMeManager.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1368">
@@ -78,16 +90,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NVMeManager.cpp" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NVMeManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="110" column="39" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="39" />
+            <state relative-caret-position="918">
+              <caret line="66" column="108" selection-start-line="66" selection-start-column="108" selection-end-line="66" selection-end-column="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="queue.hpp" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NVMeStriper.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file:///usr/local/include/boost/lockfree/queue.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9396">
@@ -100,8 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NONIUS_BENCHMARK</find>
-      <find>Stop</find>
       <find>nvme_request_next_sge</find>
       <find>spdk_nvme_ns_cmd_writev</find>
       <find>spdk_nvme_ns_cmd_writev(struct</find>
@@ -130,6 +149,8 @@
       <find>LocklessQueue</find>
       <find>performTask</find>
       <find>submitTask</find>
+      <find>boost::l</find>
+      <find>lockfree</find>
     </findStrings>
     <replaceStrings>
       <replace>task-&gt;namespaces[0]</replace>
@@ -167,21 +188,12 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="2483" />
-    <option name="height" value="1413" />
+    <option name="y" value="25" />
+    <option name="width" value="2493" />
+    <option name="height" value="1415" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -241,7 +253,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TCPServer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
@@ -257,12 +269,23 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.spdk">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="spdk_test" RUN_TARGET_NAME="spdk" EXPLICIT_BUILD_TARGET_NAME="all" />
-    <configuration name="spdk" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="spdk_test" TARGET_NAME="spdk" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="spdk_test" RUN_TARGET_NAME="spdk" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="spdk_test" RUN_TARGET_NAME="spdk" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="spdk" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="spdk_test" TARGET_NAME="spdk" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="spdk_test" RUN_TARGET_NAME="spdk">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.spdk" />
     </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,27 +297,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1453552" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14671026" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Statistic" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.41538462" weight="0.32839313" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49311742" weight="0.3978159" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
       <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info anchor="bottom" id="CMake" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5081967" side_tool="true" visible="true" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.4918033" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.41538462" weight="0.32839313" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49149796" weight="0.19003116" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49311742" weight="0.3978159" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.37651822" visible="true" weight="0.27613103" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49149796" weight="0.19003116" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50878626" side_tool="true" visible="true" weight="0.32970452" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49121374" visible="true" weight="0.32970452" />
+      <window_info anchor="bottom" id="CMake" order="12" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="GCoverage" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" sideWeight="0.37651822" visible="true" weight="0.27613103" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,9 +338,6 @@
       </list>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
@@ -324,9 +349,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="SPDK NVMe tester" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="5" />
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="statThread" />
@@ -355,13 +377,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NVMeManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spdk/lib/nvme/nvme_rdma.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -475,13 +490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3168">
           <caret line="176" column="66" selection-start-line="176" selection-start-column="66" selection-end-line="176" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NVMeStriper.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -650,6 +658,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14202">
+          <caret line="789" column="23" selection-start-line="789" selection-start-column="23" selection-end-line="789" selection-end-column="23" />
+          <folding>
+            <element signature="e#52#69#0" expanded="true" />
+            <element signature="e#326#355#0" />
+            <element signature="e#13067#13108#0" />
+            <element signature="e#22595#24479#0" />
+            <element signature="e#24481#31931#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="666">
@@ -671,24 +693,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/NVMeManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14202">
-          <caret line="789" column="23" selection-start-line="789" selection-start-column="23" selection-end-line="789" selection-end-column="23" />
-          <folding>
-            <element signature="e#52#69#0" expanded="true" />
-            <element signature="e#326#355#0" />
-            <element signature="e#13067#13108#0" />
-            <element signature="e#22595#24479#0" />
-            <element signature="e#24481#31931#0" />
-          </folding>
+        <state relative-caret-position="918">
+          <caret line="66" column="108" selection-start-line="66" selection-start-column="108" selection-end-line="66" selection-end-column="108" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NVMeManager.cpp">
+    <entry file="file://$PROJECT_DIR$/NVMeStriper.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="110" column="39" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="39" />
+        <state relative-caret-position="290">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
         </state>
       </provider>
     </entry>

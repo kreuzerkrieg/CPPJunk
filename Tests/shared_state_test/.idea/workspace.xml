@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="shared_state_test" targetName="shared_state_test" />
     </generated>
@@ -12,15 +12,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="251003f5-68ae-4a23-9a5d-38f5cfbec6b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../BufferedOp/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BufferedOp/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../BufferedOp/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AsyncWrapper/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../AsyncWrapper/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../AsyncWrapper/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../AsyncWrapper/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../AlignedBuffer/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../AlignedBuffer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/Foo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/Foo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/cmake/CMakeExportTargets-config.cmake.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DPDKTest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DPDKTest/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FiberSocket/GreenExecutor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FiberSocket/GreenExecutor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../MPMSQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../MPMSQueue/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../MPMSQueue/MPMCQueue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/NVMeTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/thriftCompiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/NVMeManager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/NVMeManager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../NVMeTest/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../StrangeQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../StrangeQueue/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../StrangeQueue/Queue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gtestthrow/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gtestthrow/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spdk_test/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FiberSocket/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FiberSocket/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FiberSocket/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/Server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../FiberSocket/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../MTServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../MTServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MTServer/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../MTServer/Client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MTServer/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../MTServer/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../boostcoro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../boostcoro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spdk_test/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spdk_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../spdk_test/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,28 +66,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
-  <component name="FUSProjectUsageTrigger">
-    <session id="868132360">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-              <folding>
-                <element signature="e#22#43#0" expanded="true" />
-                <element signature="e#184#229#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -68,12 +89,6 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
@@ -82,9 +97,11 @@
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,12 +113,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Reduxio/reduxio_1" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -135,20 +151,11 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24958494" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25378013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.32972974" />
-      <window_info anchor="bottom" id="Statistic" />
-      <window_info anchor="bottom" id="Messages" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="CMake" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -156,28 +163,68 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="GCoverage" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Statistic" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32972974" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.32970452" />
+      <window_info anchor="bottom" id="CMake" order="14" />
+      <window_info anchor="bottom" id="Reviews" order="15" />
+      <window_info anchor="bottom" id="Gerrit" order="16" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="GCoverage" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="News Feed" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding>
-            <element signature="e#22#43#0" expanded="true" />
-            <element signature="e#184#229#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="198">
+          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
         </state>
       </provider>
     </entry>

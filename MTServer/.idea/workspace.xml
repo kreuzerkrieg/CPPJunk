@@ -13,17 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9bc4662-c0ba-4f76-8e85-083cd590b447" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../BufferedOp/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BufferedOp/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BufferedOp/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AsyncWrapper/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncWrapper/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AsyncWrapper/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncWrapper/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tests/shared_state_test/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Tests/shared_state_test/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FiberSocket/GreenExecutor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FiberSocket/GreenExecutor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/Server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/SocketOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/SocketOperations.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/SocketOperations.h" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/SocketOperations.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FiberSocket/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../boostcoro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../boostcoro/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -48,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="59" column="53" lean-forward="true" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+            <state relative-caret-position="100">
+              <caret line="140" column="47" lean-forward="true" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -273,7 +271,7 @@
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18716796" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18880261" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -587,8 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="59" column="53" lean-forward="true" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+        <state relative-caret-position="100">
+          <caret line="140" column="47" lean-forward="true" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
