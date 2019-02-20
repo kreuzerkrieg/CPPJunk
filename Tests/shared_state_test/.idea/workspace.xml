@@ -11,53 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="251003f5-68ae-4a23-9a5d-38f5cfbec6b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../AlignedBuffer/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../AlignedBuffer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/Foo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/Foo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../CMakeExportTargets/cmake/CMakeExportTargets-config.cmake.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DPDKTest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DPDKTest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../FiberSocket/GreenExecutor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../FiberSocket/GreenExecutor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../MPMSQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../MPMSQueue/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../MPMSQueue/MPMCQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/NVMeTest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/thriftCompiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/NVMeManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/NVMeManager.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../NVMeTest/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../StrangeQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../StrangeQueue/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../StrangeQueue/Queue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gtestthrow/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gtestthrow/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spdk_test/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FiberSocket/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FiberSocket/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FiberSocket/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/Server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/SocketOperations.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FiberSocket/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../FiberSocket/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MTServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../MTServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../boostcoro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../boostcoro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../spdk_test/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../spdk_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../spdk_test/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="251003f5-68ae-4a23-9a5d-38f5cfbec6b9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +25,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
+            <state relative-caret-position="252">
+              <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+              <folding>
+                <element signature="e#23#44#0" expanded="true" />
+                <element signature="e#185#230#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,6 +110,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25378013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -167,7 +126,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Statistic" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32970452" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.32970452" />
       <window_info anchor="bottom" id="CMake" order="14" />
@@ -220,11 +179,21 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="just blindly commit this mess" />
+    <option name="LAST_COMMIT_MESSAGE" value="just blindly commit this mess" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
+        <state relative-caret-position="252">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#23#44#0" expanded="true" />
+            <element signature="e#185#230#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
