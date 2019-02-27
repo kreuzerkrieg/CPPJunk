@@ -7,77 +7,59 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_TOOLCHAIN_FILE=/home/ernest/Development/fork/vcpkg/scripts/buildsystems/vcpkg.cmake" />
+      <configuration PROFILE_NAME="Debug-Remote Host" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Remote Host" GENERATION_OPTIONS="-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/test/vcpkg/scripts/buildsystems/vcpkg.cmake" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c111780-8861-47a2-b818-95efcbc2f694" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../AlignedBuffer/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AlignedBuffer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CMakeExportTargets/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CMakeExportTargets/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CMakeExportTargets/Foo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CMakeExportTargets/Foo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CMakeExportTargets/cmake/CMakeExportTargets-config.cmake.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FiberSocket/GreenExecutor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FiberSocket/GreenExecutor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MPMSQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MPMSQueue/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MPMSQueue/MPMCQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/NVMeTest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/thriftCompiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/NVMeManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/NVMeManager.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NVMeTest/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StrangeQueue/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StrangeQueue/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StrangeQueue/Queue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gtestthrow/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gtestthrow/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spdk_test/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FiberSocket/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FiberSocket/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FiberSocket/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/Server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FiberSocket/SocketOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/SocketOperations.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FiberSocket/SocketOperations.h" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/SocketOperations.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FiberSocket/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../FiberSocket/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MTServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MTServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../boostcoro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../boostcoro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spdk_test/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spdk_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spdk_test/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemoteDev/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../RemoteDev/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemoteDev/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../RemoteDev/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug-remote-host/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-Remote Host" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="126">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug-remote-host/Makefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2136" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug-remote-host/CMakeFiles/clion-environment.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="121" selection-start-line="2" selection-start-column="121" selection-end-line="2" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state>
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -87,11 +69,13 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>dp</find>
-      <find>dpdk</find>
       <find>include</find>
+      <find>dpdk</find>
+      <find>dpdk_debug</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/cmake-build-debug</dir>
+      <dir>$PROJECT_DIR$/cmake-build-debug-remote-host</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -101,8 +85,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../fork/vcpkg/scripts/buildsystems/vcpkg.cmake" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -126,6 +110,17 @@
             <path>
               <item name="DPDKTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="DPDKTest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DPDKTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DPDKTest" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug-remote-host" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DPDKTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DPDKTest" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug-remote-host" type="462c0819:PsiDirectoryNode" />
+              <item name="CMakeFiles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -153,7 +148,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="DPDKTest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DPDKTest" TARGET_NAME="DPDKTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DPDKTest" RUN_TARGET_NAME="DPDKTest">
+    <configuration name="DPDKTest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DPDKTest" TARGET_NAME="DPDKTest" CONFIG_NAME="Debug-Remote Host" RUN_TARGET_PROJECT_NAME="DPDKTest" RUN_TARGET_NAME="DPDKTest">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -162,29 +157,39 @@
   <component name="SvnConfiguration">
     <configuration />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26154473" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26452684" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="File Transfer" weight="0.32937366" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Reviews" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" />
-      <window_info anchor="bottom" id="CMake" order="9" weight="0.3281493" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="9" weight="0.32721382" />
       <window_info anchor="bottom" id="Gerrit" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Statistic" order="12" weight="0.32970452" />
+      <window_info anchor="bottom" id="Statistic" order="12" show_stripe_button="false" weight="0.32970452" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.3281493" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="15" />
-      <window_info active="true" anchor="bottom" id="Messages" order="16" visible="true" weight="0.3281493" />
+      <window_info anchor="bottom" id="Version Control" order="15" weight="0.32937366" />
+      <window_info active="true" anchor="bottom" id="Messages" order="16" visible="true" weight="0.32721382" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -197,13 +202,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/lib/cmake/dpdk/dpdk-config.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/local/lib/cmake/dpdk/dpdk-config.cmake" />
     <entry file="file://$PROJECT_DIR$/../../fork/vcpkg/installed/x64-linux/share/dpdk/dpdkConfig.cmake">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -224,17 +223,29 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug-remote-host/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        <state relative-caret-position="-2136" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug-remote-host/CMakeFiles/clion-environment.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="121" selection-start-line="2" selection-start-column="121" selection-end-line="2" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
         </state>
       </provider>
     </entry>
