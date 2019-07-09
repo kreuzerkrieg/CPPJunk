@@ -18,6 +18,7 @@ target_link_libraries(S3Test PRIVATE
                       aws-cpp-sdk-core
 #                      aws-cpp-sdk-dynamodb
 #                      aws-cpp-sdk-kinesis
+                      stdc++fs
                       pthread
                       dl
                       )
