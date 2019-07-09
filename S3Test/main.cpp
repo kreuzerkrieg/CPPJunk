@@ -104,7 +104,6 @@ void UploadFile(const std::string& bucket, const fs::path& file_name, const fs::
 
     Aws::S3::Model::CreateMultipartUploadRequest createMultipartRequest;
     createMultipartRequest.WithBucket(bucket.c_str());
-    //    createMultipartRequest.WithContentType(handle->GetContentType());
     createMultipartRequest.WithKey(file_name.c_str());
     auto createMultipartResponse = s3_client.CreateMultipartUpload(createMultipartRequest);
     Aws::String upload_id;
@@ -124,7 +123,6 @@ void UploadFile(const std::string& bucket, const fs::path& file_name, const fs::
             if((part_count * part_size) >= file_size)
                 break;
             futures.emplace_back(std::async(std::launch::async, [&, part{part_count++}]() {
-                Aws::S3::S3Client client;
                 Aws::S3::Model::UploadPartRequest object_request;
                 object_request.SetBucket(bucket.c_str());
                 object_request.SetKey(file_name.c_str());
