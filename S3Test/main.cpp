@@ -315,20 +315,26 @@ public:
         {
             throw std::runtime_error(new_name + " is not S3 fully qualified name.");
         }
-
-        auto source = (fs::path(bucket_name) / fs::path(object_name));
-        Aws::S3::Model::CopyObjectRequest request;
-        request.WithBucket(target_bucket.c_str()).WithKey(target_key.c_str()).WithCopySource(source.c_str());
-
-        auto response = s3_client.CopyObject(request);
-        if(response.IsSuccess())
+        if(isFile())
         {
-            return S3File(new_name);
+            auto source = (fs::path(bucket_name) / fs::path(object_name));
+            Aws::S3::Model::CopyObjectRequest request;
+            request.WithBucket(target_bucket.c_str()).WithKey(target_key.c_str()).WithCopySource(source.c_str());
+
+            auto response = s3_client.CopyObject(request);
+            if(response.IsSuccess())
+            {
+                return S3File(new_name);
+            }
+            else
+            {
+                // TODO EWZ: log error
+                return S3File();
+            }
         }
         else
         {
-            // TODO EWZ: log error
-            return S3File();
+
         }
         remove();
     }
@@ -365,12 +371,14 @@ public:
             while(!list.empty())
             {
                 Aws::Vector<Aws::S3::Model::ObjectIdentifier> objects;
-                std::transform(list.begin(), list.end(), objects.end(), [](const auto& object) {
+                std::transform(list.begin(), list.end(), std::back_inserter(objects), [](const auto& object) {
                     Aws::S3::Model::ObjectIdentifier retVal;
                     retVal.SetKey(object.GetKey());
+                    return retVal;
                 });
                 Aws::S3::Model::Delete delete_list;
                 delete_list.SetObjects(objects);
+                request.SetBucket(bucket_name.c_str());
                 request.SetDelete(delete_list);
                 auto result = s3_client.DeleteObjects(request);
                 if(result.IsSuccess())
@@ -386,7 +394,7 @@ public:
         }
         setNotFound();
     }
-    bool remove(bool recursive) {}
+    bool remove(bool /*recursive*/) { remove(); }
 
     void print()
     {
@@ -416,7 +424,7 @@ private:
     }
     void validate()
     {
-        if(lazy_result.valid())
+        if(__glibc_unlikely(lazy_result.valid()))
         {
             auto outcome = lazy_result.get();
             if(outcome.IsSuccess())
@@ -485,7 +493,7 @@ int main(int argc, char** argv)
     auto files = retriever.next(15);
     auto results = files.get();
 
-    fs::path p1("s3://dev-shadow/data/default/S3/ontime_replicated/tmp_fetch_1988102_0_0_0");
+    fs::path p1("s3://dev-shadow/data/default/S3");
     S3File file2(p1);
     file2.print();
     file2.remove();
