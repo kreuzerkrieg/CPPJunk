@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 #find_package(aws-cpp-sdk-kinesis CONFIG REQUIRED)
 #find_package(aws-cpp-sdk-s3 CONFIG REQUIRED)
 
-add_executable(S3Test main.cpp)
+add_executable(S3Test main.cpp S3File.cpp S3LazyListRetriever.cpp S3LazyListRetriever.h)
 target_link_libraries(S3Test PRIVATE
 #                      ${CMAKE_DL_LIBS}
 #                      OpenSSL::SSL
