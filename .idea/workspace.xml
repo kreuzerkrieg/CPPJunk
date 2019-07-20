@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -10,26 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d98ccaa-95b7-406c-bcf8-79a7b84c666a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ETCDClient/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ETCDClient/cmake/FindGRPC.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ETCDClient/etcd_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Watcher.h" beforeDir="false" afterPath="$PROJECT_DIR$/ETCDClient/Watcher.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etcd_client.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kv.grpc.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kv.grpc.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kv.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kv.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/auth.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ETCDClient/proto/auth.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/etcdserver.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ETCDClient/proto/etcdserver.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/kv.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ETCDClient/proto/kv.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/rpc.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ETCDClient/proto/rpc.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc.grpc.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc.grpc.pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc.pb.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc.pb.h" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/S3Test/DirectoryIterator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/S3Test/Fs.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/S3Test/Fs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S3Test/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/S3Test/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S3Test/S3File.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/S3Test/S3File.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S3Test/S3File.h" beforeDir="false" afterPath="$PROJECT_DIR$/S3Test/S3File.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S3Test/S3LazyListRetriever.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/S3Test/S3LazyListRetriever.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S3Test/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/S3Test/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,65 +27,12 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-110202792">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="GDB" value="18" />
-          <entry key="Makefile" value="4" />
-          <entry key="cpp" value="2296" />
-          <entry key="txt" value="34" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CMakeLists.txt" value="34" />
-          <entry key="GDBCommands" value="18" />
-          <entry key="Makefile" value="4" />
-          <entry key="ObjectiveC" value="2296" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Makefile" value="2" />
-          <entry key="cc" value="9" />
-          <entry key="cpp" value="2" />
-          <entry key="etcdTest (disassembly)" value="29" />
-          <entry key="gitignore" value="1" />
-          <entry key="h" value="9" />
-          <entry key="txt" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CMakeLists.txt" value="2" />
-          <entry key="Disassembly" value="29" />
-          <entry key="Makefile" value="2" />
-          <entry key="ObjectiveC" value="19" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Scratch" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.cidr.testingFrameworks.usages" />
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ETCDClient/etcd_client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1467">
+            <state relative-caret-position="10278">
               <caret line="571" column="9" selection-start-line="571" selection-start-column="9" selection-end-line="571" selection-end-column="9" />
               <folding>
                 <element signature="e#604#623#0" expanded="true" />
@@ -109,47 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.pb.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="5412" selection-start-line="5412" selection-end-line="5412" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.grpc.pb.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.pb.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="2240" selection-start-line="2240" selection-end-line="2240" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ETCDClient/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
               <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/client/channel_cc.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2322">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
             </state>
           </provider>
         </entry>
@@ -239,37 +139,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="etcd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="etcd" type="462c0819:PsiDirectoryNode" />
+              <item name="CPPJunk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CPPJunk" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="etcd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="etcd" type="462c0819:PsiDirectoryNode" />
+              <item name="CPPJunk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CPPJunk" type="462c0819:PsiDirectoryNode" />
               <item name="ETCDClient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="etcd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-            </path>
-            <path>
-              <item name="etcd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../grpc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
@@ -302,10 +194,9 @@
     </configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2664487" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26950747" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -315,14 +206,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49919027" weight="0.32840466" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32867134" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008097" side_tool="true" weight="0.39937598" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49959514" weight="0.3299532" />
-      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.3299611" />
+      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.33045357" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Statistic" order="14" />
+      <window_info anchor="right" id="make" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -357,9 +249,20 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -444,20 +347,8 @@
     <entry file="file://$USER_HOME$/grpc/include/grpcpp/impl/codegen/completion_queue.h" />
     <entry file="file://$USER_HOME$/grpc/include/grpcpp/impl/codegen/async_stream.h" />
     <entry file="file://$USER_HOME$/grpc/include/grpcpp/impl/codegen/client_context.h" />
-    <entry file="file://$PROJECT_DIR$/../grpc/third_party/protobuf/BUILD">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="79" column="50" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/third_party/protobuf/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../grpc/third_party/protobuf/BUILD" />
+    <entry file="file://$PROJECT_DIR$/../grpc/third_party/protobuf/README.md" />
     <entry file="file:///usr/local/include/grpcpp/grpcpp.h" />
     <entry file="file:///usr/local/include/grpcpp/create_channel.h" />
     <entry file="file:///usr/include/string.h">
@@ -485,13 +376,7 @@
       </provider>
     </entry>
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/proto_utils.h" />
-    <entry file="file://$PROJECT_DIR$/../grpc/third_party/protobuf/src/google/protobuf/message_lite.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../grpc/third_party/protobuf/src/google/protobuf/message_lite.cc" />
     <entry file="file:///usr/include/c++/7/bits/stl_pair.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-317">
@@ -515,140 +400,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/iomgr/pollset.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/iomgr/ev_posix.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="255" selection-start-line="255" selection-end-line="255" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/iomgr/pollset.cc" />
+    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/iomgr/ev_posix.cc" />
     <entry file="file:///usr/local/include/grpc/impl/codegen/grpc_types.h" />
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/status.h" />
-    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/surface/completion_queue.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="1002" selection-start-line="1002" selection-end-line="1002" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/iomgr/ev_epollex_linux.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="903" column="37" lean-forward="true" selection-start-line="903" selection-start-column="37" selection-end-line="903" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/surface/call.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="1873" selection-start-line="1873" selection-end-line="1873" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="84" column="51" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/common/completion_queue_cc.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/client/client_context.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/surface/completion_queue.cc" />
+    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/iomgr/ev_epollex_linux.cc" />
+    <entry file="file://$PROJECT_DIR$/../grpc/src/core/lib/surface/call.cc" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.cpp" />
+    <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/common/completion_queue_cc.cc" />
+    <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/client/client_context.cc" />
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/completion_queue.h" />
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/time.h" />
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/client_context.h" />
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/async_stream.h" />
     <entry file="file:///usr/local/include/grpcpp/impl/codegen/call.h" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
     <entry file="file://$PROJECT_DIR$/boostcoro/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2700" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc.grpc.pb.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/rpc.grpc.pb.cc" />
+    <entry file="file://$PROJECT_DIR$/rpc.pb.cc" />
+    <entry file="file://$PROJECT_DIR$/rpc.grpc.pb.h" />
+    <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/client/channel_cc.cc" />
+    <entry file="file://$PROJECT_DIR$/rpc.pb.h" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.pb.h" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.grpc.pb.cc" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.pb.cc" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc.pb.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129582">
-          <caret line="7199" column="12" selection-start-line="7199" selection-start-column="12" selection-end-line="7199" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc.grpc.pb.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8946">
-          <caret line="497" column="8" selection-start-line="497" selection-start-column="8" selection-end-line="497" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../grpc/src/cpp/client/channel_cc.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2322">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc.pb.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.pb.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="2240" selection-start-line="2240" selection-end-line="2240" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.grpc.pb.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/rpc.pb.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="5412" selection-start-line="5412" selection-end-line="5412" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile" />
     <entry file="file://$PROJECT_DIR$/ETCDClient/etcd_client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1467">
+        <state relative-caret-position="10278">
           <caret line="571" column="9" selection-start-line="571" selection-start-column="9" selection-end-line="571" selection-end-column="9" />
           <folding>
             <element signature="e#604#623#0" expanded="true" />
@@ -657,16 +444,6 @@
             <element signature="e#13540#13655#1" />
             <element signature="e#13658#13929#1" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>

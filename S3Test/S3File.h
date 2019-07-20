@@ -31,8 +31,8 @@ public:
 
     void print();
 
-private:
     static bool fqn2parts(const fs::path& fqn, std::string& bucket_name, std::string& object_name);
+private:
     void validate();
     void setNotFound();
     S3File copyFile2File(const std::string& new_name);

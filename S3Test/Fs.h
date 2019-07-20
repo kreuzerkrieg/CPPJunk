@@ -1,16 +1,11 @@
-//
-// Created by ernest on 7/18/19.
-//
+#pragma once
 
-#ifndef INC_2CF2EF47CDD94B7DA9F20AC011C2096E
-#define INC_2CF2EF47CDD94B7DA9F20AC011C2096E
+#include <experimental/filesystem>
 
+namespace fs = std::experimental::filesystem;
 
+fs::path s3PathFixer(const std::string& path);
 
-class FS {
+fs::path canonicalize(const fs::path& path);
 
-};
-
-
-
-#endif //INC_2CF2EF47CDD94B7DA9F20AC011C2096E
+bool S3fqn2parts(const fs::path& fqn, std::string& bucket_name, std::string& object_name);

@@ -1,4 +1,5 @@
 #include "S3File.h"
+#include "Fs.h"
 #include "S3LazyListRetriever.h"
 #include <aws/s3/model/CopyObjectRequest.h>
 #include <aws/s3/model/DeleteObjectRequest.h>
@@ -7,7 +8,7 @@
 
 S3File::S3File() {}
 S3File::S3File(const std::string& fully_qualified_name) : S3File(fs::path(fully_qualified_name)) {}
-S3File::S3File(const fs::path& fully_qualified_name) : fq_name(fully_qualified_name)
+S3File::S3File(const fs::path& fully_qualified_name) : fq_name(canonicalize(fully_qualified_name))
 {
     if(!fqn2parts(fq_name, bucket_name, object_name))
     {
