@@ -11,8 +11,7 @@ public:
     class DeferredProxy
     {
     public:
-        explicit DeferredProxy(S3LazyListRetriever& retriever_arg, Aws::S3::Model::ListObjectsV2OutcomeCallable&& waitable_arg);
-
+        DeferredProxy(S3LazyListRetriever& retriever_arg, Aws::S3::Model::ListObjectsV2OutcomeCallable&& waitable_arg);
         Aws::Vector<Aws::S3::Model::Object> get();
 
     private:
@@ -21,6 +20,15 @@ public:
     };
 
     S3LazyListRetriever(const std::string& bucket, const std::string& folder);
+    S3LazyListRetriever(const S3LazyListRetriever& rhs) { *this = rhs; }
+    S3LazyListRetriever& operator=(const S3LazyListRetriever& rhs)
+    {
+        next_token = rhs.next_token;
+        fq_name = rhs.fq_name;
+        bucket_name = rhs.bucket_name;
+        object_name = rhs.object_name;
+        have_more = rhs.have_more;
+    }
     DeferredProxy next(size_t max_files);
 
 private:

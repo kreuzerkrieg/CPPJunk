@@ -19,7 +19,8 @@ S3File::S3File(const fs::path& fully_qualified_name) : fq_name(canonicalize(full
     list_object_request.SetPrefix(object_name.c_str());
     list_object_request.SetDelimiter("/");
     list_object_request.SetMaxKeys(1);
-    lazy_result = s3_client.ListObjectsV2Callable(list_object_request);
+    lazy_result = std::async(std::launch::async,
+                             [list_object_request, s3_client{s3_client}]() { return s3_client.ListObjectsV2(list_object_request); });
 }
 bool S3File::operator==(const S3File& rhs) const { return fq_name == rhs.fq_name; }
 bool S3File::operator!=(const S3File& rhs) const { return !(*this == rhs); }
