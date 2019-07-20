@@ -104,3 +104,67 @@ std::string expandTokensSehe(const std::string& input, const std::unordered_map<
     }
     return builder.str();
 }
+
+void expandTokensKreuzerkrieg(std::string& input, const std::unordered_map<std::string, std::string>& tokens)
+{
+    std::string builder;
+    builder.reserve(input.size() * 2);
+    auto expand = [&builder, &tokens](auto const& key) {
+        auto match = tokens.find(key);
+
+        if(match == tokens.end())
+        {
+            return false;
+        }
+        else
+        {
+            builder.append(match->second);
+            return true;
+        }
+    };
+
+    auto begin = input.c_str();
+    auto end = begin + input.size();
+    while(begin < end)
+    {
+        auto span = strchr(begin, '$');
+        if(span != nullptr)
+        {
+            builder.append(begin, span);
+            begin = span;
+            auto tokenStart = begin;
+            if(begin < end)
+            {
+                if(*(++begin) == '(')
+                {
+                    ++begin;
+                    auto span = strchr(begin, ')');
+                    if(span > nullptr)
+                    {
+                        std::string token(begin, span);
+                        if(!expand(token))
+                        {
+                            builder.append(tokenStart, span + 3);
+                        }
+                        begin = span;
+                        ++begin;
+                    }
+                    else
+                    {
+                        builder += "$(";
+                    }
+                }
+                else
+                {
+                    builder += '$';
+                }
+            }
+        }
+        else
+        {
+            builder.append(begin, end);
+            begin = end;
+        }
+    }
+    input = builder;
+}
