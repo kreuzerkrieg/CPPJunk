@@ -9,7 +9,6 @@ clang-analyzer-*,
 google-*,
 -google-runtime-references,
 -google-readability-namespace-comments,
--google-readability-braces-around-statements,
 llvm-*,
 -llvm-namespace-comment,
 misc-*,
@@ -17,15 +16,13 @@ modernize-*,
 performance-*,
 portability-*,
 readability-*,
--readability-braces-around-statements,
--readability-else-after-return,
 -readability-implicit-bool-conversion,
 '
-WarningsAsErrors: ''
+WarningsAsErrors: 'true'
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
 FormatStyle:     none
-User:            ernest
+User:            kreuzerkrieg
 CheckOptions:
   - key:             google-readability-function-size.StatementThreshold
     value:           '800'
