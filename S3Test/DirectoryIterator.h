@@ -28,19 +28,20 @@ public:
             throw std::runtime_error(path.string() + " is not S3 fully qualified name.");
         }
         uuid = boost::uuids::random_generator()();
-        directory_retriever = std::make_shared<S3LazyListRetriever>(bucket_name, object_name);
+        end_iterator = std::make_unique<DirectoryIterator>();
+
+        directory_retriever = std::make_shared<S3LazyListRetriever>(bucket_name, object_name, false);
         auto list = directory_retriever->next(128).get();
         std::transform(list.begin(), list.end(), std::back_inserter(directory_chunk), [this](const auto& object) {
             fs::path new_fqn = "s3:/";
             new_fqn /= bucket_name;
-            new_fqn /= object.GetKey();
+            new_fqn /= object.c_str();
             return new_fqn;
         });
         if(directory_chunk.empty())
         {
             *this = *end_iterator;
         }
-        end_iterator = std::make_unique<DirectoryIterator>();
     }
     DirectoryIterator(const DirectoryIterator& rhs) { *this = rhs; }
     DirectoryIterator(DirectoryIterator&& rhs) noexcept = delete;
@@ -58,6 +59,7 @@ public:
         }
         else
             uuid = boost::uuids::uuid(boost::uuids::nil_generator()());
+        return *this;
     }
     DirectoryIterator& operator=(DirectoryIterator&& rhs) noexcept = delete;
 
@@ -84,7 +86,7 @@ public:
             std::transform(list.begin(), list.end(), std::back_inserter(directory_chunk), [this](const auto& object) {
                 fs::path new_fqn = "s3:/";
                 new_fqn /= bucket_name;
-                new_fqn /= object.GetKey();
+                new_fqn /= object.c_str();
                 return new_fqn;
             });
         }

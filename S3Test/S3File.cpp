@@ -106,7 +106,7 @@ bool S3File::remove()
     {
         Aws::S3::Model::DeleteObjectsRequest request;
         Aws::S3::Model::Delete delete_object;
-        S3LazyListRetriever retriever(bucket_name, object_name);
+        S3LazyListRetriever retriever(bucket_name, object_name, false);
         auto list = retriever.next(16).get();
 
         while(!list.empty())
@@ -114,7 +114,7 @@ bool S3File::remove()
             Aws::Vector<Aws::S3::Model::ObjectIdentifier> objects;
             std::transform(list.begin(), list.end(), std::back_inserter(objects), [](const auto& object) {
                 Aws::S3::Model::ObjectIdentifier retVal;
-                retVal.SetKey(object.GetKey());
+                retVal.SetKey(object.c_str());
                 return retVal;
             });
             Aws::S3::Model::Delete delete_list;
@@ -269,18 +269,18 @@ S3File S3File::copyFolder2Folder(const std::string& new_name)
 {
     validate();
 
-    S3LazyListRetriever retriever(bucket_name, object_name);
+    S3LazyListRetriever retriever(bucket_name, object_name, false);
     auto list = retriever.next(16).get();
 
     while(!list.empty())
     {
         for(const auto& file : list)
         {
-            std::string key_name = file.GetKey().c_str();
+            std::string key_name = file.c_str();
             key_name.erase(0, object_name.length());
             fs::path new_fqn = "s3:/";
             new_fqn /= bucket_name;
-            new_fqn /= file.GetKey();
+            new_fqn /= file.c_str();
             S3File tmp_file(new_fqn);
             if(tmp_file != *this)
             {
@@ -293,7 +293,7 @@ S3File S3File::copyFolder2Folder(const std::string& new_name)
                     --prefix_length;
                 }
 
-                fs::path full_name(file.GetKey());
+                fs::path full_name(file.c_str());
                 auto it = full_name.begin();
                 std::advance(it, prefix_length);
 

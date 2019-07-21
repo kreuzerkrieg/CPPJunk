@@ -12,23 +12,16 @@ public:
     {
     public:
         DeferredProxy(S3LazyListRetriever& retriever_arg, Aws::S3::Model::ListObjectsV2OutcomeCallable&& waitable_arg);
-        Aws::Vector<Aws::S3::Model::Object> get();
+        Aws::Vector<Aws::String> get();
 
     private:
         S3LazyListRetriever& retriever;
         Aws::S3::Model::ListObjectsV2OutcomeCallable waitable;
     };
 
-    S3LazyListRetriever(const std::string& bucket, const std::string& folder);
-    S3LazyListRetriever(const S3LazyListRetriever& rhs) { *this = rhs; }
-    S3LazyListRetriever& operator=(const S3LazyListRetriever& rhs)
-    {
-        next_token = rhs.next_token;
-        fq_name = rhs.fq_name;
-        bucket_name = rhs.bucket_name;
-        object_name = rhs.object_name;
-        have_more = rhs.have_more;
-    }
+    S3LazyListRetriever(const std::string& bucket, const std::string& folder, bool is_recursive_);
+    S3LazyListRetriever(const S3LazyListRetriever& rhs);
+    S3LazyListRetriever& operator=(const S3LazyListRetriever& rhs);
     DeferredProxy next(size_t max_files);
 
 private:
@@ -39,4 +32,5 @@ private:
     std::string bucket_name;
     std::string object_name;
     bool have_more = true;
+    bool is_recursive = false;
 };

@@ -15,7 +15,7 @@ void FileDownloader::Download(const fs::path& fully_qualified_name, const fs::pa
         S3File s3file(fully_qualified_name);
         size_t file_size = s3file.size();
 
-        constexpr size_t part_size = 20 * 1024 * 1024;
+        constexpr size_t part_size = 1 * 1024 * 1024;
         constexpr size_t parts_num = 64;
         size_t part_count = 0;
         while((part_count * part_size) <= file_size || !abort)

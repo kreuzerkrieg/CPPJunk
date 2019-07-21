@@ -122,15 +122,18 @@ int main(int argc, char** argv)
     //    UploadFile(bucket_name, object_name, target_file);
     //    DownloadFile(bucket_name, object_name, target_file + ".dwld");
 
-    auto it = DirectoryIterator("s3://dev-shadow/dev-shadow/data/default/S3/ontime_replicated/");
+    //    FileDownloader downloader;
+    //    downloader.Download("s3://dev-full-ontime/x0002.7z", "/home/ernest/Downloads/x0002.7z");
+
+    auto it = DirectoryIterator("s3://dev-shadow/data/default/S3/ontime_replicated/");
     for(; it != DirectoryIterator(); ++it)
     {
         std::cout << *it << std::endl;
     }
 
-    for(auto& item : DirectoryIterator("s3://dev-shadow/dev-shadow/data/default/S3/ontime_replicated/"))
+    for(auto& item : DirectoryIterator("s3://dev-shadow/data/default/S3/ontime_replicated/"))
     {
-        std::cout << item << std::endl;
+        std::cout << (item.filename() != "." ? item.filename() : item.parent_path().filename()) << std::endl;
     }
     Aws::ShutdownAPI(options);
 }
