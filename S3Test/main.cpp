@@ -1,11 +1,13 @@
-#include "DirectoryIterator.h"
-#include "Downloader.h"
+//#include "DirectoryIterator.h"
+//#include "Downloader.h"
+//#include "DownloaderV2.h"
+//#include "S3File.h"
+//#include "S3LazyListRetriever.h"
 #include "S3File.h"
-#include "S3LazyListRetriever.h"
 #include "Uploader.h"
 #include <aws/core/Aws.h>
 
-int main(int argc, char** argv)
+int main()
 {
     Aws::SDKOptions options;
     Aws::InitAPI(options);
@@ -123,17 +125,61 @@ int main(int argc, char** argv)
     //    DownloadFile(bucket_name, object_name, target_file + ".dwld");
 
     //    FileDownloader downloader;
-    //    downloader.Download("s3://dev-full-ontime/x0002.7z", "/home/ernest/Downloads/x0002.7z");
+    //    downloader.download("s3://dev-full-ontime/x0002.7z", "/home/ernest/Downloads/x0002.7z");
 
-    auto it = DirectoryIterator("s3://dev-shadow/data/default/S3/ontime_replicated/");
-    for(; it != DirectoryIterator(); ++it)
-    {
-        std::cout << *it << std::endl;
-    }
+    //    auto it = DirectoryIterator("s3://dev-shadow/data/default/S3/ontime_replicated/");
+    //    for(; it != DirectoryIterator(); ++it)
+    //    {
+    //        std::cout << *it << std::endl;
+    //    }
+    //
+    //    for(auto& item : DirectoryIterator("s3://dev-shadow/data/default/S3/ontime_replicated/"))
+    //    {
+    //        std::cout << (item.filename() != "." ? item.filename() : item.parent_path().filename()) << std::endl;
+    //    }
+    //    std::cout << parts2s3fqn("dev-shadow", "/data/shmata/strata/../boo.txt") << std::endl;
+    //    std::cout << parts2s3fqn("dev-shadow", "data/shmata/strata/boo.txt") << std::endl;
+    //    std::cout << parts2s3fqn("dev-shadow", "./data/shmata/strata/boo.txt/foo") << std::endl;
+    //    std::cout << parts2s3fqn("dev-shadow", "./data/shmata/strata/") << std::endl;
+    //    std::cout << parts2s3fqn("dev-shadow", "./data/shmata/strata/..") << std::endl;
+    //    std::cout << parts2s3fqn("dev-shadow", "./data/shmata/strata/.") << std::endl << std::endl << std::endl;
+    //
+    //    std::cout << canonicalize(parts2s3fqn("dev-shadow", "/data/shmata/strata/../boo.txt")) << std::endl;
+    //    std::cout << canonicalize(parts2s3fqn("dev-shadow", "data/shmata/strata/boo.txt")) << std::endl;
+    //    std::cout << canonicalize(parts2s3fqn("dev-shadow", "./data/shmata/strata/boo.txt/foo")) << std::endl;
+    //    std::cout << canonicalize(parts2s3fqn("dev-shadow", "./data/shmata/strata/")) << std::endl;
+    //    std::cout << canonicalize(parts2s3fqn("dev-shadow", "./data/shmata/strata/..")) << std::endl;
+    //    std::cout << canonicalize(parts2s3fqn("dev-shadow", "./data/shmata/strata/.")) << std::endl;
+    //
+    //    std::string bucket;
+    //    std::string object_name;
+    //    S3fqn2parts("s3://dev-shadow/./data/default/S3/ontime_replicated/format_version.txt", bucket, object_name);
+    //    std::cout << bucket << std::endl << object_name << std::endl;
 
-    for(auto& item : DirectoryIterator("s3://dev-shadow/data/default/S3/ontime_replicated/"))
+    /*try
     {
-        std::cout << (item.filename() != "." ? item.filename() : item.parent_path().filename()) << std::endl;
+        std::cout << "Starting download" << std::endl;
+        FileDownloaderV2 downloader;
+//        downloader.download("s3://dev-full-ontime/ontime.csv", "/home/ubuntu/ontime_downloaded.csv");
+        downloader.download("s3://dev-full-ontime/ontime.7z", "/home/ubuntu/ontime_downloaded.7z");
+
+        std::cout << "Starting upload" << std::endl;
+        Uploader uploader;
+//        uploader.upload("s3://dev-full-ontime/ontime_uploaded.csv", "/home/ubuntu/ontime_downloaded.csv");
+        uploader.upload("s3://dev-full-ontime/ontime_uploaded.7z", "/home/ubuntu/ontime_downloaded.7z");
     }
-    Aws::ShutdownAPI(options);
+    catch(std::exception& ex)
+    {
+        std::cout << "Error: " << ex.what() << std::endl;
+    }
+    Aws::ShutdownAPI(options);*/
+    //    fs::path p = "/home/shmome/pome/bome/";
+    //    std::cout << p;
+    S3File file(std::string("s3://dev-shadow/accounts/firebolt-dev/databases/EWZx16_128/replication/ch_node_1/default/similar_fact/201812_100_100_0"));
+    S3File file1(std::string("s3://dev-shadow/accounts/firebolt-dev/databases/EWZx16_128/replication/ch_node_1/default/similar_fact/201812_100_100_0/"));
+    S3File file2(std::string("s3://dev-shadow/accounts/firebolt-dev/databases/EWZx16_128/replication/ch_node_1/default/similar_fact/201812_100_100_0/checksums.txt"));
+    file.print();
+    file1.print();
+    file2.print();
+    file.remove();
 }

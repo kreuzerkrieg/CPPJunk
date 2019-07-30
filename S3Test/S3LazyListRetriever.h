@@ -1,9 +1,10 @@
 #pragma once
 #include <aws/s3/S3Client.h>
 #include <aws/s3/model/ListObjectsV2Request.h>
-#include <experimental/filesystem>
+#include <filesystem>
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
+class S3File;
 
 class S3LazyListRetriever
 {
@@ -11,22 +12,20 @@ public:
     class DeferredProxy
     {
     public:
-        DeferredProxy(S3LazyListRetriever& retriever_arg, Aws::S3::Model::ListObjectsV2OutcomeCallable&& waitable_arg);
-        Aws::Vector<Aws::String> get();
+        DeferredProxy(S3LazyListRetriever & retriever_arg, Aws::S3::Model::ListObjectsV2OutcomeCallable && waitable_arg);
+        std::vector<S3File> get();
 
     private:
-        S3LazyListRetriever& retriever;
+        S3LazyListRetriever & retriever;
         Aws::S3::Model::ListObjectsV2OutcomeCallable waitable;
     };
 
-    S3LazyListRetriever(const std::string& bucket, const std::string& folder, bool is_recursive_);
-    S3LazyListRetriever(const S3LazyListRetriever& rhs);
-    S3LazyListRetriever& operator=(const S3LazyListRetriever& rhs);
+    S3LazyListRetriever(std::string bucket, std::string folder, bool is_recursive_);
+    S3LazyListRetriever(const S3LazyListRetriever & rhs)=default;
+    S3LazyListRetriever & operator=(const S3LazyListRetriever & rhs)=default;
     DeferredProxy next(size_t max_files);
 
 private:
-    Aws::S3::S3Client s3_client;
-    Aws::S3::Model::ListObjectsV2OutcomeCallable lazy_result;
     Aws::String next_token;
     fs::path fq_name;
     std::string bucket_name;

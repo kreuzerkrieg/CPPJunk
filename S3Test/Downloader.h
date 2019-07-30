@@ -2,16 +2,18 @@
 
 #include <aws/s3/S3Client.h>
 #include <deque>
-#include <experimental/filesystem>
+#include <filesystem>
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 class FileDownloader
 {
 public:
-    void Download(const fs::path& fully_qualified_name, const fs::path& target_file);
+    void download(const fs::path& fully_qualified_name, const fs::path& target_file);
 
 private:
+	void downloadThread(const fs::path& fully_qualified_name);
+
     Aws::S3::S3Client s3_client;
     std::deque<Aws::S3::Model::GetObjectOutcomeCallable> part_completion;
     std::thread downloading_thread;
