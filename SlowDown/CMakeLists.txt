@@ -13,4 +13,5 @@ target_link_libraries(SlowDown PRIVATE aws-cpp-sdk-s3
                       OpenSSL::SSL
                       OpenSSL::Crypto
                       CURL::libcurl
+                      stdc++fs
                       pthread)

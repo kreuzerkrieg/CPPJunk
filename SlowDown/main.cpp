@@ -62,10 +62,10 @@ int main()
     try
     {
         Aws::SDKOptions options;
-        options.loggingOptions.logger_create_fn = []() {
+        /*options.loggingOptions.logger_create_fn = []() {
             return std::make_shared<Aws::Utils::Logging::DefaultLogSystem>(Aws::Utils::Logging::LogLevel::Debug, "test_");
         };
-        options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Debug;
+        options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Debug;*/
         Aws::InitAPI(options);
         const size_t num_of_threads = std::thread::hardware_concurrency() * 2;
         std::vector<std::thread> threads;
