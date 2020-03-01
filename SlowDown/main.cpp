@@ -13,6 +13,33 @@
 #include <unistd.h>
 #include <vector>
 
+class PrefixGenerator
+{
+public:
+    PrefixGenerator()
+    {
+        if constexpr(bucketize)
+        {
+            std::generate(virtual_buckets.begin(), virtual_buckets.end(), boost::uuids::random_generator());
+        }
+    }
+
+    std::string generate() const
+    {
+        if constexpr(bucketize)
+        {
+            return boost::uuids::to_string(virtual_buckets[++counter % virtual_bucket_size]);
+        }
+        return boost::uuids::to_string(boost::uuids::random_generator()());
+    }
+
+private:
+    static constexpr bool bucketize = false;
+    mutable std::atomic_size_t counter{0};
+    static constexpr size_t virtual_bucket_size = 32;
+    std::vector<boost::uuids::uuid> virtual_buckets{virtual_bucket_size};
+};
+
 static void createFile(const std::string& name, size_t size)
 {
     std::ofstream file(name, std::ios::binary | std::ios::trunc);
@@ -30,11 +57,12 @@ static void createFile(const std::string& name, size_t size)
     }
 }
 
+static PrefixGenerator prefix_generator;
 static fs::path createFolder()
 {
-    auto prefix = boost::uuids::random_generator()();
-    fs::path folder_path = boost::uuids::to_string(prefix);
+    fs::path folder_path = prefix_generator.generate();
     folder_path /= "foo/bar/baz";
+    folder_path /= prefix_generator.generate();
     fs::create_directories(folder_path);
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -59,6 +87,7 @@ static fs::path createFolder()
 
 int main()
 {
+
     try
     {
         Aws::SDKOptions options;
