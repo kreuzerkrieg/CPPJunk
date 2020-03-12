@@ -86,6 +86,31 @@ int main()
         std::cout << counter << " random reads performed." << std::endl;
     }
     std::filesystem::remove(dest_file);
+
+    std::cout << "Extent persistancy test." << std::endl;
+    {
+        ReadLeveledStorage storage(Storage{.path = dest_file, .priority = 100}, Storage{.path = source_file, .priority = 50});
+
+        std::vector<char> buff(1024);
+        storage.lseek(1024, SEEK_SET);
+        auto res = storage.read(buff.data(), buff.size());
+        storage.lseek(5 * 1024, SEEK_SET);
+        res = storage.read(buff.data(), buff.size());
+        storage.lseek(8 * 1024, SEEK_SET);
+        res = storage.read(buff.data(), buff.size());
+        storage.lseek(10 * 1024, SEEK_SET);
+        res = storage.read(buff.data(), buff.size());
+        storage.printExtents();
+        storage.printStats();
+    }
+    std::cout << "Extens saved. Reloading" << std::endl;
+    {
+        ReadLeveledStorage storage(Storage{.path = dest_file, .priority = 100}, Storage{.path = source_file, .priority = 50});
+
+        storage.printExtents();
+        storage.printStats();
+    }
+    std::filesystem::remove(dest_file);
     std::filesystem::remove(source_file);
 
     return 0;

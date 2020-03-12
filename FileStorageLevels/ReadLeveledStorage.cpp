@@ -1,33 +1,76 @@
 #include "Storage.h"
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/serialization/set.hpp>
+#include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/uuid_serialize.hpp>
+#include <chrono>
 #include <cstring>
 #include <fcntl.h>
+#include <fstream>
 #include <iostream>
 #include <unistd.h>
 
-template <typename T, std::enable_if_t<std::is_arithmetic_v<T> && std::is_signed_v<T>>* = nullptr>
-void checkAndThrow(T result)
-{
-    if(result == -1)
-    {
-        throw std::runtime_error(std::strerror(errno));
-    }
-}
+namespace fs = std::filesystem;
+using namespace std::chrono_literals;
 
 ReadLeveledStorage::ReadLeveledStorage(const Storage& first_, const Storage& second_)
 {
-    file_size = std::filesystem::file_size(second_.path);
-    first_fd = open(first_.path.c_str(), O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+    extfile_name = first_.path;
+    extfile_name.replace_extension("extents");
+
+    if(!fs::exists(first_.path) || !loadExtentFile() || signature != boost::lexical_cast<boost::uuids::uuid>(sig_str))
+    {
+        // TODO: log problem
+        std::error_code ec;
+        fs::remove(extfile_name, ec);
+        fs::remove(first_.path, ec);
+        extents.clear();
+        extents.emplace(Extent{.offset = 0, .length = 0});
+        is_fully_primed = false;
+        primed_file_size = 0;
+        signature = boost::lexical_cast<boost::uuids::uuid>(sig_str);
+    }
+    file_size = fs::file_size(second_.path);
+    first_fd = open(first_.path.c_str(), O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
     checkAndThrow(first_fd);
     second_fd = open(second_.path.c_str(), O_RDONLY);
     checkAndThrow(second_fd);
     auto res = ftruncate(first_fd, file_size);
     checkAndThrow(res);
+    extent_thread = std::thread([this]() {
+        while(!shutting_down && !is_fully_primed)
+        {
+            std::this_thread::sleep_for(1s);
+            saveExtentFile();
+        }
+    });
+}
+
+ReadLeveledStorage::~ReadLeveledStorage()
+{
+    try
+    {
+        shutting_down = true;
+        if(extent_thread.joinable())
+        {
+            extent_thread.join();
+        }
+        saveExtentFile();
+    }
+    catch(...)
+    {
+        // TODO: log problem
+    }
 }
 
 ssize_t ReadLeveledStorage::read(void* buff, size_t buff_size)
 {
     if(buff_size == 0)
+    {
         return 0;
+    }
     if(is_fully_primed)
     {
         ++stats.primary_reads;
@@ -86,6 +129,7 @@ ssize_t ReadLeveledStorage::read(void* buff, size_t buff_size)
             buff_size -= res;
         }
     }
+
     return ret_val;
 }
 
@@ -152,9 +196,8 @@ ssize_t ReadLeveledStorage::update(void* buff, size_t buff_size)
     is_fully_primed = primed_file_size == file_size;
     if(primed_file_size > file_size)
     {
-        //        throw std::logic_error("Current primary file size " + std::to_string(primed_file_size) + " is greater than secondary file
-        //        size " +
-        //                               std::to_string(file_size));
+        throw std::logic_error("Current primary file size " + std::to_string(primed_file_size) + " is greater than secondary file size " +
+                               std::to_string(file_size));
     }
     if(is_fully_primed)
     {
@@ -235,4 +278,32 @@ void ReadLeveledStorage::printExtents() const
 void ReadLeveledStorage::printStats() const
 {
     std::cout << "Primary reads: " << stats.primary_reads << ", secondary reads: " << stats.secondary_reads << std::endl;
+}
+
+void ReadLeveledStorage::saveExtentFile()
+{
+    std::ofstream ifs(extfile_name, std::ios_base::binary | std::ios_base::trunc);
+    boost::archive::binary_oarchive oa(ifs);
+    oa << *this;
+}
+
+bool ReadLeveledStorage::loadExtentFile()
+{
+    if(!fs::exists(extfile_name))
+    {
+        return false;
+    }
+
+    try
+    {
+        std::ifstream ifs(extfile_name, std::ios_base::binary);
+        boost::archive::binary_iarchive ia(ifs);
+        ia >> (*this);
+    }
+    catch(std::exception& ex)
+    {
+        std::cout << ex.what() << std::endl;
+        return false;
+    }
+    return true;
 }
