@@ -87,14 +87,17 @@ static fs::path createFolder()
 
 int main()
 {
-
+    std::set_terminate([]() {
+        std::cout << "Unhandled exception was thrown!" << std::endl;
+        std::abort();
+    });
     try
     {
         Aws::SDKOptions options;
-        /*options.loggingOptions.logger_create_fn = []() {
-            return std::make_shared<Aws::Utils::Logging::DefaultLogSystem>(Aws::Utils::Logging::LogLevel::Debug, "test_");
+        options.loggingOptions.logger_create_fn = []() {
+            return std::make_shared<Aws::Utils::Logging::DefaultLogSystem>(Aws::Utils::Logging::LogLevel::Error, "test_");
         };
-        options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Debug;*/
+        options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Error;
         Aws::InitAPI(options);
         const size_t num_of_threads = std::thread::hardware_concurrency() * 2;
         std::vector<std::thread> threads;
@@ -135,5 +138,6 @@ int main()
         std::cout << "Exception thrown. Reason: " << ex.what() << std::endl;
         fs::remove_all("foo/");
     }
+    std::cout << "Somehow we managed to finish and preperly exit the program" << std::endl;
     return 0;
 }
