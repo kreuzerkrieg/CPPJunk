@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.22)
+project(adler32)
+
+set(CMAKE_CXX_STANDARD 23)
+
+find_package(GTest CONFIG REQUIRED)
+find_package(ZLIB REQUIRED)
+find_package(Boost REQUIRED COMPONENTS program_options)
+
+add_library(adler32 Adler32.cpp Adler32.h)
+target_compile_options(adler32 PRIVATE
+                       -Werror
+                       -Weverything
+                       -Wno-c++98-compat-pedantic
+                       -Wno-c++98-compat
+                       -Wno-c99-extensions
+                       -Rpass=loop-vectorize
+                       -Rpass-missed=loop-vectorize
+                       -Rpass-analysis=loop-vectorize
+                       )
+
+add_executable(tests tests_main.cpp adler32_tests.cpp)
+target_link_libraries(tests PRIVATE adler32 GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main ZLIB::ZLIB)
+
+add_executable(perf adler32_perf.cpp)
+target_link_libraries(perf PRIVATE adler32 pthread Boost::boost ZLIB::ZLIB)
+target_include_directories(perf SYSTEM PRIVATE nonius)

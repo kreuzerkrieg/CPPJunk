@@ -1,0 +1,1 @@
+set(CMAKE_TOOLCHAIN_FILE ~/Development/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE INTERNAL "" FORCE)
