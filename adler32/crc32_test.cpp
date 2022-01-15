@@ -82,8 +82,15 @@ TEST(Crc32, ComputeOneKiB)
 {
 	for (int i = 0; i < 1024; ++i) {
 		auto buff = createRandomData<std::vector<unsigned char>>(1024);
-		ASSERT_EQ(crc32(0, buff.data(), buff.size()), Crc32Impl::compute(0, buff.data(), buff.size()));
-		ASSERT_EQ(Crc32Impl::compute(0, buff.data(), buff.size()), Crc32Impl::compute_ex(0, buff.data(), buff.size()));
+		auto adler = crc32(0, buff.data(), buff.size());
+		ASSERT_EQ(adler, Crc32Impl::compute(0, buff.data(), buff.size()));
+//		ASSERT_EQ(Crc32Impl::compute(0, buff.data(), buff.size()), Crc32Impl::compute_ex(0, buff.data(), buff.size()));
+		ASSERT_EQ(adler, Crc32Impl::append_table(0, buff.data(), buff.size()));
+		ASSERT_EQ(adler, Crc32Impl::append_table_256(0, buff.data(), buff.size()));
+		ASSERT_EQ(adler, Crc32Impl::append_table_256_(0, buff.data(), buff.size()));
+		ASSERT_EQ(adler, Crc32Impl::append_table_256_1(0, buff.data(), buff.size()));
+		ASSERT_EQ(adler, Crc32Impl::append_table_256_2(0, buff.data(), buff.size()));
+		ASSERT_TRUE(adler == Crc32Impl::append_table_4(0, buff.data(), buff.size()));
 	}
 }
 

@@ -17,6 +17,8 @@ target_compile_options(adler32 PRIVATE
                        -Wno-c++98-compat-pedantic
                        -Wno-c++98-compat
                        -Wno-c99-extensions
+                       -Wno-old-style-cast
+                       -Wno-cast-align
                        -Rpass=loop-vectorize
                        -Rpass-missed=loop-vectorize
                        -Rpass-analysis=loop-vectorize
@@ -25,9 +27,18 @@ target_compile_options(adler32 PRIVATE
 add_executable(tests tests_main.cpp adler32_tests.cpp crc32_test.cpp)
 target_link_libraries(tests PRIVATE adler32 GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main ZLIB::ZLIB)
 
+find_package(benchmark CONFIG REQUIRED)
 add_executable(perf
                # adler32_perf.cpp
                crc32_perf.cpp
                )
-target_link_libraries(perf PRIVATE adler32 pthread Boost::boost ZLIB::ZLIB)
-target_include_directories(perf SYSTEM PRIVATE nonius)
+target_link_libraries(perf PRIVATE
+                      adler32
+                      # Boost::boost
+                      ZLIB::ZLIB
+                      benchmark::benchmark
+                      benchmark::benchmark_main
+                      pthread
+                      )
+target_link_libraries(perf PRIVATE)
+

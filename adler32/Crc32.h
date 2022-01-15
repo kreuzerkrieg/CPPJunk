@@ -32,8 +32,8 @@ inline constexpr uint32_t ZSWAP32(uint32_t q)
 	return ((((q) >> 24) & 0xff) + (((q) >> 8) & 0xff00) + (((q) &0xff00) << 8) + (((q) &0xff) << 24));
 }
 
-constexpr size_t register_width_bits = 8;
-constexpr size_t register_width = register_width_bits / 8;
+constexpr uint16_t register_width_bits = 256;
+constexpr uint16_t register_width = register_width_bits / 8;
 constexpr std::array<std::array<uint32_t, 256>, register_width* 2> crc_tables = []() constexpr
 {
 	std::array<std::array<uint32_t, 256>, register_width* 2> retval = {};
@@ -73,6 +73,20 @@ constexpr std::array<std::array<uint32_t, 256>, register_width* 2> crc_tables = 
 ();
 
 namespace CRC32::Generic {
+uint32_t append_table(uint32_t crci, const unsigned char* input, size_t length);
+uint32_t append_table_256(uint32_t crci, const unsigned char* input, size_t length);
+uint32_t append_table_256_(uint32_t crci, const unsigned char* input, size_t length);
+uint32_t append_table_256_1(uint32_t crci, const unsigned char* input, size_t length);
+uint32_t append_table_256_2(uint32_t crci, const unsigned char* input, size_t length);
+uint32_t append_table_256_3(uint32_t crci, const unsigned char* input, size_t length);
+
+uint32_t append_table_4(uint32_t crc, const unsigned char* input, size_t length);
+uint32_t append_table_8(uint32_t crc, const unsigned char* input, size_t length);
+uint32_t append_table_16(uint32_t crc, const unsigned char* input, size_t length);
+uint32_t append_table_24(uint32_t crc, const unsigned char* input, size_t length);
+uint32_t append_table_32(uint32_t crc, const unsigned char* input, size_t length);
+
+
 namespace {
 template<size_t width>
 constexpr uint32_t calcSomeBytes(uint32_t crc, auto some_bytes)
@@ -86,6 +100,48 @@ constexpr uint32_t calcSomeBytes(uint32_t crc, auto some_bytes)
 	//		  crc_tables[0][crc >> 24];
 	return accum;
 }
+
+template<size_t width>
+constexpr uint64_t calcBytes(uint64_t crc)
+{
+	return crc_tables[width - 1][(crc >> ((8 - width) * 8)) & 0xff] ^ calcBytes<width - 1>(crc);
+}
+template<>
+constexpr uint64_t calcBytes<1>(uint64_t crc)
+{
+	return crc_tables[0][crc >> 56 & 0xff];
+}
+
+template<size_t width>
+constexpr uint64_t calcInitialBytes(uint64_t crc, const uint8_t* buff)
+{
+	crc ^= *(reinterpret_cast<const uint64_t*>(buff));
+	crc = calcBytes<8>(crc) ^ calcBytes<8>(*(reinterpret_cast<const uint64_t*>(buff + 8)));
+	return crc;
+}
+
+constexpr uint32_t calc8Bytes(uint32_t crc, const uint8_t* buff)
+{
+	/*uint64_t working_crc = crc ^ eight_bytes;
+
+	working_crc = crc_tables[7][working_crc & 0xff] ^ crc_tables[6][(working_crc >> 8) & 0xff] ^
+				  crc_tables[5][(working_crc >> 16) & 0xff] ^ crc_tables[4][(working_crc >> 24) & 0xff] ^
+				  crc_tables[3][(working_crc >> 32) & 0xff] ^ crc_tables[2][(working_crc >> 40) & 0xff] ^
+				  crc_tables[1][(working_crc >> 48) & 0xff] ^ crc_tables[0][working_crc >> 56];
+	return static_cast<uint32_t>(working_crc);*/
+	return static_cast<uint32_t>(calcInitialBytes<8>(crc, buff));
+}
+constexpr uint32_t calc16Bytes(uint32_t crc, const uint8_t* buff)
+{
+	/*uint64_t working_crc = crc ^ eight_bytes;
+
+	working_crc = crc_tables[7][working_crc & 0xff] ^ crc_tables[6][(working_crc >> 8) & 0xff] ^
+				  crc_tables[5][(working_crc >> 16) & 0xff] ^ crc_tables[4][(working_crc >> 24) & 0xff] ^
+				  crc_tables[3][(working_crc >> 32) & 0xff] ^ crc_tables[2][(working_crc >> 40) & 0xff] ^
+				  crc_tables[1][(working_crc >> 48) & 0xff] ^ crc_tables[0][working_crc >> 56];
+	return static_cast<uint32_t>(working_crc);*/
+	return static_cast<uint32_t>(calcInitialBytes<8>(crc, buff));
+}
 }// namespace
 
 uint32_t compute(uint32_t crc32, const unsigned char* data, size_t data_length);
@@ -98,12 +154,14 @@ uint32_t compute_wide(uint32_t crc, const unsigned char* buf, size_t len)
 
 	size_t buff_position = 0;
 	for (; buff_position < four_byte_len; buff_position += width) {
-		const auto* some_bytes = reinterpret_cast<const typename unsigned_type<width>::type*>(&buf[buff_position]);
-		crc = calcSomeBytes<width>(crc, *some_bytes);
+		//		const auto* some_bytes = reinterpret_cast<const typename unsigned_type<width>::type*>(&buf[buff_position]);
+		//		crc = calcSomeBytes<width>(crc, *some_bytes);
+		//		crc = calc8Bytes(crc, *some_bytes);
+		//		crc = calcBytes<8>(crc, &buf[buff_position]);
+		crc = calc16Bytes(crc, &buf[buff_position]);
 	}
 	for (; buff_position < len; buff_position++) {
 		crc = crc_tables[0][(crc ^ buf[buff_position]) & 0xff] ^ (crc >> 8);
-			  crc_tables[0][crc & 0xff];
 	}
 	crc = ~crc;
 	return crc;
