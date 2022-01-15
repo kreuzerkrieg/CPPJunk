@@ -4,28 +4,6 @@
 #include <bit>
 #include <cstdint>
 
-template<size_t Width>
-struct unsigned_type {
-	static_assert(Width > 0 && std::has_single_bit(Width) && Width < 9);
-};
-
-template<>
-struct unsigned_type<1> {
-	using type = unsigned char;
-};
-template<>
-struct unsigned_type<2> {
-	using type = uint16_t;
-};
-template<>
-struct unsigned_type<4> {
-	using type = uint32_t;
-};
-template<>
-struct unsigned_type<8> {
-	using type = uint64_t;
-};
-
 inline constexpr uint32_t ZSWAP32(uint32_t q)
 {
 	return ((((q) >> 24) & 0xff) + (((q) >> 8) & 0xff00) + (((q) &0xff00) << 8) + (((q) &0xff) << 24));

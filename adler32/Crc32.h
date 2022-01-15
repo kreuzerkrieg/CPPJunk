@@ -8,7 +8,7 @@ uint32_t compute(uint32_t crc32, const unsigned char* data, size_t data_length);
 uint32_t compute_256_1(uint32_t crc32, const unsigned char* data, size_t data_length);
 uint32_t compute_256_2(uint32_t crc32, const unsigned char* data, size_t data_length);
 
-template<size_t width>
+template<uint8_t width>
 constexpr uint32_t calcByte(const unsigned char* const buff)
 {
 	return crc_tables[width][*buff] ^ calcByte<width - 1>(buff + 1);
@@ -20,7 +20,7 @@ constexpr uint32_t calcByte<0>(const unsigned char* const buff)
 	return crc_tables[0][*buff];
 }
 
-template<unsigned width>
+template<uint8_t width>
 uint32_t compute_wide(uint32_t crc, const unsigned char* input, size_t length)
 {
 	crc = ~crc;
