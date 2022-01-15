@@ -17,8 +17,6 @@ target_compile_options(adler32 PRIVATE
                        -Wno-c++98-compat-pedantic
                        -Wno-c++98-compat
                        -Wno-c99-extensions
-                       -Wno-old-style-cast
-                       -Wno-cast-align
                        -Rpass=loop-vectorize
                        -Rpass-missed=loop-vectorize
                        -Rpass-analysis=loop-vectorize

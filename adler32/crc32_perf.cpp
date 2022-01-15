@@ -18,19 +18,19 @@ NONIUS_BENCHMARK("Compute crc32 x 4 bytes 1KiB", [](nonius::chronometer cm) {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024);
 	cm.measure([&](int) { Crc32Impl::computex32(0, buff.data(), buff.size()); });
 })*/
-static void BM_AdlerCRC32(benchmark::State& state)
+static void AdlerCRC32(benchmark::State& state)
 {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
 	for (auto _: state)
 		crc32(0, buff.data(), buff.size());
 }
-static void BM_GenericCRC32(benchmark::State& state)
+static void GenericCRC32(benchmark::State& state)
 {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
 	for (auto _: state)
 		Crc32Impl::compute(0, buff.data(), buff.size());
 }
-static void BM_Genericx8CRC32(benchmark::State& state)
+static void GenericExCRC32(benchmark::State& state)
 {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
 	uint64_t sum = 0;
@@ -39,54 +39,40 @@ static void BM_Genericx8CRC32(benchmark::State& state)
 		benchmark::DoNotOptimize(sum += result);
 	}
 }
-
-static void BM_GenericCRC32_256_1(benchmark::State& state)
+static void GenericWide8CRC32(benchmark::State& state)
 {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
 	uint64_t sum = 0;
 	for (auto _: state) {
-		auto result = Crc32Impl::append_table_256_1(0, buff.data(), buff.size());
+		auto result = Crc32Impl::compute_wide<8>(0, buff.data(), buff.size());
 		benchmark::DoNotOptimize(sum += result);
 	}
 }
-
-static void BM_GenericCRC32_256_2(benchmark::State& state)
+static void GenericWide16CRC32(benchmark::State& state)
 {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
 	uint64_t sum = 0;
 	for (auto _: state) {
-		auto result = Crc32Impl::append_table_256_2(0, buff.data(), buff.size());
+		auto result = Crc32Impl::compute_wide<16>(0, buff.data(), buff.size());
 		benchmark::DoNotOptimize(sum += result);
 	}
 }
-
-static void BM_GenericCRC32_256_3(benchmark::State& state)
+static void GenericWide24CRC32(benchmark::State& state)
 {
 	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
 	uint64_t sum = 0;
 	for (auto _: state) {
-		auto result = Crc32Impl::append_table_256_3(0, buff.data(), buff.size());
+		auto result = Crc32Impl::compute_wide<24>(0, buff.data(), buff.size());
 		benchmark::DoNotOptimize(sum += result);
 	}
 }
 
-static void BM_GenericCRC32Tmpl(benchmark::State& state)
-{
-	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
-	uint64_t sum = 0;
-	for (auto _: state) {
-		auto result = Crc32Impl::append_table_32(0, buff.data(), buff.size());
-		benchmark::DoNotOptimize(sum += result);
-	}
-}
-
-BENCHMARK(BM_AdlerCRC32);
-BENCHMARK(BM_GenericCRC32);
-BENCHMARK(BM_Genericx8CRC32);
-BENCHMARK(BM_GenericCRC32_256_1);
-BENCHMARK(BM_GenericCRC32_256_2);
-BENCHMARK(BM_GenericCRC32_256_3);
-BENCHMARK(BM_GenericCRC32Tmpl);
+BENCHMARK(AdlerCRC32);
+BENCHMARK(GenericCRC32);
+BENCHMARK(GenericWide8CRC32);
+BENCHMARK(GenericWide16CRC32);
+BENCHMARK(GenericWide24CRC32);
+BENCHMARK(GenericExCRC32);
 
 /*
 NONIUS_BENCHMARK("Compute original crc32 1 byte", [](nonius::chronometer cm) {
