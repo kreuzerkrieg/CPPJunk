@@ -39,8 +39,7 @@ uint32_t compute_wide(uint32_t crc, const unsigned char* input, size_t length)
 		++input;
 		--length;
 	}
-	crc = ~crc;
-	return crc;
+	return ~crc;
 }
 
 /*template<>
