@@ -42,7 +42,7 @@ constexpr uint32_t compute_wide(uint32_t crc, const unsigned char* input, size_t
 template<>
 constexpr uint32_t compute_wide<4>(uint32_t crc, const unsigned char* input, size_t length) noexcept
 {
-	uint16_t width = 4;
+	constexpr uint16_t width = 4;
 	const auto reg_len = length / width;
 	size_t buff_position = 0;
 
@@ -67,6 +67,6 @@ constexpr uint32_t compute_ex(uint32_t crc32, const unsigned char* data, size_t 
 
 }// namespace CRC32::Generic
 
-namespace CRC32::SIMD {
+namespace CRC32::Intrinsic {
 uint32_t compute(uint32_t crc32, const unsigned char* data, size_t data_length);
 }
