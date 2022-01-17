@@ -34,6 +34,7 @@ static void SIMDAdler32(benchmark::State& state)
 	state.SetBytesProcessed(int64_t(state.iterations()) * int64_t(state.range(0)));
 }
 
+/*
 BENCHMARK(OriginalAdler32)->Name("Original Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);
 BENCHMARK(GenericAdler32)->Name("Generic Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);
-BENCHMARK(SIMDAdler32)->Name("SIMD Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);
+BENCHMARK(SIMDAdler32)->Name("SIMD Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);*/

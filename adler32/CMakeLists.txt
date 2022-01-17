@@ -16,6 +16,7 @@ target_compile_options(adler32 PRIVATE
                        -march=native
                        -Werror
                        -Weverything
+                       -Wno-global-constructors
                        -Wno-c++98-compat-pedantic
                        -Wno-c++98-compat
                        -Wno-c99-extensions
