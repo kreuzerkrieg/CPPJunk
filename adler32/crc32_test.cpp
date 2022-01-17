@@ -46,6 +46,17 @@ TEST(Crc32, ComputeShort)
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
 	}
 }
+
+TEST(Crc32, ComputeOneKiB_tmp)
+{
+	for (int i = 0; i < 1024; ++i) {
+		auto buff = createRandomData<std::vector<unsigned char>>(1024);
+		const auto etalon = crc32(0, buff.data(), buff.size());
+		ASSERT_EQ(etalon, Crc32Impl::compute_256_1(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_256_2(0, buff.data(), buff.size()));
+	}
+}
+
 TEST(Crc32, ComputeOneKiB)
 {
 	for (int i = 0; i < 1024; ++i) {

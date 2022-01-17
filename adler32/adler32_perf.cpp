@@ -1,66 +1,39 @@
-#define NONIUS_RUNNER
 #include "Adler32Generic.h"
 #include "utils/BufferUtils.h"
-#include <nonius.h++>
 #include <zlib.h>
-namespace Adler32Impl = Adler32::SIMD;
+#include <benchmark/benchmark.h>
 
-NONIUS_BENCHMARK("Compute original Adler32 1KiB", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1024);
-	cm.measure([&](int) { adler32(0, buff.data(), buff.size()); });
-})
+static void OriginalAdler32(benchmark::State& state)
+{
+	auto buff = createRandomData<std::vector<unsigned char>>(state.range(0));
+	uint64_t sum = 0;
+	for (auto _: state) {
+		auto result = adler32(0, buff.data(), buff.size());
+		benchmark::DoNotOptimize(sum += result);
+	}
+	state.SetBytesProcessed(int64_t(state.iterations()) * int64_t(state.range(0)));
+}
+static void GenericAdler32(benchmark::State& state)
+{
+	auto buff = createRandomData<std::vector<unsigned char>>(state.range(0));
+	uint64_t sum = 0;
+	for (auto _: state) {
+		auto result = Adler32::Generic::compute(0, buff.data(), buff.size());
+		benchmark::DoNotOptimize(sum += result);
+	}
+	state.SetBytesProcessed(int64_t(state.iterations()) * int64_t(state.range(0)));
+}
+static void SIMDAdler32(benchmark::State& state)
+{
+	auto buff = createRandomData<std::vector<unsigned char>>(state.range(0));
+	uint64_t sum = 0;
+	for (auto _: state) {
+		auto result = Adler32::SIMD::compute(0, buff.data(), buff.size());
+		benchmark::DoNotOptimize(sum += result);
+	}
+	state.SetBytesProcessed(int64_t(state.iterations()) * int64_t(state.range(0)));
+}
 
-NONIUS_BENCHMARK("Compute Adler32 1KiB", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1024);
-	cm.measure([&](int) { Adler32Impl::compute(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Compute original Adler32 1MiB", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
-	cm.measure([&](int) { adler32(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Compute Adler32 1MiB", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
-	cm.measure([&](int) { Adler32Impl::compute(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Compute original Adler32 1 byte", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1);
-	cm.measure([&](int) { adler32(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Compute Adler32 1 byte", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1);
-	cm.measure([&](int) { Adler32Impl::compute(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Compute original Adler32 15 bytes", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(15);
-	cm.measure([&](int) { adler32(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Compute Adler32 15 bytes", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(15);
-	cm.measure([&](int) { Adler32Impl::compute(0, buff.data(), buff.size()); });
-})
-
-NONIUS_BENCHMARK("Combine original Adler32 1MiB", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
-	uint32_t adler = adler32(0, buff.data(), buff.size());
-	cm.measure([&](int) {
-		for (int i = 0; i < 3; ++i) {
-			adler = adler32_combine(adler, adler + i, buff.size());
-		}
-	});
-})
-
-NONIUS_BENCHMARK("Combine Adler32 1MiB", [](nonius::chronometer cm) {
-	auto buff = createRandomData<std::vector<unsigned char>>(1024 * 1024);
-	uint32_t adler32 = Adler32Impl::compute(adler32, buff.data(), buff.size());
-	cm.measure([&](int) {
-		for (int i = 0; i < 3; ++i) {
-			adler32 = Adler32Impl::combine(adler32, adler32 + i, buff.size());
-		}
-	});
-})
+BENCHMARK(OriginalAdler32)->Name("Original Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);
+BENCHMARK(GenericAdler32)->Name("Generic Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);
+BENCHMARK(SIMDAdler32)->Name("SIMD Adler32")->RangeMultiplier(8)->Range(1, 1 << 20);

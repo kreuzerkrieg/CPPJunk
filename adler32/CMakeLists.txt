@@ -11,6 +11,8 @@ find_package(Boost REQUIRED COMPONENTS program_options)
 add_library(adler32 Adler32Generic.cpp Adler32Generic.h Adler32SIMD.cpp Crc32.cpp Crc32.h)
 target_include_directories(adler32 SYSTEM PRIVATE ${EVE_INCLUDE_DIRS})
 target_compile_options(adler32 PRIVATE
+#                       -S
+#                       -masm=intel
                        -march=native
                        -Werror
                        -Weverything
@@ -27,12 +29,11 @@ target_link_libraries(tests PRIVATE adler32 GTest::gmock GTest::gtest GTest::gmo
 
 find_package(benchmark CONFIG REQUIRED)
 add_executable(perf
-               # adler32_perf.cpp
+               adler32_perf.cpp
                crc32_perf.cpp
                )
 target_link_libraries(perf PRIVATE
                       adler32
-                      # Boost::boost
                       ZLIB::ZLIB
                       benchmark::benchmark
                       benchmark::benchmark_main
