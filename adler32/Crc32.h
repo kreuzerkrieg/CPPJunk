@@ -68,5 +68,5 @@ constexpr uint32_t compute_ex(uint32_t crc32, const unsigned char* data, size_t 
 }// namespace CRC32::Generic
 
 namespace CRC32::Intrinsic {
-uint32_t compute(uint32_t crc32, const unsigned char* data, size_t data_length);
+uint32_t compute(uint32_t crc32, const unsigned char* data, size_t data_length) noexcept;
 }

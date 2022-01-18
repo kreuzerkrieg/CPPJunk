@@ -1,4 +1,5 @@
 #include "Crc32.h"
+#include <cassert>
 #include <eve/algo/for_each.hpp>
 #include <eve/function/scan.hpp>
 #include <eve/views/convert.hpp>
@@ -123,52 +124,26 @@ static void fold_3(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m1
 
 static void fold_4(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3)
 {
-	__m128i x_tmp0;
-	__m128i x_tmp1;
-	__m128i x_tmp2;
-	__m128i x_tmp3;
-	__m128 ps_crc0;
-	__m128 ps_crc1;
-	__m128 ps_crc2;
-	__m128 ps_crc3;
-	__m128 ps_t0;
-	__m128 ps_t1;
-	__m128 ps_t2;
-	__m128 ps_t3;
-	__m128 ps_res0;
-	__m128 ps_res1;
-	__m128 ps_res2;
-	__m128 ps_res3;
-
-	x_tmp0 = xmm_crc0;
-	x_tmp1 = xmm_crc1;
-	x_tmp2 = xmm_crc2;
-	x_tmp3 = xmm_crc3;
+	auto x_tmp0 = xmm_crc0;
+	auto x_tmp1 = xmm_crc1;
+	auto x_tmp2 = xmm_crc2;
+	auto x_tmp3 = xmm_crc3;
 
 	xmm_crc0 = _mm_clmulepi64_si128(xmm_crc0, xmm_fold4, 0x01);
 	x_tmp0 = _mm_clmulepi64_si128(x_tmp0, xmm_fold4, 0x10);
-	ps_crc0 = _mm_castsi128_ps(xmm_crc0);
-	ps_t0 = _mm_castsi128_ps(x_tmp0);
-	ps_res0 = _mm_xor_ps(ps_crc0, ps_t0);
+	auto ps_res0 = _mm_xor_ps(_mm_castsi128_ps(xmm_crc0), _mm_castsi128_ps(x_tmp0));
 
 	xmm_crc1 = _mm_clmulepi64_si128(xmm_crc1, xmm_fold4, 0x01);
 	x_tmp1 = _mm_clmulepi64_si128(x_tmp1, xmm_fold4, 0x10);
-	ps_crc1 = _mm_castsi128_ps(xmm_crc1);
-	ps_t1 = _mm_castsi128_ps(x_tmp1);
-	ps_res1 = _mm_xor_ps(ps_crc1, ps_t1);
+	auto ps_res1 = _mm_xor_ps(_mm_castsi128_ps(xmm_crc1), _mm_castsi128_ps(x_tmp1));
 
 	xmm_crc2 = _mm_clmulepi64_si128(xmm_crc2, xmm_fold4, 0x01);
 	x_tmp2 = _mm_clmulepi64_si128(x_tmp2, xmm_fold4, 0x10);
-	ps_crc2 = _mm_castsi128_ps(xmm_crc2);
-	ps_t2 = _mm_castsi128_ps(x_tmp2);
-	ps_res2 = _mm_xor_ps(ps_crc2, ps_t2);
+	auto ps_res2 = _mm_xor_ps(_mm_castsi128_ps(xmm_crc2), _mm_castsi128_ps(x_tmp2));
 
 	xmm_crc3 = _mm_clmulepi64_si128(xmm_crc3, xmm_fold4, 0x01);
 	x_tmp3 = _mm_clmulepi64_si128(x_tmp3, xmm_fold4, 0x10);
-	ps_crc3 = _mm_castsi128_ps(xmm_crc3);
-	ps_t3 = _mm_castsi128_ps(x_tmp3);
-	ps_res3 = _mm_xor_ps(ps_crc3, ps_t3);
-
+	auto ps_res3 = _mm_xor_ps(_mm_castsi128_ps(xmm_crc3), _mm_castsi128_ps(x_tmp3));
 	xmm_crc0 = _mm_castps_si128(ps_res0);
 	xmm_crc1 = _mm_castps_si128(ps_res1);
 	xmm_crc2 = _mm_castps_si128(ps_res2);
@@ -192,11 +167,11 @@ constexpr unsigned __attribute__((aligned(32))) pshufb_shf_table[60] = {
 		0x01008f8e, 0x05040302, 0x09080706, 0x0d0c0b0a, /* shl  2 (16 -14)/shr14*/
 		0x0201008f, 0x06050403, 0x0a090807, 0x0e0d0c0b  /* shl  1 (16 -15)/shr15*/
 };
-static void partial_fold(const size_t len, __m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3,
+
+static void partial_fold(size_t len, __m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3,
 						 __m128i& xmm_crc_part)
 {
 	const __m128i xmm_mask3 = _mm_set1_epi32(static_cast<int>(0x80808080));
-
 	__m128i xmm_shl;
 	__m128i xmm_shr;
 	__m128i xmm_tmp1;
@@ -332,17 +307,17 @@ static uint32_t crc_fold_512to32(crc& crc_)
 	return ~crc;
 }
 
-uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t length)
+uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t data_length) noexcept
 {
-	crc crc0;
-	auto data_length = static_cast<int64_t>(length);
+	if (data_length == 0)
+		return 0;
 
+	crc crc0;
 	if (data_length < 16) {
-		if (data_length == 0)
-			return 0;
+
 		crc0.crc_part = _mm_loadu_si128(reinterpret_cast<const __m128i*>(data));
-		partial_fold(static_cast<size_t>(data_length), crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3, crc0.crc_part);
-		partial_fold(static_cast<size_t>(data_length), crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3, crc0.crc_part);
+		partial_fold(data_length, crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3, crc0.crc_part);
+		partial_fold(data_length, crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3, crc0.crc_part);
 		return crc_fold_512to32(crc0);
 	}
 
@@ -361,11 +336,15 @@ uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t length)
 	__m128i xmm_t1;
 	__m128i xmm_t2;
 	__m128i xmm_t3;
-	while ((data_length -= 64) >= 0) {
-		xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(data));
-		xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 1);
-		xmm_t2 = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 2);
-		xmm_t3 = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 3);
+
+	const auto byte_blocks = data_length / 64;
+	size_t buff_position = 0;
+
+	for (size_t i = 0; i < byte_blocks; i++) {
+		xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]));
+		xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 1);
+		xmm_t2 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 2);
+		xmm_t3 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 3);
 
 		fold_4(crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3);
 
@@ -374,64 +353,50 @@ uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t length)
 		crc0.crc2 = _mm_xor_si128(crc0.crc2, xmm_t2);
 		crc0.crc3 = _mm_xor_si128(crc0.crc3, xmm_t3);
 
-		data += 64;
+		buff_position += 64;
 	}
 
-	/*
-     * len = num bytes left - 64
-     */
-	if (data_length + 16 >= 0) {
-		data_length += 16;
+	if (buff_position == data_length) {
+		return crc_fold_512to32(crc0);
+	}
 
-		xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(data));
-		xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 1);
-		xmm_t2 = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 2);
+	const auto byte16_blocks = (data_length - buff_position) / 16;
+	assert(byte16_blocks < 4);
+	std::vector<__m128i> leftovers;
+	leftovers.reserve(4);
 
-		fold_3(crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3);
+	for (size_t i = 0; i < byte16_blocks; ++i) {
+		leftovers.emplace_back(_mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position])));
+		buff_position += 16;
+	}
 
-		crc0.crc1 = _mm_xor_si128(crc0.crc1, xmm_t0);
-		crc0.crc2 = _mm_xor_si128(crc0.crc2, xmm_t1);
-		crc0.crc3 = _mm_xor_si128(crc0.crc3, xmm_t2);
-
-		if (data_length == 0)
-			return crc_fold_512to32(crc0);
-
-		crc0.crc_part = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 3);
-	} else if (data_length + 32 >= 0) {
-		data_length += 32;
-
-		xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(data));
-		xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 1);
-
-		fold_2(crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3);
-
-		crc0.crc2 = _mm_xor_si128(crc0.crc2, xmm_t0);
-		crc0.crc3 = _mm_xor_si128(crc0.crc3, xmm_t1);
-
-		if (data_length == 0)
-			return crc_fold_512to32(crc0);
-
-		crc0.crc_part = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 2);
-	} else if (data_length + 48 >= 0) {
-		data_length += 48;
-
-		xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(data));
-
+	switch (leftovers.size()) {
+	case 1:
 		fold_1(crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3);
 
-		crc0.crc3 = _mm_xor_si128(crc0.crc3, xmm_t0);
+		crc0.crc3 = _mm_xor_si128(crc0.crc3, leftovers[0]);
+		break;
+	case 2:
+		fold_2(crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3);
 
-		if (data_length == 0)
-			return crc_fold_512to32(crc0);
+		crc0.crc2 = _mm_xor_si128(crc0.crc2, leftovers[0]);
+		crc0.crc3 = _mm_xor_si128(crc0.crc3, leftovers[1]);
+		break;
+	case 3:
+		fold_3(crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3);
 
-		crc0.crc_part = _mm_load_si128(reinterpret_cast<const __m128i*>(data) + 1);
-	} else {
-		data_length += 64;
-		if (data_length == 0)
-			return crc_fold_512to32(crc0);
-		crc0.crc_part = _mm_load_si128(reinterpret_cast<const __m128i*>(data));
+		crc0.crc1 = _mm_xor_si128(crc0.crc1, leftovers[0]);
+		crc0.crc2 = _mm_xor_si128(crc0.crc2, leftovers[1]);
+		crc0.crc3 = _mm_xor_si128(crc0.crc3, leftovers[2]);
+		break;
 	}
-	partial_fold(static_cast<size_t>(data_length), crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3, crc0.crc_part);
+	if (buff_position < data_length) {
+		crc0.crc_part = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]));
+	} else {
+		return crc_fold_512to32(crc0);
+	}
+
+	partial_fold(data_length - buff_position, crc0.crc0, crc0.crc1, crc0.crc2, crc0.crc3, crc0.crc_part);
 	return crc_fold_512to32(crc0);
 }
 }// namespace CRC32::Intrinsic

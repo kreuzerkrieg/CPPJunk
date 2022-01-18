@@ -91,6 +91,6 @@ BENCHMARK(GenericWide8CRC32)->Name("Generic CRC32 8 bytes")->RangeMultiplier(8)-
 BENCHMARK(GenericWide16CRC32)->Name("Generic CRC32 16 bytes")->RangeMultiplier(8)->Range(1, 1 << 20);
 BENCHMARK(GenericWide24CRC32)->Name("Generic CRC32 24 bytes")->RangeMultiplier(8)->Range(1, 1 << 20);*/
 BENCHMARK(GenericExCRC32)->Name("Generic CRC32 32 bytes")->RangeMultiplier(8)->Range(1, 1 << 20);
-BENCHMARK(IntrinsicCRC32)->Name("Intrinsic CRC32 32 bytes")->RangeMultiplier(8)->Range(1, 1 << 20);
+BENCHMARK(IntrinsicCRC32)->Name("Intrinsic CRC32")->RangeMultiplier(8)->Range(1, 1 << 20);
 
 BENCHMARK_MAIN();
