@@ -8,7 +8,7 @@ find_package(GTest CONFIG REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(Boost REQUIRED COMPONENTS program_options)
 
-add_library(adler32 Adler32Generic.cpp Adler32Generic.h Adler32SIMD.cpp Crc32.cpp Crc32.h)
+add_library(adler32 Adler32Generic.cpp Adler32Generic.h Adler32SIMD.cpp Crc32.cpp Crc32.h CRC32Intrinsic.cpp CRC32SIMD.cpp)
 target_include_directories(adler32 SYSTEM PRIVATE ${EVE_INCLUDE_DIRS})
 target_compile_options(adler32 PRIVATE
                        #                       -S
