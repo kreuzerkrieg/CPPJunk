@@ -14,26 +14,11 @@
 namespace Crc32Impl = CRC32::Generic;
 TEST(a, b)
 {
-	eve::wide<std::uint32_t> crc{0};
-	crc ^= 0xFFFFFFFF;
-	std::vector<unsigned char> buffer(32);
-	std::iota(buffer.begin(), buffer.end(), 1);
-	auto etalon = crc32(0, buffer.data(), buffer.size());
-	constexpr std::uint32_t zero{0};
-	auto in_as_uint32 = eve::views::convert(buffer, eve::as<std::uint32_t>{});
-	eve::algo::for_each(in_as_uint32, [&](auto iter, auto ignore) {
-		auto chunk = eve::load[ignore.else_(zero)](iter);
-		crc ^= chunk;
-		auto _1 = crc.get(0);
-		auto _2 = crc.get(1);
-		auto _3 = crc.get(3);
-		auto _4 = crc.get(4);
-
-		crc = crc_tables[3][crc.get(0)] ^ crc_tables[2][crc.get(1)] ^ crc_tables[1][crc.get(2)] ^
-			  crc_tables[0][crc.get(3)];
-	});
-	uint32_t ret_val = crc.front() ^ 0xFFFFFFFF;
-	std::cout << etalon << std::endl << ret_val << std::endl;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	auto buff = createRandomData<std::vector<unsigned char>>(112);
+	const auto etalon = crc32(0, buff.data(), buff.size());
+	ASSERT_EQ(etalon, CRC32::Intrinsic::compute(0, buff.data(), buff.size()));
 }
 TEST(Crc32, ComputeOneByte)
 {
@@ -49,6 +34,7 @@ TEST(Crc32, ComputeOneByte)
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<16>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<24>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, CRC32::Intrinsic::compute(0, buff.data(), buff.size()));
 	}
 }
 
@@ -66,6 +52,7 @@ TEST(Crc32, ComputeShort)
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<16>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<24>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, CRC32::Intrinsic::compute(0, buff.data(), buff.size()));
 	}
 }
 
@@ -81,6 +68,7 @@ TEST(Crc32, ComputeOneKiB)
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<16>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<24>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, CRC32::Intrinsic::compute(0, buff.data(), buff.size()));
 	}
 }
 
@@ -96,6 +84,7 @@ TEST(Crc32, ComputeOneMiB)
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<16>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<24>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, CRC32::Intrinsic::compute(0, buff.data(), buff.size()));
 	}
 }
 
@@ -107,13 +96,13 @@ TEST(Crc32, ComputeFuzzy)
 		auto buff = createRandomData<std::vector<unsigned char>>(
 				std::uniform_int_distribution<size_t>(1, 1024 * 1024)(gen));
 		const auto etalon = crc32(0, buff.data(), buff.size());
-		//		ASSERT_EQ(etalon, Crc32Impl::compute(0, buff.data(), buff.size()));
-		//		ASSERT_EQ(etalon, Crc32Impl::compute_ex(0, buff.data(), buff.size()));
-		//		ASSERT_EQ(etalon, Crc32Impl::compute_wide<4>(0, buff.data(), buff.size()));
-		//		ASSERT_EQ(etalon, Crc32Impl::compute_wide<8>(0, buff.data(), buff.size()));
-		//		ASSERT_EQ(etalon, Crc32Impl::compute_wide<16>(0, buff.data(), buff.size()));
-		//		ASSERT_EQ(etalon, Crc32Impl::compute_wide<24>(0, buff.data(), buff.size()));
-		//		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_ex(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_wide<4>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_wide<8>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_wide<16>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_wide<24>(0, buff.data(), buff.size()));
+		ASSERT_EQ(etalon, Crc32Impl::compute_wide<32>(0, buff.data(), buff.size()));
 		ASSERT_EQ(etalon, CRC32::Intrinsic::compute(0, buff.data(), buff.size()));
 	}
 }

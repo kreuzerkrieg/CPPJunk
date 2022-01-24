@@ -36,6 +36,9 @@ add_executable(perf
                adler32_perf.cpp
                crc32_perf.cpp
                )
+target_compile_options(perf PRIVATE
+                       -march=native
+                       )
 target_link_libraries(perf PRIVATE
                       adler32
                       ZLIB::ZLIB
