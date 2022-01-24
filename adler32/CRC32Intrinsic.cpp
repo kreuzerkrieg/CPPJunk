@@ -250,10 +250,10 @@ uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t data_leng
 	size_t buff_position = 0;
 
 	for (size_t i = 0; i < byte_blocks; i++) {
-		auto xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]));
-		auto xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 1);
-		auto xmm_t2 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 2);
-		auto xmm_t3 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 3);
+		const auto xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]));
+		const auto xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 1);
+		const auto xmm_t2 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 2);
+		const auto xmm_t3 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 3);
 
 		fold_4(crc);
 
