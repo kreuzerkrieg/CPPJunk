@@ -26,13 +26,15 @@ struct alignas(64) crc512 {
 	std::array<__m128i, 4> crcs{0x9db42487, 0, 0, 0};
 };
 
-//static std::array<__m128i, 4> crc512{0x9db42487, 0, 0, 0};
-
-static const __m128i xmm_fold4 = _mm_set_epi32(0x00000001, 0x54442bd4, 0x00000001, static_cast<int>(0xc6e41596));
-static const __m128i xmm_mask3 = _mm_set1_epi32(static_cast<int>(0x80808080));
+constexpr std::array<uint32_t, 4> fold4{0xc6e41596, 0x00000001, 0x54442bd4, 0x00000001};
+constexpr std::array<uint32_t, 4> mask{0xFFFFFFFF, 0xFFFFFFFF, 0x00000000, 0x00000000};
+constexpr std::array<uint32_t, 4> mask2{0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
+constexpr uint32_t mask3 = 0x80808080;
 
 static void fold_1(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3)
 {
+	const __m128i xmm_fold4 = _mm_load_si128(reinterpret_cast<const __m128i*>(fold4.data()));
+
 	auto tmp_crc1 = xmm_crc1;
 	xmm_crc1 = xmm_crc2;
 	xmm_crc2 = xmm_crc3;
@@ -47,6 +49,8 @@ static void fold_1(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m1
 
 static void fold_2(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3)
 {
+	const __m128i xmm_fold4 = _mm_load_si128(reinterpret_cast<const __m128i*>(fold4.data()));
+
 	auto x_tmp3 = xmm_crc3;
 	auto x_tmp2 = xmm_crc2;
 
@@ -66,6 +70,8 @@ static void fold_2(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m1
 
 static void fold_3(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3)
 {
+	const __m128i xmm_fold4 = _mm_load_si128(reinterpret_cast<const __m128i*>(fold4.data()));
+
 	auto x_tmp3 = xmm_crc3;
 
 	xmm_crc3 = _mm_clmulepi64_si128(xmm_crc2, xmm_fold4, 0x10);
@@ -88,6 +94,7 @@ static void fold_3(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m1
 
 static void fold_4(crc512& crc)
 {
+	const __m128i xmm_fold4 = _mm_load_si128(reinterpret_cast<const __m128i*>(fold4.data()));
 
 	auto x_tmp0 = _mm_clmulepi64_si128(crc.crcs[0], xmm_fold4, 0x10);
 	crc.crcs[0] = _mm_clmulepi64_si128(crc.crcs[0], xmm_fold4, 0x01);
@@ -131,6 +138,8 @@ constexpr unsigned __attribute__((aligned(32))) pshufb_shf_table[60] = {
 static void partial_fold(size_t len, __m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3,
 						 __m128i& xmm_crc_part)
 {
+	const __m128i xmm_mask3 = _mm_set1_epi32(static_cast<int>(mask3));
+
 	auto xmm_shl = _mm_load_si128(reinterpret_cast<const __m128i*>(pshufb_shf_table) + (len - 1));
 	auto xmm_shr = xmm_shl;
 	xmm_shr = _mm_xor_si128(xmm_shr, xmm_mask3);
@@ -153,6 +162,7 @@ static void partial_fold(size_t len, __m128i& xmm_crc0, __m128i& xmm_crc1, __m12
 	xmm_crc_part = _mm_shuffle_epi8(xmm_crc_part, xmm_shl);
 	xmm_crc3 = _mm_or_si128(xmm_crc3, xmm_crc_part);
 
+	const __m128i xmm_fold4 = _mm_load_si128(reinterpret_cast<const __m128i*>(fold4.data()));
 	auto xmm_a0_1 = _mm_clmulepi64_si128(xmm_a0_0, xmm_fold4, 0x10);
 	xmm_a0_0 = _mm_clmulepi64_si128(xmm_a0_0, xmm_fold4, 0x01);
 
@@ -174,14 +184,10 @@ constexpr std::array<uint32_t, 12> crc_k[] = {
 };
 #pragma clang diagnostic pop
 
-constexpr std::array<uint32_t, 4> crc_mask{0xFFFFFFFF, 0xFFFFFFFF, 0x00000000, 0x00000000};
-
-constexpr std::array<uint32_t, 4> crc_mask2{0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
-
 static uint32_t crc_fold_512to32(crc512& crc_)
 {
-	const __m128i xmm_mask = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_mask.data()));
-	const __m128i xmm_mask2 = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_mask2.data()));
+	const __m128i xmm_mask = _mm_load_si128(reinterpret_cast<const __m128i*>(mask.data()));
+	const __m128i xmm_mask2 = _mm_load_si128(reinterpret_cast<const __m128i*>(mask2.data()));
 
 	/*
      * k1
