@@ -33,6 +33,23 @@ constexpr uint32_t mask3 = 0x80808080;
 constexpr std::array<uint32_t, 4> crc_k1 = {0xccaa009e, 0x00000000, /* rk1 */ 0x751997d0, 0x00000001 /* rk2 */};
 constexpr std::array<uint32_t, 4> crc_k5 = {0xccaa009e, 0x00000000, /* rk5 */ 0x63cd6124, 0x00000001 /* rk6 */};
 constexpr std::array<uint32_t, 4> crc_k7 = {0xf7011640, 0x00000001, /* rk7 */ 0xdb710640, 0x00000001 /* rk8 */};
+constexpr std::array<std::array<uint32_t, 4>, 15> pshufb_shf_table = {{
+		{0x84838281, 0x88878685, 0x8c8b8a89, 0x008f8e8d}, /* shl 15 (16 - 1)/shr1 */
+		{0x85848382, 0x89888786, 0x8d8c8b8a, 0x01008f8e}, /* shl 14 (16 - 3)/shr2 */
+		{0x86858483, 0x8a898887, 0x8e8d8c8b, 0x0201008f}, /* shl 13 (16 - 4)/shr3 */
+		{0x87868584, 0x8b8a8988, 0x8f8e8d8c, 0x03020100}, /* shl 12 (16 - 4)/shr4 */
+		{0x88878685, 0x8c8b8a89, 0x008f8e8d, 0x04030201}, /* shl 11 (16 - 5)/shr5 */
+		{0x89888786, 0x8d8c8b8a, 0x01008f8e, 0x05040302}, /* shl 10 (16 - 6)/shr6 */
+		{0x8a898887, 0x8e8d8c8b, 0x0201008f, 0x06050403}, /* shl  9 (16 - 7)/shr7 */
+		{0x8b8a8988, 0x8f8e8d8c, 0x03020100, 0x07060504}, /* shl  8 (16 - 8)/shr8 */
+		{0x8c8b8a89, 0x008f8e8d, 0x04030201, 0x08070605}, /* shl  7 (16 - 9)/shr9 */
+		{0x8d8c8b8a, 0x01008f8e, 0x05040302, 0x09080706}, /* shl  6 (16 -10)/shr10*/
+		{0x8e8d8c8b, 0x0201008f, 0x06050403, 0x0a090807}, /* shl  5 (16 -11)/shr11*/
+		{0x8f8e8d8c, 0x03020100, 0x07060504, 0x0b0a0908}, /* shl  4 (16 -12)/shr12*/
+		{0x008f8e8d, 0x04030201, 0x08070605, 0x0c0b0a09}, /* shl  3 (16 -13)/shr13*/
+		{0x01008f8e, 0x05040302, 0x09080706, 0x0d0c0b0a}, /* shl  2 (16 -14)/shr14*/
+		{0x0201008f, 0x06050403, 0x0a090807, 0x0e0d0c0b}  /* shl  1 (16 -15)/shr15*/
+}};
 
 static void fold_1(crc512& crc)
 {
@@ -120,29 +137,11 @@ static void fold_4(crc512& crc)
 	crc.crcs[3] = _mm_castps_si128(ps_res3);
 }
 
-constexpr unsigned __attribute__((aligned(32))) pshufb_shf_table[60] = {
-		0x84838281, 0x88878685, 0x8c8b8a89, 0x008f8e8d, /* shl 15 (16 - 1)/shr1 */
-		0x85848382, 0x89888786, 0x8d8c8b8a, 0x01008f8e, /* shl 14 (16 - 3)/shr2 */
-		0x86858483, 0x8a898887, 0x8e8d8c8b, 0x0201008f, /* shl 13 (16 - 4)/shr3 */
-		0x87868584, 0x8b8a8988, 0x8f8e8d8c, 0x03020100, /* shl 12 (16 - 4)/shr4 */
-		0x88878685, 0x8c8b8a89, 0x008f8e8d, 0x04030201, /* shl 11 (16 - 5)/shr5 */
-		0x89888786, 0x8d8c8b8a, 0x01008f8e, 0x05040302, /* shl 10 (16 - 6)/shr6 */
-		0x8a898887, 0x8e8d8c8b, 0x0201008f, 0x06050403, /* shl  9 (16 - 7)/shr7 */
-		0x8b8a8988, 0x8f8e8d8c, 0x03020100, 0x07060504, /* shl  8 (16 - 8)/shr8 */
-		0x8c8b8a89, 0x008f8e8d, 0x04030201, 0x08070605, /* shl  7 (16 - 9)/shr9 */
-		0x8d8c8b8a, 0x01008f8e, 0x05040302, 0x09080706, /* shl  6 (16 -10)/shr10*/
-		0x8e8d8c8b, 0x0201008f, 0x06050403, 0x0a090807, /* shl  5 (16 -11)/shr11*/
-		0x8f8e8d8c, 0x03020100, 0x07060504, 0x0b0a0908, /* shl  4 (16 -12)/shr12*/
-		0x008f8e8d, 0x04030201, 0x08070605, 0x0c0b0a09, /* shl  3 (16 -13)/shr13*/
-		0x01008f8e, 0x05040302, 0x09080706, 0x0d0c0b0a, /* shl  2 (16 -14)/shr14*/
-		0x0201008f, 0x06050403, 0x0a090807, 0x0e0d0c0b  /* shl  1 (16 -15)/shr15*/
-};
-
 static void partial_fold(size_t len, crc512& crc, __m128i& xmm_crc_part)
 {
 	const __m128i xmm_mask3 = _mm_set1_epi32(static_cast<int>(mask3));
 
-	auto xmm_shl = _mm_load_si128(reinterpret_cast<const __m128i*>(pshufb_shf_table) + (len - 1));
+	auto xmm_shl = _mm_load_si128(reinterpret_cast<const __m128i*>(pshufb_shf_table[len - 1].data()));
 	auto xmm_shr = xmm_shl;
 	xmm_shr = _mm_xor_si128(xmm_shr, xmm_mask3);
 
