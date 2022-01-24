@@ -30,6 +30,15 @@ constexpr std::array<uint32_t, 4> fold4{0xc6e41596, 0x00000001, 0x54442bd4, 0x00
 constexpr std::array<uint32_t, 4> mask{0xFFFFFFFF, 0xFFFFFFFF, 0x00000000, 0x00000000};
 constexpr std::array<uint32_t, 4> mask2{0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
 constexpr uint32_t mask3 = 0x80808080;
+constexpr std::array<uint32_t, 4> crc_k1 = {
+		0xccaa009e, 0x00000000, /* rk1 */ 0x751997d0, 0x00000001 /* rk2 */
+};
+constexpr std::array<uint32_t, 4> crc_k5 = {
+		0xccaa009e, 0x00000000, /* rk5 */ 0x63cd6124, 0x00000001 /* rk6 */
+};
+constexpr std::array<uint32_t, 4> crc_k7 = {
+		0xf7011640, 0x00000001, /* rk7 */ 0xdb710640, 0x00000001 /* rk8 */
+};
 
 static void fold_1(__m128i& xmm_crc0, __m128i& xmm_crc1, __m128i& xmm_crc2, __m128i& xmm_crc3)
 {
@@ -172,18 +181,6 @@ static void partial_fold(size_t len, __m128i& xmm_crc0, __m128i& xmm_crc1, __m12
 	xmm_crc3 = _mm_castps_si128(ps_res);
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmissing-braces"
-constexpr std::array<uint32_t, 12> crc_k[] = {
-		0xccaa009e, 0x00000000, /* rk1 */
-		0x751997d0, 0x00000001, /* rk2 */
-		0xccaa009e, 0x00000000, /* rk5 */
-		0x63cd6124, 0x00000001, /* rk6 */
-		0xf7011640, 0x00000001, /* rk7 */
-		0xdb710640, 0x00000001  /* rk8 */
-};
-#pragma clang diagnostic pop
-
 static uint32_t crc_fold_512to32(crc512& crc_)
 {
 	const __m128i xmm_mask = _mm_load_si128(reinterpret_cast<const __m128i*>(mask.data()));
@@ -192,7 +189,7 @@ static uint32_t crc_fold_512to32(crc512& crc_)
 	/*
      * k1
      */
-	auto crc_fold = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_k));
+	auto crc_fold = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_k1.data()));
 
 	auto x_tmp0 = _mm_clmulepi64_si128(crc_.crcs[0], crc_fold, 0x10);
 	crc_.crcs[0] = _mm_clmulepi64_si128(crc_.crcs[0], crc_fold, 0x01);
@@ -212,7 +209,7 @@ static uint32_t crc_fold_512to32(crc512& crc_)
 	/*
      * k5
      */
-	crc_fold = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_k) + 1);
+	crc_fold = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_k5.data()));
 
 	crc_.crcs[0] = crc_.crcs[3];
 	crc_.crcs[3] = _mm_clmulepi64_si128(crc_.crcs[3], crc_fold, 0);
@@ -230,7 +227,7 @@ static uint32_t crc_fold_512to32(crc512& crc_)
      */
 	crc_.crcs[1] = crc_.crcs[3];
 	crc_.crcs[2] = crc_.crcs[3];
-	crc_fold = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_k) + 2);
+	crc_fold = _mm_load_si128(reinterpret_cast<const __m128i*>(crc_k7.data()));
 
 	crc_.crcs[3] = _mm_clmulepi64_si128(crc_.crcs[3], crc_fold, 0);
 	crc_.crcs[3] = _mm_xor_si128(crc_.crcs[3], crc_.crcs[2]);
