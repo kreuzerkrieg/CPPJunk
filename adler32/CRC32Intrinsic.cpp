@@ -67,7 +67,7 @@ static void fold_1(crc512& crc)
 	crc.crcs[0] = tmp_crc1;
 }
 
-static void fold_4(crc512& crc)
+[[maybe_unused]] static void fold_4(crc512& crc)
 {
 	const __m128i xmm_fold4 = _mm_load_si128(reinterpret_cast<const __m128i*>(fold4.data()));
 
@@ -97,8 +97,7 @@ static void partial_fold(size_t len, crc512& crc, __m128i& xmm_crc_part)
 	const __m128i xmm_mask3 = _mm_set1_epi32(static_cast<int>(mask3));
 
 	auto xmm_shl = _mm_load_si128(reinterpret_cast<const __m128i*>(pshufb_shf_table[len - 1].data()));
-	auto xmm_shr = xmm_shl;
-	xmm_shr = _mm_xor_si128(xmm_shr, xmm_mask3);
+	auto xmm_shr = _mm_xor_si128(xmm_shl, xmm_mask3);
 
 	auto xmm_a0_0 = _mm_shuffle_epi8(crc.crcs[0], xmm_shl);
 
@@ -194,10 +193,9 @@ uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t data_leng
 		return 0;
 
 	crc512 crc;
-
-	const auto byte64_blocks = data_length / 64;
 	size_t buff_position = 0;
 
+	/*const auto byte64_blocks = data_length / 64;
 	for (size_t i = 0; i < byte64_blocks; i++) {
 		const auto xmm_t0 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]));
 		const auto xmm_t1 = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]) + 1);
@@ -212,7 +210,7 @@ uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t data_leng
 		crc.crcs[3] = _mm_xor_si128(crc.crcs[3], xmm_t3);
 
 		buff_position += 64;
-	}
+	}*/
 
 	const auto byte16_blocks = (data_length - buff_position) / 16;
 	for (size_t i = 0; i < byte16_blocks; ++i) {
@@ -221,7 +219,6 @@ uint32_t compute(uint32_t /*crc32*/, const unsigned char* data, size_t data_leng
 		crc.crcs[3] = _mm_xor_si128(crc.crcs[3], xmm_t0);
 		buff_position += 16;
 	}
-
 	if (buff_position < data_length) {
 		auto partial = _mm_load_si128(reinterpret_cast<const __m128i*>(&data[buff_position]));
 		partial_fold(data_length - buff_position, crc, partial);
