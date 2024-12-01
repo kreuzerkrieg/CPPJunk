@@ -1,0 +1,21 @@
+{
+  "name" : "slowdown",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "509f71e53f45e46c13fa7935d2f6a45803580c07",
+  "dependencies" : [ {
+    "name" : "aws-c-s3",
+    "version>=" : "0.5.10"
+  }, {
+    "name" : "aws-sdk-cpp",
+    "version>=" : "1.11.352"
+  }, {
+    "name" : "curl",
+    "version>=" : "8.9.1#1"
+  }, {
+    "name" : "openssl",
+    "version>=" : "3.3.1#1"
+  }, {
+    "name" : "boost-uuid",
+    "version>=" : "1.85.0#1"
+  } ]
+}

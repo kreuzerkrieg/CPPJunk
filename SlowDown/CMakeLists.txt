@@ -6,6 +6,7 @@ find_package(aws-cpp-sdk-core CONFIG REQUIRED)
 find_package(aws-cpp-sdk-s3 CONFIG REQUIRED)
 find_package(CURL CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
+find_package(Boost COMPONENTS uuid REQUIRED)
 
 add_executable(SlowDown Utils.cpp FolderUploader.cpp S3MultipartUploader.cpp main.cpp)
 target_link_libraries(SlowDown PRIVATE aws-cpp-sdk-s3

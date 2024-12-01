@@ -7,11 +7,13 @@
 #include <aws/s3/model/CreateMultipartUploadRequest.h>
 #include <aws/s3/model/UploadPartRequest.h>
 
+
 S3MultipartUploader::S3MultipartUploader(const std::string& bucket_arg, const std::string& file_name_arg)
-    : bucket(bucket_arg), file_name(file_name_arg)
+    : bucket(bucket_arg),
+      file_name(file_name_arg)
 {
     Aws::S3::Model::CreateMultipartUploadRequest create_multipart_request;
-    create_multipart_request.WithBucket(bucket_arg.c_str()).WithKey(file_name_arg.c_str());
+    create_multipart_request.WithBucket(bucket_arg).WithKey(file_name_arg);
 
     auto create_multipart_response = getS3Client().CreateMultipartUpload(create_multipart_request);
 
@@ -22,9 +24,9 @@ S3MultipartUploader::S3MultipartUploader(const std::string& bucket_arg, const st
     else
     {
         const auto& error = create_multipart_response.GetError();
-        throw std::runtime_error((Aws::String("Exception thrown for '") + parts2s3fqn(bucket.c_str(), file_name.c_str()).c_str() + "' - " +
+        throw std::runtime_error(("Exception thrown for '" + parts2s3fqn(bucket, file_name).string() + "' - " +
                                   error.GetExceptionName() + ": " + error.GetMessage())
-                                     .c_str());
+            );
     }
 }
 
@@ -32,8 +34,8 @@ S3MultipartUploader::~S3MultipartUploader()
 {
     if(!part_completion.empty())
     {
-        std::cout << "Upload of " << parts2s3fqn(bucket.c_str(), file_name.c_str()).c_str() << " was not finalized. It may be a bug."
-                  << std::endl;
+        std::cout << "Upload of " << parts2s3fqn(bucket, file_name) << " was not finalized. It may be a bug."
+            << std::endl;
         {
             while(!part_completion.empty())
             {
@@ -54,8 +56,8 @@ S3MultipartUploader::~S3MultipartUploader()
         if(!abort_multipart_response.IsSuccess())
         {
             const auto& error = abort_multipart_response.GetError();
-            std::cout << "Exception thrown for '" << parts2s3fqn(bucket.c_str(), file_name.c_str()) << "' - " << error.GetExceptionName()
-                      << ": " << error.GetMessage();
+            std::cout << "Exception thrown for '" << parts2s3fqn(bucket, file_name) << "' - " << error.GetExceptionName()
+                << ": " << error.GetMessage();
         }
     }
 }
@@ -68,8 +70,8 @@ void S3MultipartUploader::uploadPart(const char* buff_arg, size_t buff_size)
 void S3MultipartUploader::uploadPart(std::vector<char>&& buff_arg)
 {
     Aws::S3::Model::UploadPartRequest object_request;
-    object_request.SetBucket(bucket.c_str());
-    object_request.SetKey(file_name.c_str());
+    object_request.SetBucket(bucket);
+    object_request.SetKey(file_name);
     object_request.SetPartNumber(part_number++);
     object_request.SetUploadId(upload_id);
     object_request.SetContentLength(buff_arg.size());
@@ -97,20 +99,21 @@ void S3MultipartUploader::finalizeUpload()
     completed.SetParts(std::move(completed_parts));
 
     Aws::S3::Model::CompleteMultipartUploadRequest complete_request;
-    complete_request.SetBucket(bucket.c_str());
-    complete_request.SetKey(file_name.c_str());
+    complete_request.SetBucket(bucket);
+    complete_request.SetKey(file_name);
     complete_request.SetUploadId(upload_id);
     complete_request.SetMultipartUpload(std::move(completed));
     auto result = getS3Client().CompleteMultipartUpload(complete_request);
     if(!result.IsSuccess())
     {
         const auto& error = result.GetError();
-        throw std::runtime_error((Aws::String("Exception thrown for '") + parts2s3fqn(bucket.c_str(), file_name.c_str()).c_str() + "' - " +
+        throw std::runtime_error(("Exception thrown for '" + parts2s3fqn(bucket, file_name).string() + "' - " +
                                   error.GetExceptionName() + ": " + error.GetMessage() + "\nWhen trying to complete " +
-                                  std::to_string(complete_request.GetMultipartUpload().GetParts().size()).c_str() + " parts.")
-                                     .c_str());
+                                  std::to_string(complete_request.GetMultipartUpload().GetParts().size()) + " parts.")
+            );
     }
 }
+
 size_t S3MultipartUploader::finalizePart()
 {
     size_t ret_val = 0;
@@ -128,10 +131,10 @@ size_t S3MultipartUploader::finalizePart()
         else
         {
             const auto& error = result.GetError();
-            throw std::runtime_error((Aws::String("Exception thrown for '") + parts2s3fqn(bucket.c_str(), file_name.c_str()).c_str() +
+            throw std::runtime_error(("Exception thrown for '" + parts2s3fqn(bucket, file_name).string() +
                                       "' - " + error.GetExceptionName() + ": " + error.GetMessage() + "\nWhen trying to complete " +
-                                      std::to_string(part_completion.size()).c_str() + " parts.")
-                                         .c_str());
+                                      std::to_string(part_completion.size()) + " parts.")
+                );
         }
         part_completion.pop_front();
     }

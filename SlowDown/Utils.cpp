@@ -14,7 +14,7 @@ Aws::S3::S3Client& getS3Client()
     clientConfig.region = "us-east-1";
     clientConfig.retryStrategy = std::make_shared<Aws::Client::DefaultRetryStrategy>(15, 10);
 
-    static Aws::S3::S3Client client(Aws::Auth::AWSCredentials("**********", "***********"), clientConfig);
+    static Aws::S3::S3Client client(clientConfig);
     return client;
 }
 

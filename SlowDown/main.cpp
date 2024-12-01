@@ -10,7 +10,6 @@
 #include <iostream>
 #include <random>
 #include <thread>
-#include <unistd.h>
 #include <vector>
 
 class PrefixGenerator
@@ -58,6 +57,7 @@ static void createFile(const std::string& name, size_t size)
 }
 
 static PrefixGenerator prefix_generator;
+
 static fs::path createFolder()
 {
     fs::path folder_path = prefix_generator.generate();
@@ -94,28 +94,39 @@ int main()
     try
     {
         Aws::SDKOptions options;
-        options.loggingOptions.logger_create_fn = []() {
-            return std::make_shared<Aws::Utils::Logging::DefaultLogSystem>(Aws::Utils::Logging::LogLevel::Error, "test_");
+        options.loggingOptions.logger_create_fn = []()
+        {
+            return std::make_shared<Aws::Utils::Logging::DefaultLogSystem>(Aws::Utils::Logging::LogLevel::Info, "test_");
         };
-        options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Error;
+        options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Info;
         Aws::InitAPI(options);
-        const size_t num_of_threads = std::thread::hardware_concurrency() * 2;
+        constexpr size_t num_of_threads = 1; // std::thread::hardware_concurrency() * 2;
         std::vector<std::thread> threads;
+        threads.reserve(num_of_threads);
         for(auto i = 0ul; i < num_of_threads; ++i)
         {
-            threads.emplace_back([]() {
+            threads.emplace_back([]()
+            {
                 try
                 {
                     while(true)
                     {
-                        auto local_folder = createFolder();
+                        // auto local_folder = createFolder();
+                        fs::path local_folder = "test";
+                        fs::create_directories(local_folder);
+                        constexpr size_t file_size = 100_GiB;
+                        createFile(local_folder / "large_file.bin", file_size);
                         try
                         {
-                            FolderUploader uploader(local_folder, std::string("s3://ewzs3test/") + local_folder.c_str());
+                            auto begin = std::chrono::high_resolution_clock::now();
+                            FolderUploader uploader(local_folder, std::string("s3://ernest-object-storage/") + local_folder.string());
                             uploader.Upload();
+                            auto end = std::chrono::high_resolution_clock::now();
+                            std::cout << "File size: " << fs::file_size(local_folder / "large_file.bin") << ", Upload speed: " << fs::file_size(local_folder / "large_file.bin") / std::chrono::duration_cast<
+                                std::chrono::seconds>(end - begin).count() / 1_MiB << "MiB/s" << std::endl;
                             fs::remove_all(local_folder);
                         }
-                        catch(const std::exception& ex)
+                        catch(const std::exception&)
                         {
                             fs::remove_all(local_folder);
                             throw;

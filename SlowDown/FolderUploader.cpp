@@ -5,7 +5,7 @@
 #include <fstream>
 
 FolderUploader::FolderUploader(const std::string& local_path_, const std::string& s3_fqp_)
-    : local_path(local_path_), s3_fqp(s3_fqp_), max_buffers(100_MiB), part_size(20_MiB)
+    : local_path(local_path_), s3_fqp(s3_fqp_), max_buffers(1_GiB), part_size(20_MiB)
 {
 }
 
